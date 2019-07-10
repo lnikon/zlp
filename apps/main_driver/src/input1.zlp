@@ -1,0 +1,10 @@
+.STACK = 512
+
+.DATA:
+DWROD 123 = 124
+QWORD arr1[] = 43, 23, 54
+
+.CODE:
+    Func funcName:
+            lbl1:
+            EndF
