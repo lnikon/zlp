@@ -4,6 +4,7 @@
 
 #include <set>
 #include <tuple>
+#include <optional>
 
 /* Instruction names */
 const std::string NOP_INSTR_NAME      = "NOP";

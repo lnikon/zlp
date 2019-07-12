@@ -8,16 +8,27 @@
 /* Types of operands */
 enum class OperandType
 {
-  REG = 0,  // Register name
-  FUN,      // Function name
-  MEM,      // Memory Address
+  REG = 0,  // Register index
+  FUN,      // Function index
+  LBL,      // Label index
+  ZNULL,    // Default value
 };
 
+/* Instruction can have at most 3 arguments */
+constexpr auto MAX_ARG_CNT = 3u;
+enum ArgPos
+{
+    First = 0,
+    Second,
+    Third
+};
+
+/* Value and type for operand */
 struct Operand
 {
-  QWORD       value_{};
-  OperandType opType_{OperandType::REG};
-  ValueType   valueType_{ValueType::DWORD};
+    OperandType type_{ OperandType::ZNULL };
+    std::size_t index_{ 0 };
 };
-using OpList = std::vector<Operand>;
+
+using OperandList = std::vector<Operand>;
 

@@ -253,9 +253,9 @@ std::pair<bool, Extension> CodeSectionParser::isExtension(const std::string& tok
   return std::make_pair(false, Extension::DWORD);
 }
 
-std::pair<bool, OpList> CodeSectionParser::isOperandList(const std::string& token)
+std::pair<bool, OperandList> CodeSectionParser::isOperandList(const std::string& token)
 {
-  return std::make_pair(false, OpList{});
+  return std::make_pair(false, OperandList{});
 }
 
 bool CodeSectionParser::endOfFunctionDecl(const std::string& line)
