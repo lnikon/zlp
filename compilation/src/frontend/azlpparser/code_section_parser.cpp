@@ -1,4 +1,5 @@
 #include "code_section_parser.hpp"
+#include "instruction_parser.hpp"
 #include "utility.hpp"
 #include "logger.hpp"
 #include "lexer_defs.hpp"
@@ -141,6 +142,8 @@ std::pair<bool, std::string> CodeSectionParser::isFunctionDeclaration(const std:
 
 void CodeSectionParser::parseFunctionBody(std::fstream& inputStream, Function& rFunc)
 {
+    InstructionParser instrParser;
+
     auto line = std::string{};
     while(std::getline(inputStream, line))
     {
@@ -160,7 +163,7 @@ void CodeSectionParser::parseFunctionBody(std::fstream& inputStream, Function& r
 
             rFunc.labels_.push_back(label);
         }
-        else if(auto [isInstrParam, instr] = isInstruction(line); isInstrParam)
+        else if(auto [isInstrParam, instr] = instrParser.parse(line); isInstrParam)
         {
             std::cout << "inInstrParam: " << isInstrParam << std::endl;
             std::cout << "instr.name_: " << instr.name_ << std::endl;
@@ -232,30 +235,6 @@ std::pair<bool, Label> CodeSectionParser::isLabel(const std::string& line)
     label.name_ = name;
 
     return std::make_pair(isLabelParam, label);
-}
-
-std::pair<bool, Instruction> CodeSectionParser::isInstruction(const std::string& line)
-{
-    bool isInstr = false;
-
-    return std::make_pair(isInstr, Instruction{});
-}
-
-
-std::pair<bool, InstructionType> CodeSectionParser::isInstructionType(const std::string& token)
-{
-
-  return std::make_pair(false, InstructionType::NOP);
-}
-
-std::pair<bool, Extension> CodeSectionParser::isExtension(const std::string& token)
-{
-  return std::make_pair(false, Extension::DWORD);
-}
-
-std::pair<bool, OperandList> CodeSectionParser::isOperandList(const std::string& token)
-{
-  return std::make_pair(false, OperandList{});
 }
 
 bool CodeSectionParser::endOfFunctionDecl(const std::string& line)

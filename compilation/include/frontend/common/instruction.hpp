@@ -7,7 +7,7 @@
 /* Supported instructions */
 enum class InstructionType 
 {
-  NOP = 0,
+  NOP = 0x00000000,
   BREAK,
   END,
   JUMP,

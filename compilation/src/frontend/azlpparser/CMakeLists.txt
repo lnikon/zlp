@@ -16,4 +16,13 @@ add_library(azlpparser STATIC ${AZLPPARSER_CPP} ${AZLPPARSER_HPP})
 
 target_include_directories(azlpparser PUBLIC ${AZLPPARSER_INC} ${COMMON_INC} ${VM_INC})
 
+if (MSVC_VERSION GREATER_EQUAL "1900")
+    include(CheckCXXCompilerFlag)
+    CHECK_CXX_COMPILER_FLAG("/std:c++latest" _cpp_latest_flag_supported)
+    if (_cpp_latest_flag_supported)
+        add_compile_options("/std:c++latest")
+    endif()
+endif()
+
 target_compile_features(azlpparser PUBLIC cxx_std_17)
+

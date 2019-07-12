@@ -31,10 +31,6 @@ class CodeSectionParser
     std::pair<bool, std::string>      isFunctionDeclaration(const std::string& line);
     void                              parseFunctionBody(std::fstream& inputStream, Function& rFunc);
     std::pair<bool, Label>            isLabel(const std::string& line);
-    std::pair<bool, Instruction>      isInstruction(const std::string& line);
-    std::pair<bool, InstructionType>  isInstructionType(const std::string& token);
-    std::pair<bool, Extension>        isExtension(const std::string& token);
-    std::pair<bool, OperandList>           isOperandList(const std::string& token);
     bool                              endOfFunctionDecl(const std::string& line);
 };
 
