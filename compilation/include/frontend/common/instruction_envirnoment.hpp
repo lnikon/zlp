@@ -5,6 +5,7 @@
 #include <set>
 #include <tuple>
 #include <optional>
+#include <map>
 
 /* Instruction names */
 constexpr std::string_view NOP_INSTR_NAME      = "NOP";
@@ -66,6 +67,13 @@ struct InstructionEnvirnoment
 
   InstructionEnvirnoment() noexcept;
   ResultType  findInstructionName(const std::string& name);
+
+  /* 
+    Here we need smth like hash table with chaining, 
+    to store different internal representations 
+    of the same instruction.
+  */
+  std::multimap<std::string_view, InstructionInfo> internalRepresentations_{};
 
   private:
   std::set<ValueType> supportedInstructionsNames_{};

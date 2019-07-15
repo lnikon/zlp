@@ -166,7 +166,6 @@ void CodeSectionParser::parseFunctionBody(std::fstream& inputStream, Function& r
         else if(auto [isInstrParam, instr] = instrParser.parse(line); isInstrParam)
         {
             std::cout << "inInstrParam: " << isInstrParam << std::endl;
-            std::cout << "instr.name_: " << instr.name_ << std::endl;
 
             rFunc.code_.push_back(instr);
         }

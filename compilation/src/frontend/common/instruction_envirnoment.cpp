@@ -6,7 +6,40 @@
 
 InstructionEnvirnoment::InstructionEnvirnoment() noexcept
 {
-  supportedInstructionsNames_.insert({NOP_INSTR_NAME,     InstructionType::NOP});
+    // Control
+    internalRepresentations_.emplace(std::pair<std::string_view, InstructionInfo>(
+        NOP_INSTR_NAME,
+        {
+            InstructionType::IT_NOP
+        })
+     );
+
+    // Memory Access 
+    internalRepresentations_.emplace(std::pair<std::string_view, InstructionInfo>(
+        LOAD_INSTR_NAME,
+        {
+            InstructionType::IT_LOAD,
+            ConditionalCode::CC_NULL,
+            {OperandType::OT_REG_ARG, OperandType::OT_ARG},
+        })
+    );
+
+    // Stack
+
+    // Assignment
+
+    // Move Across Register
+
+    // Address Manipulation
+
+    // Comparison
+
+    // Input & Output
+
+    // Logical(bitwise)
+
+
+  /*supportedInstructionsNames_.insert({NOP_INSTR_NAME,     InstructionType::NOP});
   supportedInstructionsNames_.insert({BREAK_INSTR_NAME,   InstructionType::BREAK});
   supportedInstructionsNames_.insert({END_INSTR_NAME,     InstructionType::END});
   supportedInstructionsNames_.insert({JUMP_INSTR_NAME,    InstructionType::JUMP});
@@ -56,7 +89,7 @@ InstructionEnvirnoment::InstructionEnvirnoment() noexcept
   supportedInstructionsNames_.insert({DIV_INSTR_NAME,     InstructionType::DIV});
   supportedInstructionsNames_.insert({IDIV_INSTR_NAME,    InstructionType::IDIV});
   supportedInstructionsNames_.insert({NEG_INSTR_NAME,     InstructionType::NEG});
-  supportedInstructionsNames_.insert({CAST_INSTR_NAME,    InstructionType::CAST});
+  supportedInstructionsNames_.insert({CAST_INSTR_NAME,    InstructionType::CAST});*/
 }
 
 InstructionEnvirnoment::ResultType

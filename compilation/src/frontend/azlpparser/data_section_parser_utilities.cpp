@@ -36,13 +36,13 @@ bool DataSectionParserUtilities::isExpressionTypeSupported(ValueType type)
 {
   switch(type)
   {
-    case ValueType::CHAR:
-    case ValueType::BYTE:
-    case ValueType::WORD:
-    case ValueType::DWORD:
-    case ValueType::QWORD:
+    case ValueType::EXT_CHAR:
+    case ValueType::EXT_BYTE:
+    case ValueType::EXT_WORD:
+    case ValueType::EXT_DWORD:
+    case ValueType::EXT_QWORD:
       return true;
-    case ValueType::INVALID:
+    case ValueType::EXT_NULL:
     default:
       return false;
   }

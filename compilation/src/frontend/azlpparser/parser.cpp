@@ -108,27 +108,27 @@ ValueType Parser::returnTypeForString(const std::string& type)
 {
   if(type == "CHAR")
   {
-    return ValueType::CHAR;
+    return ValueType::EXT_CHAR;
   }
   else if(type == "BYTE") 
   {
-    return ValueType::BYTE;
+    return ValueType::EXT_BYTE;
   }
   else if(type == "WORD")
   {
-    return ValueType::WORD;
+    return ValueType::EXT_WORD;
   }
   else if(type == "DWORD")
   {
-    return ValueType::DWORD;
+    return ValueType::EXT_DWORD;
   }
   else if(type == "QWORD")
   {
-    return ValueType::QWORD;
+    return ValueType::EXT_QWORD;
   }
   else
   {
-    return ValueType::INVALID;
+    return ValueType::EXT_NULL;
   }
 }
 
@@ -136,17 +136,17 @@ std::string Parser::returnStringForType(const ValueType type)
 {
   switch(type)
   {
-    case ValueType::CHAR:
+    case ValueType::EXT_CHAR:
       return std::string{"CHAR"};
-    case ValueType::BYTE:
+    case ValueType::EXT_BYTE:
       return std::string{"BYTE"};
-    case ValueType::WORD:
+    case ValueType::EXT_WORD:
       return std::string{"WORD"};
-    case ValueType::DWORD:
+    case ValueType::EXT_DWORD:
       return std::string{"DWORD"};
-    case ValueType::QWORD:
+    case ValueType::EXT_QWORD:
       return std::string{"QWORD"};
-    case ValueType::INVALID:
+    case ValueType::EXT_NULL:
     default:
       return std::string{"INVALID"};
   }

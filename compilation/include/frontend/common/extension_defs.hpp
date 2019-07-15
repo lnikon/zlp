@@ -4,11 +4,11 @@
 /* Instruction extensions */
 enum class Extension 
 {
-  INVALID = 0,
-  CHAR,
-  BYTE,
-  WORD,
-  DWORD,
-  QWORD,
+  EXT_NULL = 0,
+  EXT_CHAR,
+  EXT_BYTE,
+  EXT_WORD,
+  EXT_DWORD,
+  EXT_QWORD,
 };
 
