@@ -3,6 +3,7 @@
 
 std::pair<bool, Instruction> InstructionParser::parse(std::string line)
 {
+    // instr_name [empty|extension|condition] operands(up to 3)
     auto result = isInstruction(line);
 
     return result;
@@ -16,6 +17,13 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
     StringVector tokens;
     utility::tokenize(line, tokens, " ,");
 
+    if (tokens.empty())
+    {
+        return std::make_pair(false, Instruction{});
+    }
+
+    
+    
 
     return std::make_pair(isInstr, instruction);
 }

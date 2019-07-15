@@ -62,9 +62,9 @@ enum class InstructionType
 
 struct Instruction
 {
-  std::string     name_{};
   InstructionType type_{InstructionType::NOP};
   Extension       ex_{Extension::DWORD};
+  
   OperandList          opList_;
 };
 using InstructionList = std::vector<Instruction>;
