@@ -60,6 +60,12 @@ enum class InstructionType
   CAST
 };
 
+/* Conditional codes for instructions */
+enum class ConditionalCode
+{
+
+};
+
 struct Instruction
 {
   InstructionType type_{InstructionType::NOP};
