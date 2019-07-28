@@ -3,42 +3,55 @@
 
 std::pair<bool, Instruction> InstructionParser::parse(std::string line)
 {
-    // instr_name [empty|extension|condition] operands(up to 3)
-    auto result = isInstruction(line);
+  // instr_name [empty|extension|condition] operands(up to 3)
+  auto result = isInstruction(line);
 
-    return result;
+  return result;
 }
 
 std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string& line)
 {
-    bool isInstr = false;
-    Instruction instruction;
+  bool isInstr = false;
+  Instruction instruction;
 
-    StringVector tokens;
-    utility::tokenize(line, tokens, " ,");
+  StringVector tokens;
+  utility::tokenize(line, tokens, " ,");
 
-    if (tokens.empty())
+  if (tokens.empty())
+  {
+    return std::make_pair(false, Instruction{});
+  }
+
+  std::string instrName = tokens[0];
+  utility::trim(instrName);
+
+  auto itInstrRange = env_.instructionRange(instrName);    
+  for(auto itInstrRangeBegin = itInstrRange.first;
+      itInstrRangeBegin != itInstrRange.second;
+      ++itInstrRangeBegin)
+  {
+    if(tokens.size() < 1)
     {
-        return std::make_pair(false, Instruction{});
+      break;
     }
 
-    
-    
+    std::string opSize = tokens[1];
+  } 
 
-    return std::make_pair(isInstr, instruction);
+  return std::make_pair(isInstr, instruction);
 }
 
 std::pair<bool, InstructionType> InstructionParser::isInstructionType(const std::string& token)
 {
-    return std::pair<bool, InstructionType>();
+  return std::pair<bool, InstructionType>();
 }
 
 std::pair<bool, Extension> InstructionParser::isExtension(const std::string& token)
 {
-    return std::pair<bool, Extension>();
+  return std::pair<bool, Extension>();
 }
 
 std::pair<bool, OperandList> InstructionParser::isOperandList(const std::string& token)
 {
-    return std::pair<bool, OperandList>();
+  return std::pair<bool, OperandList>();
 }

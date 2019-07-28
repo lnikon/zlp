@@ -1,6 +1,7 @@
 #pragma once
 
 #include "instruction.hpp"
+#include "instruction_envirnoment.hpp"
 #include "function.hpp"
 #include "label.hpp"
 #include "operand.hpp"
@@ -19,6 +20,7 @@ struct InstructionParser final
     std::pair<bool, Instruction> parse(std::string line);
 
 private:
+    InstructionEnvirnoment            env_{};
     std::pair<bool, Instruction>      isInstruction(const std::string& line);
     std::pair<bool, InstructionType>  isInstructionType(const std::string& token);
     std::pair<bool, Extension>        isExtension(const std::string& token);

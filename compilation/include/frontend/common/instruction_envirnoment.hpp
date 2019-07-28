@@ -66,14 +66,19 @@ struct InstructionEnvirnoment
   using ResultType  = std::optional<std::pair<std::string, InstructionType>>;
 
   InstructionEnvirnoment() noexcept;
-  ResultType  findInstructionName(const std::string& name);
+  ResultType findInstructionName(const std::string& name);
+
+  auto instructionRange(const std::string& name)
+  {
+    return internalRepresentations_.equal_range(name);
+  }
 
   /* 
     Here we need smth like hash table with chaining, 
     to store different internal representations 
     of the same instruction.
   */
-  std::multimap<std::string_view, InstructionInfo> internalRepresentations_{};
+  std::multimap<std::string, InstructionInfo> internalRepresentations_{};
 
   private:
   std::set<ValueType> supportedInstructionsNames_{};

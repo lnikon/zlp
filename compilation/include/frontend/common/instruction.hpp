@@ -98,4 +98,5 @@ struct InstructionInfo
     ConditionalCode         cnd_{ ConditionalCode::CC_NULL };
     OperandType             oplst_[MAX_ARG_CNT]{ OperandType::OT_NULL };
     ImmediateValueType      immtype_{ImmediateValueType::IMVNULL};
+    bool                    opSizeSupport_{false};
 };

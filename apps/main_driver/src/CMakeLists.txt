@@ -14,6 +14,8 @@ if (MSVC_VERSION GREATER_EQUAL "1900")
     endif()
 endif()
 
+set(CMAKE_CXX_FLAGS "-no-pie -g -std=c++17 ${CMAKE_CXX_FLAGS}")
+
 add_executable(main_driver ${MAIN_DRIVER_CPP})
 target_include_directories(main_driver PUBLIC ${MAIN_DRIVER_INC})
 

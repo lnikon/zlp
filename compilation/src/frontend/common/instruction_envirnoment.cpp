@@ -7,7 +7,7 @@
 InstructionEnvirnoment::InstructionEnvirnoment() noexcept
 {
     // Control
-    internalRepresentations_.emplace(std::pair<std::string_view, InstructionInfo>(
+    internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
         NOP_INSTR_NAME,
         {
             InstructionType::IT_NOP
@@ -15,7 +15,7 @@ InstructionEnvirnoment::InstructionEnvirnoment() noexcept
      );
 
     // Memory Access 
-    internalRepresentations_.emplace(std::pair<std::string_view, InstructionInfo>(
+    internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
         LOAD_INSTR_NAME,
         {
             InstructionType::IT_LOAD,

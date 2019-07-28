@@ -10,6 +10,8 @@ file(GLOB COMMON_CPP "${COMMON_SRC}/*.cpp")
 
 file(GLOB COMMON_HPP "${COMMON_INC}/*.hpp")
 
+set(CMAKE_CXX_FLAGS "-no-pie -std=c++17 ${CMAKE_CXX_FLAGS}")
+
 add_library(common STATIC ${COMMON_CPP} ${COMMON_HPP})
 
 target_include_directories(common PUBLIC ${COMMON_INC} ${VM_INC})

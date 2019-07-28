@@ -14,6 +14,8 @@ file(GLOB AZLPPARSER_HPP "${AZLPPARSER_INC}/*.hpp")
 
 add_library(azlpparser STATIC ${AZLPPARSER_CPP} ${AZLPPARSER_HPP})
 
+set(CMAKE_CXX_FLAGS "-no-pie -std=c++17 ${CMAKE_CXX_FLAGS}")
+
 target_include_directories(azlpparser PUBLIC ${AZLPPARSER_INC} ${COMMON_INC} ${VM_INC})
 
 if (MSVC_VERSION GREATER_EQUAL "1900")
