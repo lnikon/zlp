@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <iterator>
 #include <optional>
+#include <utility>
 
 InstructionEnvirnoment::InstructionEnvirnoment() noexcept
 {
@@ -20,7 +21,13 @@ InstructionEnvirnoment::InstructionEnvirnoment() noexcept
         {
             InstructionType::IT_LOAD,
             ConditionalCode::CC_NULL,
-            {OperandType::OT_REG_ARG, OperandType::OT_ARG},
+            {   // init @oplist_
+                {OperandType::OT_REG_ARG, 0},
+                {OperandType::OT_ARG, 0},
+            },
+            2,
+            IMVNULL,    // immediate value type
+            false   // no extension
         })
     );
 
@@ -29,6 +36,35 @@ InstructionEnvirnoment::InstructionEnvirnoment() noexcept
     // Assignment
 
     // Move Across Register
+    internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
+        "MOVE_EQ",
+        {
+            InstructionType::IT_MOVE,
+            ConditionalCode::CC_EQUAL,
+            {
+                {OperandType::OT_REG_ARG, 0},
+                {OperandType::OT_REG_ARG, 1}
+            },
+            2,
+            IMVNULL,
+            false
+        }
+    ));
+
+    internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
+        "MOVE_NEQ",
+        {
+            InstructionType::IT_MOVE,
+            ConditionalCode::CC_EQUAL,
+            {
+                {OperandType::OT_REG, 0},
+                {OperandType::OT_REG, 1}
+            },
+            2,
+            IMVNULL,
+            true
+        }
+    ));
 
     // Address Manipulation
 

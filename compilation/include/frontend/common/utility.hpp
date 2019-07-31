@@ -40,4 +40,7 @@ std::string convertVectorOfStringToString(const std::vector<std::string>& string
 bool starts_with(const std::string& line, const std::string& prefix);
 
 bool checkCorrectKeyword(const std::string& line);
+
+unsigned long parse_int(const std::string& str);
+bool parse_uint(const std::string& str, std::size_t from);
 }

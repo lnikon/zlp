@@ -31,7 +31,17 @@ struct Operand
 {
     OperandType type_{ OperandType::OT_NULL };
     std::size_t index_{ 0 };
+
+    bool operator==(const Operand& other)
+    {
+        return ((type_ == other.type_)
+                && (index_ == other.index_));
+    }
+
+
+    bool operator!=(const Operand& other)
+    {
+        return !(*this == other);
+    }
 };
-
 using OperandList = std::vector<Operand>;
-

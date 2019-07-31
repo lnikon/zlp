@@ -148,6 +148,7 @@ void CodeSectionParser::parseFunctionBody(std::fstream& inputStream, Function& r
     while(std::getline(inputStream, line))
     {
         lineNumber_++;
+        instrParser.lineNumber_ = lineNumber_;
 
         line = utility::trim_copy(line);
 

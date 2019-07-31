@@ -4,6 +4,7 @@
 
 #ifdef DEBUG_MODE
 #include <iostream>
+
 #include "logger.hpp"
 #include "parser.hpp"
 #include "parser_defs.hpp"

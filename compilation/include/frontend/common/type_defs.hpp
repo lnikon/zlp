@@ -11,5 +11,5 @@ using DWORD = uint32_t;
 using QWORD = uint64_t;
 
 /* Type of operands value */
-using ValueType = Extension;
+using ValueType = Extensions::Extension;
 

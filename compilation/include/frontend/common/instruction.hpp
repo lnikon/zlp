@@ -66,6 +66,7 @@ enum class InstructionType
 enum class ConditionalCode
 {
     CC_NULL,
+    CC_EQUAL,
 };
 
 /* Instruction structure description
@@ -85,7 +86,7 @@ enum class ConditionalCode
 struct Instruction
 {
   InstructionType       type_{InstructionType::IT_NULL};
-  Extension             ex_{Extension::EXT_DWORD};
+  Extensions::Extension ex_{Extensions::Extension::EXT_DWORD};
   ConditionalCode       cnd_{ ConditionalCode::CC_NULL };
   OperandList           oplst_;
   ImmediateValueType    immtype_{};
@@ -96,7 +97,8 @@ struct InstructionInfo
 {
     InstructionType         type_{ InstructionType::IT_NULL};
     ConditionalCode         cnd_{ ConditionalCode::CC_NULL };
-    OperandType             oplst_[MAX_ARG_CNT]{ OperandType::OT_NULL };
+    Operand                 oplst_[MAX_ARG_CNT]{ {OperandType::OT_NULL, 0}};
+    std::size_t             opcnt_{0};
     ImmediateValueType      immtype_{ImmediateValueType::IMVNULL};
-    bool                    opSizeSupport_{false};
+    bool                    ext_{false};
 };

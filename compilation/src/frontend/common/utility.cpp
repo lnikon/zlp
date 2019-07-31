@@ -137,3 +137,13 @@ bool utility::checkCorrectKeyword(const std::string& line)
 
   return true;
 }
+
+unsigned long utility::parse_int(const std::string &str)
+{
+    return std::stoul(str, nullptr, 10);
+}
+
+bool utility::parse_uint(const std::string &str, std::size_t from)
+{
+
+}
