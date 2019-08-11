@@ -145,5 +145,5 @@ unsigned long utility::parse_int(const std::string &str)
 
 bool utility::parse_uint(const std::string &str, std::size_t from)
 {
-
+    return false;
 }

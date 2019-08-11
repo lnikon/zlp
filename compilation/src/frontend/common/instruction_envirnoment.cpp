@@ -37,6 +37,21 @@ InstructionEnvirnoment::InstructionEnvirnoment() noexcept
 
     // Move Across Register
     internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
+        "MOVE",
+        {
+            InstructionType::IT_MOVE,
+            ConditionalCode::CC_NULL,
+            {
+                {OperandType::OT_REG, 0},
+                {OperandType::OT_REG, 1}
+            },
+            2,
+            IMVNULL,
+            true
+        }
+    ));
+
+    internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
         "MOVE_EQ",
         {
             InstructionType::IT_MOVE,
