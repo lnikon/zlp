@@ -14,8 +14,6 @@ CodeSection CodeSectionParser::parse(std::fstream &inputStream)
 
   while(!isCodeSectionPresent && std::getline(inputStream, line))
   {
-    lineNumber_++;
-
     line = utility::trim_copy(line);
 
     if(line.empty())
@@ -28,6 +26,8 @@ CodeSection CodeSectionParser::parse(std::fstream &inputStream)
     // else, read the next line
     const auto codeSectionPos = line.find(CODE_SEC_NAME);
     isCodeSectionPresent = (codeSectionPos != std::string::npos);
+
+    lineNumber_++;
   }
 
   if(!isCodeSectionPresent)
@@ -40,8 +40,6 @@ CodeSection CodeSectionParser::parse(std::fstream &inputStream)
 
   while(!isCodeSectionOk && std::getline(inputStream, line))
   {
-    lineNumber_++;
-
     line = utility::trim_copy(line);
 
     if(line.empty() || utility::starts_with(line, "#"))
@@ -60,6 +58,12 @@ CodeSection CodeSectionParser::parse(std::fstream &inputStream)
     Function func;
 
     parseFunctionBody(inputStream, func);
+
+    // Insert parsed function into functions list
+    codeSec.insertFunction(func); 
+
+    // Go to next line, at it isn't harmful :)
+    lineNumber_++;
   }
 
   return codeSec;
@@ -159,15 +163,10 @@ void CodeSectionParser::parseFunctionBody(std::fstream& inputStream, Function& r
 
         if(auto [isLabelParam, label] = isLabel(line); isLabelParam)
         {
-            std::cout << "isLabelParam: " << isLabelParam << std::endl;
-            std::cout << "lbl.name_: " << label.name_ << std::endl;
-
             rFunc.labels_.push_back(label);
         }
         else if(auto [isInstrParam, instr] = instrParser.parse(line); isInstrParam)
         {
-            std::cout << "inInstrParam: " << isInstrParam << std::endl;
-
             rFunc.code_.push_back(instr);
         }
         else if(endOfFunctionDecl(line))

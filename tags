@@ -14,30 +14,40 @@ $(VERBOSE).SILENT	build/compilation/src/Makefile	/^$(VERBOSE).SILENT:$/;"	t
 $(VERBOSE).SILENT	build/compilation/src/frontend/Makefile	/^$(VERBOSE).SILENT:$/;"	t
 $(VERBOSE).SILENT	build/compilation/src/frontend/azlpparser/Makefile	/^$(VERBOSE).SILENT:$/;"	t
 $(VERBOSE).SILENT	build/compilation/src/frontend/common/Makefile	/^$(VERBOSE).SILENT:$/;"	t
-ADC_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view ADC_INSTR_NAME      = "ADC";$/;"	v	typeref:typename:std::string_view
-ADD_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view ADD_INSTR_NAME      = "ADD";$/;"	v	typeref:typename:std::string_view
-AND_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view AND_INSTR_NAME      = "AND"; $/;"	v	typeref:typename:std::string_view
+ADC_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string ADC_INSTR_NAME      = "ADC";$/;"	v	typeref:typename:const std::string
+ADD_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string ADD_INSTR_NAME      = "ADD";$/;"	v	typeref:typename:const std::string
+AND_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string AND_INSTR_NAME      = "AND";$/;"	v	typeref:typename:const std::string
 ARCHITECTURE_ID	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#   define ARCHITECTURE_ID /;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID /;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID$/;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define ARCHITECTURE_ID /;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID /;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID$/;"	d	file:
-ASSIGN_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view ASSIGN_INSTR_NAME   = "ASSIGN";$/;"	v	typeref:typename:std::string_view
+ARCHITECTURE_ID	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#   define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID$/;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID$/;"	d	file:
+ASSIGN_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string ASSIGN_INSTR_NAME   = "ASSIGN";$/;"	v	typeref:typename:const std::string
 AZLPPARSER_INC	compilation/src/frontend/azlpparser/CMakeLists.txt	/^set(AZLPPARSER_INC "${CMAKE_SOURCE_DIR}\/compilation\/include\/frontend\/azlpparser\/")$/;"	v
 AZLPPARSER_SRC	compilation/src/frontend/azlpparser/CMakeLists.txt	/^set(AZLPPARSER_SRC "${CMAKE_SOURCE_DIR}\/compilation\/src\/frontend\/azlpparser\/")$/;"	v
 Aloha!	README.md	/^# Aloha!$/;"	c
 ArgPos	compilation/include/frontend/common/operand.hpp	/^enum ArgPos$/;"	g
 Array	compilation/include/frontend/common/array.hpp	/^struct Array$/;"	s
 Assembly parser goes here	compilation/include/frontend/azlpparser/README.md	/^# Assembly parser goes here$/;"	c
-BREAK_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view BREAK_INSTR_NAME    = "BREAK";$/;"	v	typeref:typename:std::string_view
+BREAK_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string BREAK_INSTR_NAME    = "BREAK";$/;"	v	typeref:typename:const std::string
 BYTE	compilation/include/frontend/common/type_defs.hpp	/^using BYTE  = uint8_t;$/;"	t	typeref:typename:uint8_t
-CALL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view CALL_INSTR_NAME     = "CALL";$/;"	v	typeref:typename:std::string_view
-CAST_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view CAST_INSTR_NAME     = "CAST";$/;"	v	typeref:typename:std::string_view
+ByteVec	compilation/include/backend/zlpcodegen/translator_defs.hpp	/^using ByteVec = std::vector<uint8_t>;$/;"	t	typeref:typename:std::vector<uint8_t>
+CALL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string CALL_INSTR_NAME     = "CALL";$/;"	v	typeref:typename:const std::string
+CAST_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string CAST_INSTR_NAME     = "CAST";$/;"	v	typeref:typename:const std::string
+CC_EQUAL	compilation/include/frontend/common/instruction.hpp	/^    CC_EQUAL,$/;"	e	enum:ConditionalCode
 CC_NULL	compilation/include/frontend/common/instruction.hpp	/^    CC_NULL,$/;"	e	enum:ConditionalCode
 CHAR	compilation/include/frontend/common/type_defs.hpp	/^using CHAR  = unsigned char;$/;"	t	typeref:typename:unsigned char
 CMAKE_AR	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_AR "\/bin\/ar")$/;"	v
 CMAKE_AR	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_AR "\/bin\/ar")$/;"	v
+CMAKE_AR	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_AR "\/bin\/ar")$/;"	v
+CMAKE_AR	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_AR "\/bin\/ar")$/;"	v
 CMAKE_BINARY_DIR	build/Makefile	/^CMAKE_BINARY_DIR = \/home\/nikon\/projects\/zlp\/build$/;"	m
 CMAKE_BINARY_DIR	build/apps/Makefile	/^CMAKE_BINARY_DIR = \/home\/nikon\/projects\/zlp\/build$/;"	m
 CMAKE_BINARY_DIR	build/apps/main_driver/Makefile	/^CMAKE_BINARY_DIR = \/home\/nikon\/projects\/zlp\/build$/;"	m
@@ -48,10 +58,15 @@ CMAKE_BINARY_DIR	build/compilation/src/frontend/Makefile	/^CMAKE_BINARY_DIR = \/
 CMAKE_BINARY_DIR	build/compilation/src/frontend/azlpparser/Makefile	/^CMAKE_BINARY_DIR = \/home\/nikon\/projects\/zlp\/build$/;"	m
 CMAKE_BINARY_DIR	build/compilation/src/frontend/common/Makefile	/^CMAKE_BINARY_DIR = \/home\/nikon\/projects\/zlp\/build$/;"	m
 CMAKE_C11_COMPILE_FEATURES	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C11_COMPILE_FEATURES "c_std_11;c_static_assert")$/;"	v
+CMAKE_C11_COMPILE_FEATURES	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C11_COMPILE_FEATURES "c_std_11;c_static_assert")$/;"	v
 CMAKE_C90_COMPILE_FEATURES	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C90_COMPILE_FEATURES "c_std_90;c_function_prototypes")$/;"	v
+CMAKE_C90_COMPILE_FEATURES	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C90_COMPILE_FEATURES "c_std_90;c_function_prototypes")$/;"	v
 CMAKE_C99_COMPILE_FEATURES	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C99_COMPILE_FEATURES "c_std_99;c_restrict;c_variadic_macros")$/;"	v
+CMAKE_C99_COMPILE_FEATURES	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C99_COMPILE_FEATURES "c_std_99;c_restrict;c_variadic_macros")$/;"	v
 CMAKE_CL_SHOWINCLUDES_PREFIX	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^  set(CMAKE_CL_SHOWINCLUDES_PREFIX "${CMAKE_C_CL_SHOWINCLUDES_PREFIX}")$/;"	v
 CMAKE_CL_SHOWINCLUDES_PREFIX	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^  set(CMAKE_CL_SHOWINCLUDES_PREFIX "${CMAKE_CXX_CL_SHOWINCLUDES_PREFIX}")$/;"	v
+CMAKE_CL_SHOWINCLUDES_PREFIX	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^  set(CMAKE_CL_SHOWINCLUDES_PREFIX "${CMAKE_C_CL_SHOWINCLUDES_PREFIX}")$/;"	v
+CMAKE_CL_SHOWINCLUDES_PREFIX	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^  set(CMAKE_CL_SHOWINCLUDES_PREFIX "${CMAKE_CXX_CL_SHOWINCLUDES_PREFIX}")$/;"	v
 CMAKE_COMMAND	build/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
 CMAKE_COMMAND	build/apps/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
 CMAKE_COMMAND	build/apps/main_driver/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
@@ -63,11 +78,18 @@ CMAKE_COMMAND	build/compilation/src/frontend/azlpparser/Makefile	/^CMAKE_COMMAND
 CMAKE_COMMAND	build/compilation/src/frontend/common/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
 CMAKE_COMPILER_IS_CYGWIN	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_COMPILER_IS_CYGWIN )$/;"	v
 CMAKE_COMPILER_IS_CYGWIN	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_COMPILER_IS_CYGWIN )$/;"	v
+CMAKE_COMPILER_IS_CYGWIN	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_COMPILER_IS_CYGWIN )$/;"	v
+CMAKE_COMPILER_IS_CYGWIN	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_COMPILER_IS_CYGWIN )$/;"	v
 CMAKE_COMPILER_IS_GNUCC	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_COMPILER_IS_GNUCC 1)$/;"	v
+CMAKE_COMPILER_IS_GNUCC	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_COMPILER_IS_GNUCC 1)$/;"	v
 CMAKE_COMPILER_IS_GNUCXX	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_COMPILER_IS_GNUCXX 1)$/;"	v
+CMAKE_COMPILER_IS_GNUCXX	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_COMPILER_IS_GNUCXX 1)$/;"	v
 CMAKE_COMPILER_IS_MINGW	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_COMPILER_IS_MINGW )$/;"	v
 CMAKE_COMPILER_IS_MINGW	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_COMPILER_IS_MINGW )$/;"	v
+CMAKE_COMPILER_IS_MINGW	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_COMPILER_IS_MINGW )$/;"	v
+CMAKE_COMPILER_IS_MINGW	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_COMPILER_IS_MINGW )$/;"	v
 CMAKE_CROSSCOMPILING	build/CMakeFiles/3.15.0/CMakeSystem.cmake	/^set(CMAKE_CROSSCOMPILING "FALSE")$/;"	v
+CMAKE_CROSSCOMPILING	build/CMakeFiles/3.15.1/CMakeSystem.cmake	/^set(CMAKE_CROSSCOMPILING "FALSE")$/;"	v
 CMAKE_CROSSCOMPILING	build/apps/cmake_install.cmake	/^  set(CMAKE_CROSSCOMPILING "FALSE")$/;"	v
 CMAKE_CROSSCOMPILING	build/apps/main_driver/cmake_install.cmake	/^  set(CMAKE_CROSSCOMPILING "FALSE")$/;"	v
 CMAKE_CROSSCOMPILING	build/apps/main_driver/src/cmake_install.cmake	/^  set(CMAKE_CROSSCOMPILING "FALSE")$/;"	v
@@ -78,39 +100,66 @@ CMAKE_CROSSCOMPILING	build/compilation/src/frontend/azlpparser/cmake_install.cma
 CMAKE_CROSSCOMPILING	build/compilation/src/frontend/cmake_install.cmake	/^  set(CMAKE_CROSSCOMPILING "FALSE")$/;"	v
 CMAKE_CROSSCOMPILING	build/compilation/src/frontend/common/cmake_install.cmake	/^  set(CMAKE_CROSSCOMPILING "FALSE")$/;"	v
 CMAKE_CXX11_COMPILE_FEATURES	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX11_COMPILE_FEATURES "cxx_std_11;cxx_alias_templates;cxx_alignas;cxx_alignof;cxx_att/;"	v
+CMAKE_CXX11_COMPILE_FEATURES	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX11_COMPILE_FEATURES "cxx_std_11;cxx_alias_templates;cxx_alignas;cxx_alignof;cxx_att/;"	v
 CMAKE_CXX14_COMPILE_FEATURES	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX14_COMPILE_FEATURES "cxx_std_14;cxx_aggregate_default_initializers;cxx_attribute_de/;"	v
+CMAKE_CXX14_COMPILE_FEATURES	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX14_COMPILE_FEATURES "cxx_std_14;cxx_aggregate_default_initializers;cxx_attribute_de/;"	v
 CMAKE_CXX17_COMPILE_FEATURES	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX17_COMPILE_FEATURES "cxx_std_17")$/;"	v
+CMAKE_CXX17_COMPILE_FEATURES	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX17_COMPILE_FEATURES "cxx_std_17")$/;"	v
 CMAKE_CXX20_COMPILE_FEATURES	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX20_COMPILE_FEATURES "cxx_std_20")$/;"	v
+CMAKE_CXX20_COMPILE_FEATURES	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX20_COMPILE_FEATURES "cxx_std_20")$/;"	v
 CMAKE_CXX98_COMPILE_FEATURES	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX98_COMPILE_FEATURES "cxx_std_98;cxx_template_template_parameters")$/;"	v
+CMAKE_CXX98_COMPILE_FEATURES	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX98_COMPILE_FEATURES "cxx_std_98;cxx_template_template_parameters")$/;"	v
 CMAKE_CXX_ABI_COMPILED	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_ABI_COMPILED TRUE)$/;"	v
+CMAKE_CXX_ABI_COMPILED	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_ABI_COMPILED TRUE)$/;"	v
 CMAKE_CXX_CL_SHOWINCLUDES_PREFIX	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_CL_SHOWINCLUDES_PREFIX "")$/;"	v
+CMAKE_CXX_CL_SHOWINCLUDES_PREFIX	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_CL_SHOWINCLUDES_PREFIX "")$/;"	v
 CMAKE_CXX_COMPILER	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER "\/bin\/c++")$/;"	v
+CMAKE_CXX_COMPILER	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER "\/bin\/c++")$/;"	v
 CMAKE_CXX_COMPILER_ABI	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_ABI "ELF")$/;"	v
+CMAKE_CXX_COMPILER_ABI	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_ABI "ELF")$/;"	v
 CMAKE_CXX_COMPILER_AR	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_AR "\/bin\/gcc-ar")$/;"	v
+CMAKE_CXX_COMPILER_AR	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_AR "\/bin\/gcc-ar")$/;"	v
 CMAKE_CXX_COMPILER_ARG1	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_ARG1 "")$/;"	v
+CMAKE_CXX_COMPILER_ARG1	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_ARG1 "")$/;"	v
 CMAKE_CXX_COMPILER_ENV_VAR	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_ENV_VAR "CXX")$/;"	v
+CMAKE_CXX_COMPILER_ENV_VAR	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_ENV_VAR "CXX")$/;"	v
 CMAKE_CXX_COMPILER_FRONTEND_VARIANT	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_FRONTEND_VARIANT "")$/;"	v
+CMAKE_CXX_COMPILER_FRONTEND_VARIANT	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_FRONTEND_VARIANT "")$/;"	v
 CMAKE_CXX_COMPILER_ID	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_ID "GNU")$/;"	v
+CMAKE_CXX_COMPILER_ID	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_ID "GNU")$/;"	v
 CMAKE_CXX_COMPILER_ID	build/apps/main_driver/src/CMakeFiles/main_driver.dir/DependInfo.cmake	/^set(CMAKE_CXX_COMPILER_ID "GNU")$/;"	v
 CMAKE_CXX_COMPILER_ID	build/compilation/src/frontend/azlpparser/CMakeFiles/azlpparser.dir/DependInfo.cmake	/^set(CMAKE_CXX_COMPILER_ID "GNU")$/;"	v
 CMAKE_CXX_COMPILER_ID	build/compilation/src/frontend/common/CMakeFiles/common.dir/DependInfo.cmake	/^set(CMAKE_CXX_COMPILER_ID "GNU")$/;"	v
 CMAKE_CXX_COMPILER_ID_RUN	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_ID_RUN 1)$/;"	v
+CMAKE_CXX_COMPILER_ID_RUN	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_ID_RUN 1)$/;"	v
 CMAKE_CXX_COMPILER_LOADED	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_LOADED 1)$/;"	v
+CMAKE_CXX_COMPILER_LOADED	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_LOADED 1)$/;"	v
 CMAKE_CXX_COMPILER_RANLIB	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_RANLIB "\/bin\/gcc-ranlib")$/;"	v
+CMAKE_CXX_COMPILER_RANLIB	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_RANLIB "\/bin\/gcc-ranlib")$/;"	v
 CMAKE_CXX_COMPILER_VERSION	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_VERSION "9.1.0")$/;"	v
+CMAKE_CXX_COMPILER_VERSION	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_VERSION "9.1.0")$/;"	v
 CMAKE_CXX_COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_VERSION_INTERNAL "")$/;"	v
+CMAKE_CXX_COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_VERSION_INTERNAL "")$/;"	v
 CMAKE_CXX_COMPILER_WORKS	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_WORKS TRUE)$/;"	v
+CMAKE_CXX_COMPILER_WORKS	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_WORKS TRUE)$/;"	v
 CMAKE_CXX_COMPILER_WRAPPER	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_WRAPPER "")$/;"	v
+CMAKE_CXX_COMPILER_WRAPPER	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILER_WRAPPER "")$/;"	v
 CMAKE_CXX_COMPILE_FEATURES	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILE_FEATURES "cxx_std_98;cxx_template_template_parameters;cxx_std_11;cxx_alias/;"	v
+CMAKE_CXX_COMPILE_FEATURES	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_COMPILE_FEATURES "cxx_std_98;cxx_template_template_parameters;cxx_std_11;cxx_alias/;"	v
 CMAKE_CXX_FLAGS	CMakeLists.txt	/^set(CMAKE_CXX_FLAGS "-g -std=c++17 ${CMAKE_CXX_FLAGS}")$/;"	v
 CMAKE_CXX_FLAGS	apps/main_driver/src/CMakeLists.txt	/^set(CMAKE_CXX_FLAGS "-no-pie -g -std=c++17 ${CMAKE_CXX_FLAGS}")$/;"	v
 CMAKE_CXX_FLAGS	compilation/src/frontend/azlpparser/CMakeLists.txt	/^set(CMAKE_CXX_FLAGS "-no-pie -std=c++17 ${CMAKE_CXX_FLAGS}")$/;"	v
 CMAKE_CXX_FLAGS	compilation/src/frontend/common/CMakeLists.txt	/^set(CMAKE_CXX_FLAGS "-no-pie -std=c++17 ${CMAKE_CXX_FLAGS}")$/;"	v
 CMAKE_CXX_IGNORE_EXTENSIONS	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_IGNORE_EXTENSIONS inl;h;hpp;HPP;H;o;O;obj;OBJ;def;DEF;rc;RC)$/;"	v
+CMAKE_CXX_IGNORE_EXTENSIONS	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_IGNORE_EXTENSIONS inl;h;hpp;HPP;H;o;O;obj;OBJ;def;DEF;rc;RC)$/;"	v
 CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "\/usr\/include\/c++\/9.1.0;\/usr\/include\/c++\/9.1./;"	v
+CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "\/usr\/include\/c++\/9.1.0;\/usr\/include\/c++\/9.1./;"	v
 CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "\/usr\/lib\/gcc\/x86_64-pc-linux-gnu\/9.1.0;\/usr\/lib;/;"	v
+CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "\/usr\/lib\/gcc\/x86_64-pc-linux-gnu\/9.1.0;\/usr\/lib;/;"	v
 CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")$/;"	v
+CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")$/;"	v
 CMAKE_CXX_IMPLICIT_LINK_LIBRARIES	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;m;gcc_s;gcc;c;gcc_s;gcc")$/;"	v
+CMAKE_CXX_IMPLICIT_LINK_LIBRARIES	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;m;gcc_s;gcc;c;gcc_s;gcc")$/;"	v
 CMAKE_CXX_INCLUDE_REGEX_COMPLAIN	build/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_CXX_INCLUDE_REGEX_COMPLAIN ${CMAKE_C_INCLUDE_REGEX_COMPLAIN})$/;"	v
 CMAKE_CXX_INCLUDE_REGEX_COMPLAIN	build/apps/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_CXX_INCLUDE_REGEX_COMPLAIN ${CMAKE_C_INCLUDE_REGEX_COMPLAIN})$/;"	v
 CMAKE_CXX_INCLUDE_REGEX_COMPLAIN	build/apps/main_driver/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_CXX_INCLUDE_REGEX_COMPLAIN ${CMAKE_C_INCLUDE_REGEX_COMPLAIN})$/;"	v
@@ -130,39 +179,70 @@ CMAKE_CXX_INCLUDE_REGEX_SCAN	build/compilation/src/frontend/CMakeFiles/CMakeDire
 CMAKE_CXX_INCLUDE_REGEX_SCAN	build/compilation/src/frontend/azlpparser/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_CXX_INCLUDE_REGEX_SCAN ${CMAKE_C_INCLUDE_REGEX_SCAN})$/;"	v
 CMAKE_CXX_INCLUDE_REGEX_SCAN	build/compilation/src/frontend/common/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_CXX_INCLUDE_REGEX_SCAN ${CMAKE_C_INCLUDE_REGEX_SCAN})$/;"	v
 CMAKE_CXX_LIBRARY_ARCHITECTURE	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_LIBRARY_ARCHITECTURE "")$/;"	v
+CMAKE_CXX_LIBRARY_ARCHITECTURE	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_LIBRARY_ARCHITECTURE "")$/;"	v
 CMAKE_CXX_LINKER_PREFERENCE	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_LINKER_PREFERENCE 30)$/;"	v
+CMAKE_CXX_LINKER_PREFERENCE	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_LINKER_PREFERENCE 30)$/;"	v
 CMAKE_CXX_LINKER_PREFERENCE_PROPAGATES	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_LINKER_PREFERENCE_PROPAGATES 1)$/;"	v
+CMAKE_CXX_LINKER_PREFERENCE_PROPAGATES	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_LINKER_PREFERENCE_PROPAGATES 1)$/;"	v
 CMAKE_CXX_PLATFORM_ID	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_PLATFORM_ID "Linux")$/;"	v
+CMAKE_CXX_PLATFORM_ID	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_PLATFORM_ID "Linux")$/;"	v
 CMAKE_CXX_SIMULATE_ID	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_SIMULATE_ID "")$/;"	v
+CMAKE_CXX_SIMULATE_ID	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_SIMULATE_ID "")$/;"	v
 CMAKE_CXX_SIMULATE_VERSION	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_SIMULATE_VERSION "")$/;"	v
+CMAKE_CXX_SIMULATE_VERSION	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_SIMULATE_VERSION "")$/;"	v
 CMAKE_CXX_SIZEOF_DATA_PTR	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_SIZEOF_DATA_PTR "8")$/;"	v
+CMAKE_CXX_SIZEOF_DATA_PTR	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_SIZEOF_DATA_PTR "8")$/;"	v
 CMAKE_CXX_SOURCE_FILE_EXTENSIONS	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_SOURCE_FILE_EXTENSIONS C;M;c++;cc;cpp;cxx;mm;CPP)$/;"	v
+CMAKE_CXX_SOURCE_FILE_EXTENSIONS	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_SOURCE_FILE_EXTENSIONS C;M;c++;cc;cpp;cxx;mm;CPP)$/;"	v
 CMAKE_CXX_STANDARD_COMPUTED_DEFAULT	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_STANDARD_COMPUTED_DEFAULT "14")$/;"	v
+CMAKE_CXX_STANDARD_COMPUTED_DEFAULT	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_CXX_STANDARD_COMPUTED_DEFAULT "14")$/;"	v
 CMAKE_CXX_TARGET_INCLUDE_PATH	build/apps/main_driver/src/CMakeFiles/main_driver.dir/DependInfo.cmake	/^set(CMAKE_CXX_TARGET_INCLUDE_PATH$/;"	v
 CMAKE_CXX_TARGET_INCLUDE_PATH	build/compilation/src/frontend/azlpparser/CMakeFiles/azlpparser.dir/DependInfo.cmake	/^set(CMAKE_CXX_TARGET_INCLUDE_PATH$/;"	v
 CMAKE_CXX_TARGET_INCLUDE_PATH	build/compilation/src/frontend/common/CMakeFiles/common.dir/DependInfo.cmake	/^set(CMAKE_CXX_TARGET_INCLUDE_PATH$/;"	v
 CMAKE_C_ABI_COMPILED	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_ABI_COMPILED TRUE)$/;"	v
+CMAKE_C_ABI_COMPILED	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_ABI_COMPILED TRUE)$/;"	v
 CMAKE_C_CL_SHOWINCLUDES_PREFIX	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_CL_SHOWINCLUDES_PREFIX "")$/;"	v
+CMAKE_C_CL_SHOWINCLUDES_PREFIX	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_CL_SHOWINCLUDES_PREFIX "")$/;"	v
 CMAKE_C_COMPILER	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER "\/bin\/cc")$/;"	v
+CMAKE_C_COMPILER	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER "\/bin\/cc")$/;"	v
 CMAKE_C_COMPILER_ABI	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ABI "ELF")$/;"	v
+CMAKE_C_COMPILER_ABI	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ABI "ELF")$/;"	v
 CMAKE_C_COMPILER_AR	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_AR "\/bin\/gcc-ar")$/;"	v
+CMAKE_C_COMPILER_AR	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_AR "\/bin\/gcc-ar")$/;"	v
 CMAKE_C_COMPILER_ARG1	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ARG1 "")$/;"	v
+CMAKE_C_COMPILER_ARG1	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ARG1 "")$/;"	v
 CMAKE_C_COMPILER_ENV_VAR	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ENV_VAR "CC")$/;"	v
+CMAKE_C_COMPILER_ENV_VAR	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ENV_VAR "CC")$/;"	v
 CMAKE_C_COMPILER_FRONTEND_VARIANT	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_FRONTEND_VARIANT "")$/;"	v
+CMAKE_C_COMPILER_FRONTEND_VARIANT	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_FRONTEND_VARIANT "")$/;"	v
 CMAKE_C_COMPILER_ID	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ID "GNU")$/;"	v
+CMAKE_C_COMPILER_ID	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ID "GNU")$/;"	v
 CMAKE_C_COMPILER_ID_RUN	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ID_RUN 1)$/;"	v
+CMAKE_C_COMPILER_ID_RUN	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ID_RUN 1)$/;"	v
 CMAKE_C_COMPILER_LOADED	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_LOADED 1)$/;"	v
+CMAKE_C_COMPILER_LOADED	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_LOADED 1)$/;"	v
 CMAKE_C_COMPILER_RANLIB	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_RANLIB "\/bin\/gcc-ranlib")$/;"	v
+CMAKE_C_COMPILER_RANLIB	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_RANLIB "\/bin\/gcc-ranlib")$/;"	v
 CMAKE_C_COMPILER_VERSION	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_VERSION "9.1.0")$/;"	v
+CMAKE_C_COMPILER_VERSION	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_VERSION "9.1.0")$/;"	v
 CMAKE_C_COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_VERSION_INTERNAL "")$/;"	v
+CMAKE_C_COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_VERSION_INTERNAL "")$/;"	v
 CMAKE_C_COMPILER_WORKS	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_WORKS TRUE)$/;"	v
+CMAKE_C_COMPILER_WORKS	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_WORKS TRUE)$/;"	v
 CMAKE_C_COMPILER_WRAPPER	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_WRAPPER "")$/;"	v
+CMAKE_C_COMPILER_WRAPPER	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_WRAPPER "")$/;"	v
 CMAKE_C_COMPILE_FEATURES	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILE_FEATURES "c_std_90;c_function_prototypes;c_std_99;c_restrict;c_variadic_macr/;"	v
+CMAKE_C_COMPILE_FEATURES	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILE_FEATURES "c_std_90;c_function_prototypes;c_std_99;c_restrict;c_variadic_macr/;"	v
 CMAKE_C_IGNORE_EXTENSIONS	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_IGNORE_EXTENSIONS h;H;o;O;obj;OBJ;def;DEF;rc;RC)$/;"	v
+CMAKE_C_IGNORE_EXTENSIONS	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_IGNORE_EXTENSIONS h;H;o;O;obj;OBJ;def;DEF;rc;RC)$/;"	v
 CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "\/usr\/lib\/gcc\/x86_64-pc-linux-gnu\/9.1.0\/include;\//;"	v
+CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "\/usr\/lib\/gcc\/x86_64-pc-linux-gnu\/9.1.0\/include;\//;"	v
 CMAKE_C_IMPLICIT_LINK_DIRECTORIES	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "\/usr\/lib\/gcc\/x86_64-pc-linux-gnu\/9.1.0;\/usr\/lib;\//;"	v
+CMAKE_C_IMPLICIT_LINK_DIRECTORIES	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "\/usr\/lib\/gcc\/x86_64-pc-linux-gnu\/9.1.0;\/usr\/lib;\//;"	v
 CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")$/;"	v
+CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")$/;"	v
 CMAKE_C_IMPLICIT_LINK_LIBRARIES	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "gcc;gcc_s;c;gcc;gcc_s")$/;"	v
+CMAKE_C_IMPLICIT_LINK_LIBRARIES	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "gcc;gcc_s;c;gcc;gcc_s")$/;"	v
 CMAKE_C_INCLUDE_REGEX_COMPLAIN	build/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_C_INCLUDE_REGEX_COMPLAIN "^$")$/;"	v
 CMAKE_C_INCLUDE_REGEX_COMPLAIN	build/apps/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_C_INCLUDE_REGEX_COMPLAIN "^$")$/;"	v
 CMAKE_C_INCLUDE_REGEX_COMPLAIN	build/apps/main_driver/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_C_INCLUDE_REGEX_COMPLAIN "^$")$/;"	v
@@ -182,13 +262,21 @@ CMAKE_C_INCLUDE_REGEX_SCAN	build/compilation/src/frontend/CMakeFiles/CMakeDirect
 CMAKE_C_INCLUDE_REGEX_SCAN	build/compilation/src/frontend/azlpparser/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_C_INCLUDE_REGEX_SCAN "^.*$")$/;"	v
 CMAKE_C_INCLUDE_REGEX_SCAN	build/compilation/src/frontend/common/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_C_INCLUDE_REGEX_SCAN "^.*$")$/;"	v
 CMAKE_C_LIBRARY_ARCHITECTURE	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_LIBRARY_ARCHITECTURE "")$/;"	v
+CMAKE_C_LIBRARY_ARCHITECTURE	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_LIBRARY_ARCHITECTURE "")$/;"	v
 CMAKE_C_LINKER_PREFERENCE	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_LINKER_PREFERENCE 10)$/;"	v
+CMAKE_C_LINKER_PREFERENCE	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_LINKER_PREFERENCE 10)$/;"	v
 CMAKE_C_PLATFORM_ID	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_PLATFORM_ID "Linux")$/;"	v
+CMAKE_C_PLATFORM_ID	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_PLATFORM_ID "Linux")$/;"	v
 CMAKE_C_SIMULATE_ID	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_SIMULATE_ID "")$/;"	v
+CMAKE_C_SIMULATE_ID	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_SIMULATE_ID "")$/;"	v
 CMAKE_C_SIMULATE_VERSION	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_SIMULATE_VERSION "")$/;"	v
+CMAKE_C_SIMULATE_VERSION	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_SIMULATE_VERSION "")$/;"	v
 CMAKE_C_SIZEOF_DATA_PTR	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_SIZEOF_DATA_PTR "8")$/;"	v
+CMAKE_C_SIZEOF_DATA_PTR	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_SIZEOF_DATA_PTR "8")$/;"	v
 CMAKE_C_SOURCE_FILE_EXTENSIONS	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_SOURCE_FILE_EXTENSIONS c;m)$/;"	v
+CMAKE_C_SOURCE_FILE_EXTENSIONS	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_SOURCE_FILE_EXTENSIONS c;m)$/;"	v
 CMAKE_C_STANDARD_COMPUTED_DEFAULT	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_C_STANDARD_COMPUTED_DEFAULT "11")$/;"	v
+CMAKE_C_STANDARD_COMPUTED_DEFAULT	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_C_STANDARD_COMPUTED_DEFAULT "11")$/;"	v
 CMAKE_DEPENDS_CHECK_CXX	build/apps/main_driver/src/CMakeFiles/main_driver.dir/DependInfo.cmake	/^set(CMAKE_DEPENDS_CHECK_CXX$/;"	v
 CMAKE_DEPENDS_CHECK_CXX	build/compilation/src/frontend/azlpparser/CMakeFiles/azlpparser.dir/DependInfo.cmake	/^set(CMAKE_DEPENDS_CHECK_CXX$/;"	v
 CMAKE_DEPENDS_CHECK_CXX	build/compilation/src/frontend/common/CMakeFiles/common.dir/DependInfo.cmake	/^set(CMAKE_DEPENDS_CHECK_CXX$/;"	v
@@ -210,9 +298,13 @@ CMAKE_Fortran_TARGET_MODULE_DIR	build/apps/main_driver/src/CMakeFiles/main_drive
 CMAKE_Fortran_TARGET_MODULE_DIR	build/compilation/src/frontend/azlpparser/CMakeFiles/azlpparser.dir/DependInfo.cmake	/^set(CMAKE_Fortran_TARGET_MODULE_DIR "")$/;"	v
 CMAKE_Fortran_TARGET_MODULE_DIR	build/compilation/src/frontend/common/CMakeFiles/common.dir/DependInfo.cmake	/^set(CMAKE_Fortran_TARGET_MODULE_DIR "")$/;"	v
 CMAKE_HOST_SYSTEM	build/CMakeFiles/3.15.0/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM "Linux-4.19.56-1-MANJARO")$/;"	v
+CMAKE_HOST_SYSTEM	build/CMakeFiles/3.15.1/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM "Linux-4.19.62-1-MANJARO")$/;"	v
 CMAKE_HOST_SYSTEM_NAME	build/CMakeFiles/3.15.0/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM_NAME "Linux")$/;"	v
+CMAKE_HOST_SYSTEM_NAME	build/CMakeFiles/3.15.1/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM_NAME "Linux")$/;"	v
 CMAKE_HOST_SYSTEM_PROCESSOR	build/CMakeFiles/3.15.0/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")$/;"	v
+CMAKE_HOST_SYSTEM_PROCESSOR	build/CMakeFiles/3.15.1/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")$/;"	v
 CMAKE_HOST_SYSTEM_VERSION	build/CMakeFiles/3.15.0/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM_VERSION "4.19.56-1-MANJARO")$/;"	v
+CMAKE_HOST_SYSTEM_VERSION	build/CMakeFiles/3.15.1/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM_VERSION "4.19.62-1-MANJARO")$/;"	v
 CMAKE_INSTALL_COMPONENT	build/apps/cmake_install.cmake	/^    set(CMAKE_INSTALL_COMPONENT "${COMPONENT}")$/;"	v
 CMAKE_INSTALL_COMPONENT	build/apps/cmake_install.cmake	/^    set(CMAKE_INSTALL_COMPONENT)$/;"	v
 CMAKE_INSTALL_COMPONENT	build/apps/main_driver/cmake_install.cmake	/^    set(CMAKE_INSTALL_COMPONENT "${COMPONENT}")$/;"	v
@@ -262,17 +354,27 @@ CMAKE_INSTALL_SO_NO_EXE	build/compilation/src/frontend/cmake_install.cmake	/^  s
 CMAKE_INSTALL_SO_NO_EXE	build/compilation/src/frontend/common/cmake_install.cmake	/^  set(CMAKE_INSTALL_SO_NO_EXE "0")$/;"	v
 CMAKE_INTERNAL_PLATFORM_ABI	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^  set(CMAKE_INTERNAL_PLATFORM_ABI "${CMAKE_C_COMPILER_ABI}")$/;"	v
 CMAKE_INTERNAL_PLATFORM_ABI	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^  set(CMAKE_INTERNAL_PLATFORM_ABI "${CMAKE_CXX_COMPILER_ABI}")$/;"	v
+CMAKE_INTERNAL_PLATFORM_ABI	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^  set(CMAKE_INTERNAL_PLATFORM_ABI "${CMAKE_C_COMPILER_ABI}")$/;"	v
+CMAKE_INTERNAL_PLATFORM_ABI	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^  set(CMAKE_INTERNAL_PLATFORM_ABI "${CMAKE_CXX_COMPILER_ABI}")$/;"	v
 CMAKE_LIBRARY_ARCHITECTURE	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^  set(CMAKE_LIBRARY_ARCHITECTURE "")$/;"	v
 CMAKE_LIBRARY_ARCHITECTURE	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^  set(CMAKE_LIBRARY_ARCHITECTURE "")$/;"	v
+CMAKE_LIBRARY_ARCHITECTURE	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^  set(CMAKE_LIBRARY_ARCHITECTURE "")$/;"	v
+CMAKE_LIBRARY_ARCHITECTURE	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^  set(CMAKE_LIBRARY_ARCHITECTURE "")$/;"	v
 CMAKE_LINKER	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_LINKER "\/bin\/ld")$/;"	v
 CMAKE_LINKER	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_LINKER "\/bin\/ld")$/;"	v
+CMAKE_LINKER	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_LINKER "\/bin\/ld")$/;"	v
+CMAKE_LINKER	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_LINKER "\/bin\/ld")$/;"	v
 CMAKE_MAKEFILE_DEPENDS	build/CMakeFiles/Makefile.cmake	/^set(CMAKE_MAKEFILE_DEPENDS$/;"	v
 CMAKE_MAKEFILE_OUTPUTS	build/CMakeFiles/Makefile.cmake	/^set(CMAKE_MAKEFILE_OUTPUTS$/;"	v
 CMAKE_MAKEFILE_PRODUCTS	build/CMakeFiles/Makefile.cmake	/^set(CMAKE_MAKEFILE_PRODUCTS$/;"	v
 CMAKE_MT	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_MT "")$/;"	v
 CMAKE_MT	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_MT "")$/;"	v
+CMAKE_MT	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_MT "")$/;"	v
+CMAKE_MT	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_MT "")$/;"	v
 CMAKE_RANLIB	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^set(CMAKE_RANLIB "\/bin\/ranlib")$/;"	v
 CMAKE_RANLIB	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^set(CMAKE_RANLIB "\/bin\/ranlib")$/;"	v
+CMAKE_RANLIB	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^set(CMAKE_RANLIB "\/bin\/ranlib")$/;"	v
+CMAKE_RANLIB	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^set(CMAKE_RANLIB "\/bin\/ranlib")$/;"	v
 CMAKE_RELATIVE_PATH_TOP_BINARY	build/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_RELATIVE_PATH_TOP_BINARY "\/home\/nikon\/projects\/zlp\/build")$/;"	v
 CMAKE_RELATIVE_PATH_TOP_BINARY	build/apps/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_RELATIVE_PATH_TOP_BINARY "\/home\/nikon\/projects\/zlp\/build")$/;"	v
 CMAKE_RELATIVE_PATH_TOP_BINARY	build/apps/main_driver/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_RELATIVE_PATH_TOP_BINARY "\/home\/nikon\/projects\/zlp\/build")$/;"	v
@@ -293,6 +395,8 @@ CMAKE_RELATIVE_PATH_TOP_SOURCE	build/compilation/src/frontend/azlpparser/CMakeFi
 CMAKE_RELATIVE_PATH_TOP_SOURCE	build/compilation/src/frontend/common/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_RELATIVE_PATH_TOP_SOURCE "\/home\/nikon\/projects\/zlp")$/;"	v
 CMAKE_SIZEOF_VOID_P	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^  set(CMAKE_SIZEOF_VOID_P "${CMAKE_C_SIZEOF_DATA_PTR}")$/;"	v
 CMAKE_SIZEOF_VOID_P	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^  set(CMAKE_SIZEOF_VOID_P "${CMAKE_CXX_SIZEOF_DATA_PTR}")$/;"	v
+CMAKE_SIZEOF_VOID_P	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^  set(CMAKE_SIZEOF_VOID_P "${CMAKE_C_SIZEOF_DATA_PTR}")$/;"	v
+CMAKE_SIZEOF_VOID_P	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^  set(CMAKE_SIZEOF_VOID_P "${CMAKE_CXX_SIZEOF_DATA_PTR}")$/;"	v
 CMAKE_SOURCE_DIR	build/Makefile	/^CMAKE_SOURCE_DIR = \/home\/nikon\/projects\/zlp$/;"	m
 CMAKE_SOURCE_DIR	build/apps/Makefile	/^CMAKE_SOURCE_DIR = \/home\/nikon\/projects\/zlp$/;"	m
 CMAKE_SOURCE_DIR	build/apps/main_driver/Makefile	/^CMAKE_SOURCE_DIR = \/home\/nikon\/projects\/zlp$/;"	m
@@ -303,14 +407,19 @@ CMAKE_SOURCE_DIR	build/compilation/src/frontend/Makefile	/^CMAKE_SOURCE_DIR = \/
 CMAKE_SOURCE_DIR	build/compilation/src/frontend/azlpparser/Makefile	/^CMAKE_SOURCE_DIR = \/home\/nikon\/projects\/zlp$/;"	m
 CMAKE_SOURCE_DIR	build/compilation/src/frontend/common/Makefile	/^CMAKE_SOURCE_DIR = \/home\/nikon\/projects\/zlp$/;"	m
 CMAKE_SYSTEM	build/CMakeFiles/3.15.0/CMakeSystem.cmake	/^set(CMAKE_SYSTEM "Linux-4.19.56-1-MANJARO")$/;"	v
+CMAKE_SYSTEM	build/CMakeFiles/3.15.1/CMakeSystem.cmake	/^set(CMAKE_SYSTEM "Linux-4.19.62-1-MANJARO")$/;"	v
 CMAKE_SYSTEM_LOADED	build/CMakeFiles/3.15.0/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_LOADED 1)$/;"	v
+CMAKE_SYSTEM_LOADED	build/CMakeFiles/3.15.1/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_LOADED 1)$/;"	v
 CMAKE_SYSTEM_NAME	build/CMakeFiles/3.15.0/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_NAME "Linux")$/;"	v
+CMAKE_SYSTEM_NAME	build/CMakeFiles/3.15.1/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_NAME "Linux")$/;"	v
 CMAKE_SYSTEM_PROCESSOR	build/CMakeFiles/3.15.0/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_PROCESSOR "x86_64")$/;"	v
+CMAKE_SYSTEM_PROCESSOR	build/CMakeFiles/3.15.1/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_PROCESSOR "x86_64")$/;"	v
 CMAKE_SYSTEM_VERSION	build/CMakeFiles/3.15.0/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_VERSION "4.19.56-1-MANJARO")$/;"	v
+CMAKE_SYSTEM_VERSION	build/CMakeFiles/3.15.1/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_VERSION "4.19.62-1-MANJARO")$/;"	v
 CMAKE_TARGET_LINKED_INFO_FILES	build/apps/main_driver/src/CMakeFiles/main_driver.dir/DependInfo.cmake	/^set(CMAKE_TARGET_LINKED_INFO_FILES$/;"	v
 CMAKE_TARGET_LINKED_INFO_FILES	build/compilation/src/frontend/azlpparser/CMakeFiles/azlpparser.dir/DependInfo.cmake	/^set(CMAKE_TARGET_LINKED_INFO_FILES$/;"	v
 CMAKE_TARGET_LINKED_INFO_FILES	build/compilation/src/frontend/common/CMakeFiles/common.dir/DependInfo.cmake	/^set(CMAKE_TARGET_LINKED_INFO_FILES$/;"	v
-CMP_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view CMP_INSTR_NAME      = "CMP";$/;"	v	typeref:typename:std::string_view
+CMP_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string CMP_INSTR_NAME      = "CMP";$/;"	v	typeref:typename:const std::string
 CODE_SECTION_PARSER_H	compilation/include/frontend/azlpparser/code_section_parser.hpp	/^#define CODE_SECTION_PARSER_H$/;"	d
 CODE_SEC_NAME	compilation/include/frontend/azlpparser/lexer_defs.hpp	/^static const std::string CODE_SEC_NAME  = ".CODE";$/;"	v	typeref:typename:const std::string
 COMMON_INC	compilation/src/frontend/azlpparser/CMakeLists.txt	/^set(COMMON_INC "${CMAKE_SOURCE_DIR}\/compilation\/include\/frontend\/common\/")$/;"	v
@@ -318,22 +427,40 @@ COMMON_INC	compilation/src/frontend/common/CMakeLists.txt	/^set(COMMON_INC "${CM
 COMMON_SRC	compilation/src/frontend/common/CMakeLists.txt	/^set(COMMON_SRC "${CMAKE_SOURCE_DIR}\/compilation\/src\/frontend\/common")$/;"	v
 COMPILER_ID	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_ID /;"	d	file:
 COMPILER_ID	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_ID /;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_ID /;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_ID /;"	d	file:
 COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_INTERNAL /;"	d	file:
 COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_INTERNAL /;"	d	file:
 COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_INTERNAL /;"	d	file:
 COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_INTERNAL /;"	d	file:
 COMPILER_VERSION_MAJOR	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_MAJOR /;"	d	file:
 COMPILER_VERSION_MAJOR	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_MAJOR /;"	d	file:
 COMPILER_VERSION_MAJOR	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_MAJOR /;"	d	file:
 COMPILER_VERSION_MAJOR	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^  # define COMPILER_VERSION_MAJOR /;"	d	file:
 COMPILER_VERSION_MAJOR	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_MAJOR /;"	d	file:
 COMPILER_VERSION_MAJOR	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^  # define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_MAJOR /;"	d	file:
 COMPILER_VERSION_MINOR	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_MINOR /;"	d	file:
 COMPILER_VERSION_MINOR	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_MINOR /;"	d	file:
 COMPILER_VERSION_MINOR	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_MINOR /;"	d	file:
 COMPILER_VERSION_MINOR	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^  # define COMPILER_VERSION_MINOR /;"	d	file:
 COMPILER_VERSION_MINOR	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_MINOR /;"	d	file:
 COMPILER_VERSION_MINOR	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^  # define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_MINOR /;"	d	file:
 COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_PATCH /;"	d	file:
 COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_PATCH /;"	d	file:
 COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_PATCH /;"	d	file:
@@ -342,16 +469,35 @@ COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.
 COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define COMPILER_VERSION_PATCH /;"	d	file:
 COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_PATCH /;"	d	file:
 COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^  # define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_PATCH /;"	d	file:
 COMPILER_VERSION_TWEAK	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_TWEAK /;"	d	file:
 COMPILER_VERSION_TWEAK	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_TWEAK /;"	d	file:
 COMPILER_VERSION_TWEAK	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_TWEAK /;"	d	file:
 COMPILER_VERSION_TWEAK	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_TWEAK /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_TWEAK /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_TWEAK /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_TWEAK /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_TWEAK /;"	d	file:
 CXX_STD	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define CXX_STD /;"	d	file:
+CXX_STD	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define CXX_STD /;"	d	file:
 CYGWIN	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^  set(CYGWIN 1)$/;"	v
 CYGWIN	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^  set(CYGWIN 1)$/;"	v
+CYGWIN	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^  set(CYGWIN 1)$/;"	v
+CYGWIN	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^  set(CYGWIN 1)$/;"	v
 C_DIALECT	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define C_DIALECT /;"	d	file:
 C_DIALECT	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define C_DIALECT$/;"	d	file:
 C_DIALECT	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^# define C_DIALECT /;"	d	file:
+C_DIALECT	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define C_DIALECT /;"	d	file:
+C_DIALECT	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define C_DIALECT$/;"	d	file:
+C_DIALECT	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^# define C_DIALECT /;"	d	file:
+ChainModel	compilation/include/backend/zlpcodegen/chain_model_defs.hpp	/^enum class ChainModel$/;"	g
 Code generation staff for ZVM ISA.	compilation/include/backend/zlpcodegen/README.md	/^# Code generation staff for ZVM ISA.$/;"	c
 CodeSection	compilation/include/frontend/azlpparser/parser_defs.hpp	/^struct CodeSection$/;"	s
 CodeSectionParser	compilation/include/frontend/azlpparser/code_section_parser.hpp	/^class CodeSectionParser$/;"	c
@@ -364,15 +510,17 @@ DEBUG_MODE	compilation/include/frontend/common/debug.hpp	/^#define DEBUG_MODE$/;
 DEBUG_MODE	compilation/src/frontend/azlpparser/lexer.cpp	/^#define DEBUG_MODE$/;"	d	file:
 DEC	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	file:
 DEC	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define DEC(/;"	d	file:
-DEC_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view DEC_INSTR_NAME      = "DEC";$/;"	v	typeref:typename:std::string_view
-DIV_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view DIV_INSTR_NAME      = "DIV";$/;"	v	typeref:typename:std::string_view
+DEC	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	file:
+DEC	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define DEC(/;"	d	file:
+DEC_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string DEC_INSTR_NAME      = "DEC";$/;"	v	typeref:typename:const std::string
+DIV_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string DIV_INSTR_NAME      = "DIV";$/;"	v	typeref:typename:const std::string
 DWORD	compilation/include/frontend/common/type_defs.hpp	/^using DWORD = uint32_t;$/;"	t	typeref:typename:uint32_t
 DataSection	compilation/include/frontend/azlpparser/parser_defs.hpp	/^struct DataSection$/;"	s
 DataSectionParser	compilation/include/frontend/azlpparser/data_section_parser.hpp	/^class DataSectionParser$/;"	c
 DataSectionParserUtilities	compilation/include/frontend/azlpparser/data_section_parser_utilities.hpp	/^namespace DataSectionParserUtilities$/;"	n
 Documentation will reside here	docs/README.md	/^# Documentation will reside here$/;"	c
 END_FUNCTION_KWRD	compilation/include/frontend/azlpparser/lexer_defs.hpp	/^static const std::string END_FUNCTION_KWRD = "EndF";$/;"	v	typeref:typename:const std::string
-END_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view END_INSTR_NAME      = "END";$/;"	v	typeref:typename:std::string_view
+END_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string END_INSTR_NAME      = "END";$/;"	v	typeref:typename:const std::string
 EQUALS	build/Makefile	/^EQUALS = =$/;"	m
 EQUALS	build/apps/Makefile	/^EQUALS = =$/;"	m
 EQUALS	build/apps/main_driver/Makefile	/^EQUALS = =$/;"	m
@@ -394,13 +542,17 @@ FUNCTION_KWRD	compilation/include/frontend/azlpparser/lexer_defs.hpp	/^static co
 First	compilation/include/frontend/common/operand.hpp	/^    First = 0,$/;"	e	enum:ArgPos
 Function	compilation/include/frontend/common/function.hpp	/^struct Function$/;"	s
 FunctionList	compilation/include/frontend/common/function.hpp	/^using FunctionList = std::vector<Function>;$/;"	t	typeref:typename:std::vector<Function>
-GLFR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view GLFR_INSTR_NAME     = "GFLR";$/;"	v	typeref:typename:std::string_view
+GENERIC	compilation/include/backend/zlpcodegen/chain_model_defs.hpp	/^  GENERIC = 0,$/;"	e	enum:ChainModel
+GLFR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string GLFR_INSTR_NAME     = "GFLR";$/;"	v	typeref:typename:const std::string
 HEX	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(/;"	d	file:
 HEX	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define HEX(/;"	d	file:
+HEX	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(/;"	d	file:
+HEX	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define HEX(/;"	d	file:
 HIGH	compilation/include/frontend/common/logger.hpp	/^  HIGH,$/;"	e	enum:LogLevel
-IDIV_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view IDIV_INSTR_NAME     = "IDIV";$/;"	v	typeref:typename:std::string_view
+IDIV_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string IDIV_INSTR_NAME     = "IDIV";$/;"	v	typeref:typename:const std::string
 ID_VOID_MAIN	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^# define ID_VOID_MAIN$/;"	d	file:
-IMUL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view IMUL_INSTR_NAME     = "IMUL";$/;"	v	typeref:typename:std::string_view
+ID_VOID_MAIN	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^# define ID_VOID_MAIN$/;"	d	file:
+IMUL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string IMUL_INSTR_NAME     = "IMUL";$/;"	v	typeref:typename:const std::string
 IMV	compilation/include/frontend/common/immediate_value.hpp	/^    union IMV {$/;"	u	struct:ImmediateValue
 IMVNULL	compilation/include/frontend/common/immediate_value.hpp	/^    IMVNULL,$/;"	e	enum:ImmediateValueType
 IMVNUM16	compilation/include/frontend/common/immediate_value.hpp	/^    IMVNUM16,$/;"	e	enum:ImmediateValueType
@@ -411,8 +563,8 @@ IMVUNUM16	compilation/include/frontend/common/immediate_value.hpp	/^    IMVUNUM1
 IMVUNUM32	compilation/include/frontend/common/immediate_value.hpp	/^    IMVUNUM32,$/;"	e	enum:ImmediateValueType
 IMVUNUM64	compilation/include/frontend/common/immediate_value.hpp	/^    IMVUNUM64,$/;"	e	enum:ImmediateValueType
 IMVUNUM8	compilation/include/frontend/common/immediate_value.hpp	/^    IMVUNUM8,$/;"	e	enum:ImmediateValueType
-INC_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view INC_INSTR_NAME      = "INC";$/;"	v	typeref:typename:std::string_view
-IN_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view IN_INSTR_NAME       = "IN";$/;"	v	typeref:typename:std::string_view
+INC_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string INC_INSTR_NAME      = "INC";$/;"	v	typeref:typename:const std::string
+IN_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string IN_INSTR_NAME       = "IN";$/;"	v	typeref:typename:const std::string
 IT_ADC	compilation/include/frontend/common/instruction.hpp	/^  IT_ADC,$/;"	e	enum:InstructionType
 IT_ADD	compilation/include/frontend/common/instruction.hpp	/^  IT_ADD,$/;"	e	enum:InstructionType
 IT_AND	compilation/include/frontend/common/instruction.hpp	/^  IT_AND, $/;"	e	enum:InstructionType
@@ -465,6 +617,7 @@ IT_SUB	compilation/include/frontend/common/instruction.hpp	/^  IT_SUB,$/;"	e	enu
 IT_SWAP	compilation/include/frontend/common/instruction.hpp	/^  IT_SWAP,$/;"	e	enum:InstructionType
 IT_TEST	compilation/include/frontend/common/instruction.hpp	/^  IT_TEST,$/;"	e	enum:InstructionType
 IT_XOR	compilation/include/frontend/common/instruction.hpp	/^  IT_XOR,$/;"	e	enum:InstructionType
+ITranslatorImpl	compilation/include/backend/zlpcodegen/interface_translator_impl.hpp	/^struct ITranslatorImpl$/;"	s
 ImmediateValue	compilation/include/frontend/common/immediate_value.hpp	/^struct ImmediateValue$/;"	s
 ImmediateValueType	compilation/include/frontend/common/immediate_value.hpp	/^enum ImmediateValueType$/;"	g
 Implementation	compilation/src/backend/zlpcodegen/README.md	/^# Implementation$/;"	c
@@ -479,9 +632,9 @@ InstructionInfo	compilation/include/frontend/common/instruction.hpp	/^struct Ins
 InstructionList	compilation/include/frontend/common/instruction.hpp	/^using InstructionList = std::vector<Instruction>;$/;"	t	typeref:typename:std::vector<Instruction>
 InstructionParser	compilation/include/frontend/azlpparser/instruction_parser.hpp	/^struct InstructionParser final$/;"	s
 InstructionType	compilation/include/frontend/common/instruction.hpp	/^enum class InstructionType $/;"	g
-JUMP_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view JUMP_INSTR_NAME     = "JUMP";$/;"	v	typeref:typename:std::string_view
-LDREL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view LDREL_INSTR_NAME    = "LDREL";$/;"	v	typeref:typename:std::string_view
-LOAD_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view LOAD_INSTR_NAME     = "LOAD";$/;"	v	typeref:typename:std::string_view
+JUMP_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string JUMP_INSTR_NAME     = "JUMP";$/;"	v	typeref:typename:const std::string
+LDREL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string LDREL_INSTR_NAME    = "LDREL";$/;"	v	typeref:typename:const std::string
+LOAD_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string LOAD_INSTR_NAME     = "LOAD";$/;"	v	typeref:typename:const std::string
 LOW	compilation/include/frontend/common/logger.hpp	/^  LOW = 0,$/;"	e	enum:LogLevel
 Label	compilation/include/frontend/common/label.hpp	/^struct Label$/;"	s
 LabelList	compilation/include/frontend/common/label.hpp	/^using LabelList = std::vector<Label>;$/;"	t	typeref:typename:std::vector<Label>
@@ -494,22 +647,24 @@ MAX_ARG_CNT	compilation/include/frontend/common/operand.hpp	/^constexpr auto MAX
 MID	compilation/include/frontend/common/logger.hpp	/^  MID,$/;"	e	enum:LogLevel
 MINGW	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^  set(MINGW 1)$/;"	v
 MINGW	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^  set(MINGW 1)$/;"	v
-MOVE_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view MOVE_INSTR_NAME     = "MOVE";$/;"	v	typeref:typename:std::string_view
-MUL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view MUL_INSTR_NAME      = "MUL";$/;"	v	typeref:typename:std::string_view
+MINGW	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^  set(MINGW 1)$/;"	v
+MINGW	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^  set(MINGW 1)$/;"	v
+MOVE_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string MOVE_INSTR_NAME     = "MOVE";$/;"	v	typeref:typename:const std::string
+MUL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string MUL_INSTR_NAME      = "MUL";$/;"	v	typeref:typename:const std::string
 MainSection	compilation/include/frontend/azlpparser/parser_defs.hpp	/^struct MainSection$/;"	s
 MainSectionParser	compilation/include/frontend/azlpparser/main_section_parser.hpp	/^struct MainSectionParser$/;"	s
-NAND_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view NAND_INSTR_NAME     = "NAND";$/;"	v	typeref:typename:std::string_view
-NEG_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view NEG_INSTR_NAME      = "NEG";$/;"	v	typeref:typename:std::string_view
-NOP_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view NOP_INSTR_NAME      = "NOP";$/;"	v	typeref:typename:std::string_view
-NOR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view NOR_INSTR_NAME      = "NOR";$/;"	v	typeref:typename:std::string_view
-NOT_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view NOT_INSTR_NAME      = "NOT";$/;"	v	typeref:typename:std::string_view
-OR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view OR_INSTR_NAME       = "OR";$/;"	v	typeref:typename:std::string_view
+NAND_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string NAND_INSTR_NAME     = "NAND";$/;"	v	typeref:typename:const std::string
+NEG_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string NEG_INSTR_NAME      = "NEG";$/;"	v	typeref:typename:const std::string
+NOP_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string NOP_INSTR_NAME      = "NOP";$/;"	v	typeref:typename:const std::string
+NOR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string NOR_INSTR_NAME      = "NOR";$/;"	v	typeref:typename:const std::string
+NOT_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string NOT_INSTR_NAME      = "NOT";$/;"	v	typeref:typename:const std::string
+OR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string OR_INSTR_NAME       = "OR";$/;"	v	typeref:typename:const std::string
 OT_ARG	compilation/include/frontend/common/operand.hpp	/^    OT_ARG,         \/\/ Address reg index$/;"	e	enum:OperandType
-OT_IMM	compilation/include/frontend/common/operand.hpp	/^    OT_IMM,         \/\/ Immediate value$/;"	e	enum:OperandType
+OT_IMM	compilation/include/frontend/common/operand.hpp	/^    OT_IMM,         \/\/ Immediate value, used only with 'assign' command$/;"	e	enum:OperandType
 OT_NULL	compilation/include/frontend/common/operand.hpp	/^    OT_NULL = 0,    \/\/ Default value$/;"	e	enum:OperandType
 OT_REG	compilation/include/frontend/common/operand.hpp	/^    OT_REG,         \/\/ Register index$/;"	e	enum:OperandType
 OT_REG_ARG	compilation/include/frontend/common/operand.hpp	/^    OT_REG_ARG,     \/\/ REG or ARG(for example AN\/RN)$/;"	e	enum:OperandType
-OUT_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view OUT_INSTR_NAME      = "OUT";$/;"	v	typeref:typename:std::string_view
+OUT_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string OUT_INSTR_NAME      = "OUT";$/;"	v	typeref:typename:const std::string
 Operand	compilation/include/frontend/common/operand.hpp	/^struct Operand$/;"	s
 OperandList	compilation/include/frontend/common/operand.hpp	/^using OperandList = std::vector<Operand>;$/;"	t	typeref:typename:std::vector<Operand>
 OperandType	compilation/include/frontend/common/operand.hpp	/^enum class OperandType$/;"	g
@@ -521,17 +676,25 @@ PLATFORM_ID	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  de
 PLATFORM_ID	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define PLATFORM_ID$/;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID /;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID$/;"	d	file:
-POPSF_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view POPSF_INSTR_NAME    = "POPSF";$/;"	v	typeref:typename:std::string_view
-POP_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view POP_INSTR_NAME      = "POP";$/;"	v	typeref:typename:std::string_view
-PUSHA_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view PUSHA_INSTR_NAME    = "PUSHA";$/;"	v	typeref:typename:std::string_view
-PUSHSF_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view PUSHSF_INSTR_NAME   = "PUSHSF";$/;"	v	typeref:typename:std::string_view
-PUSH_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view PUSH_INSTR_NAME     = "PUSH";$/;"	v	typeref:typename:std::string_view
+PLATFORM_ID	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define PLATFORM_ID$/;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^# define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^# define PLATFORM_ID$/;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define PLATFORM_ID$/;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID$/;"	d	file:
+POPSF_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string POPSF_INSTR_NAME    = "POPSF";$/;"	v	typeref:typename:const std::string
+POP_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string POP_INSTR_NAME      = "POP";$/;"	v	typeref:typename:const std::string
+PUSHA_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string PUSHA_INSTR_NAME    = "PUSHA";$/;"	v	typeref:typename:const std::string
+PUSHSF_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string PUSHSF_INSTR_NAME   = "PUSHSF";$/;"	v	typeref:typename:const std::string
+PUSH_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string PUSH_INSTR_NAME     = "PUSH";$/;"	v	typeref:typename:const std::string
 Parser	compilation/include/frontend/azlpparser/parser.hpp	/^struct Parser$/;"	s
 Parser	compilation/src/frontend/azlpparser/parser.cpp	/^Parser::Parser()$/;"	f	class:Parser
 QWORD	compilation/include/frontend/common/type_defs.hpp	/^using QWORD = uint64_t;$/;"	t	typeref:typename:uint64_t
-RCL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view RCL_INSTR_NAME      = "RCL";$/;"	v	typeref:typename:std::string_view
-RCR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view RCR_INSTR_NAME      = "RCR";$/;"	v	typeref:typename:std::string_view
-RET_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view RET_INSTR_NAME      = "RET";$/;"	v	typeref:typename:std::string_view
+RCL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string RCL_INSTR_NAME      = "RCL";$/;"	v	typeref:typename:const std::string
+RCR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string RCR_INSTR_NAME      = "RCR";$/;"	v	typeref:typename:const std::string
+RET_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string RET_INSTR_NAME      = "RET";$/;"	v	typeref:typename:const std::string
 RM	build/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
 RM	build/apps/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
 RM	build/apps/main_driver/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
@@ -541,14 +704,14 @@ RM	build/compilation/src/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
 RM	build/compilation/src/frontend/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
 RM	build/compilation/src/frontend/azlpparser/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
 RM	build/compilation/src/frontend/common/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
-ROL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view ROL_INSTR_NAME      = "ROL";$/;"	v	typeref:typename:std::string_view
-ROR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view ROR_INSTR_NAME      = "ROR";$/;"	v	typeref:typename:std::string_view
+ROL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string ROL_INSTR_NAME      = "ROL";$/;"	v	typeref:typename:const std::string
+ROR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string ROR_INSTR_NAME      = "ROR";$/;"	v	typeref:typename:const std::string
 ResultType	compilation/include/frontend/common/instruction_envirnoment.hpp	/^  using ResultType  = std::optional<std::pair<std::string, InstructionType>>;$/;"	t	struct:InstructionEnvirnoment	typeref:typename:std::optional<std::pair<std::string,InstructionType>>
-SAL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view SAL_INSTR_NAME      = "SAL";$/;"	v	typeref:typename:std::string_view
-SAR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view SAR_INSTR_NAME      = "SAR";$/;"	v	typeref:typename:std::string_view
-SBB_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view SBB_INSTR_NAME      = "SBB";$/;"	v	typeref:typename:std::string_view
-SET_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view SET_INSTR_NAME      = "SET";$/;"	v	typeref:typename:std::string_view
-SFLR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view SFLR_INSTR_NAME     = "SFLR";$/;"	v	typeref:typename:std::string_view
+SAL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string SAL_INSTR_NAME      = "SAL";$/;"	v	typeref:typename:const std::string
+SAR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string SAR_INSTR_NAME      = "SAR";$/;"	v	typeref:typename:const std::string
+SBB_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string SBB_INSTR_NAME      = "SBB";$/;"	v	typeref:typename:const std::string
+SET_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string SET_INSTR_NAME      = "SET";$/;"	v	typeref:typename:const std::string
+SFLR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string SFLR_INSTR_NAME     = "SFLR";$/;"	v	typeref:typename:const std::string
 SHELL	build/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SHELL	build/apps/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SHELL	build/apps/main_driver/Makefile	/^SHELL = \/bin\/sh$/;"	m
@@ -558,24 +721,36 @@ SHELL	build/compilation/src/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SHELL	build/compilation/src/frontend/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SHELL	build/compilation/src/frontend/azlpparser/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SHELL	build/compilation/src/frontend/common/Makefile	/^SHELL = \/bin\/sh$/;"	m
-SHL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view SHL_INSTR_NAME      = "SHL";$/;"	v	typeref:typename:std::string_view
-SHR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view SHR_INSTR_NAME      = "SHR";$/;"	v	typeref:typename:std::string_view
+SHL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string SHL_INSTR_NAME      = "SHL";$/;"	v	typeref:typename:const std::string
+SHR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string SHR_INSTR_NAME      = "SHR";$/;"	v	typeref:typename:const std::string
 SIMULATE_ID	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_ID /;"	d	file:
 SIMULATE_ID	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_ID /;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_ID /;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_ID /;"	d	file:
 SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_MAJOR /;"	d	file:
 SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_MAJOR /;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_MAJOR /;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_MAJOR /;"	d	file:
 SIMULATE_VERSION_MINOR	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_MINOR /;"	d	file:
 SIMULATE_VERSION_MINOR	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_MINOR /;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_MINOR /;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_MINOR /;"	d	file:
 SIMULATE_VERSION_PATCH	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_PATCH /;"	d	file:
 SIMULATE_VERSION_PATCH	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_PATCH /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_PATCH /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_PATCH /;"	d	file:
 STACK_SEC_NAME	compilation/include/frontend/azlpparser/lexer_defs.hpp	/^static const std::string STACK_SEC_NAME = ".STACK";$/;"	v	typeref:typename:const std::string
-STORE_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view STORE_INSTR_NAME    = "STORE";$/;"	v	typeref:typename:std::string_view
-STREL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view STREL_INSTR_NAME    = "STREL";$/;"	v	typeref:typename:std::string_view
+STORE_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string STORE_INSTR_NAME    = "STORE";$/;"	v	typeref:typename:const std::string
+STREL_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string STREL_INSTR_NAME    = "STREL";$/;"	v	typeref:typename:const std::string
 STRINGIFY	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY(/;"	d	file:
 STRINGIFY	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define STRINGIFY(/;"	d	file:
+STRINGIFY	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY(/;"	d	file:
+STRINGIFY	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define STRINGIFY(/;"	d	file:
 STRINGIFY_HELPER	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY_HELPER(/;"	d	file:
 STRINGIFY_HELPER	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define STRINGIFY_HELPER(/;"	d	file:
-SUB_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view SUB_INSTR_NAME      = "SUB";$/;"	v	typeref:typename:std::string_view
+STRINGIFY_HELPER	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY_HELPER(/;"	d	file:
+STRINGIFY_HELPER	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define STRINGIFY_HELPER(/;"	d	file:
+SUB_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string SUB_INSTR_NAME      = "SUB";$/;"	v	typeref:typename:const std::string
 SUFFIXES	build/Makefile	/^SUFFIXES =$/;"	m
 SUFFIXES	build/apps/Makefile	/^SUFFIXES =$/;"	m
 SUFFIXES	build/apps/main_driver/Makefile	/^SUFFIXES =$/;"	m
@@ -585,7 +760,7 @@ SUFFIXES	build/compilation/src/Makefile	/^SUFFIXES =$/;"	m
 SUFFIXES	build/compilation/src/frontend/Makefile	/^SUFFIXES =$/;"	m
 SUFFIXES	build/compilation/src/frontend/azlpparser/Makefile	/^SUFFIXES =$/;"	m
 SUFFIXES	build/compilation/src/frontend/common/Makefile	/^SUFFIXES =$/;"	m
-SWAP_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view SWAP_INSTR_NAME     = "SWAP";$/;"	v	typeref:typename:std::string_view
+SWAP_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string SWAP_INSTR_NAME     = "SWAP";$/;"	v	typeref:typename:const std::string
 Scripts for project management	scripts/README.md	/^# Scripts for project management$/;"	c
 Second	compilation/include/frontend/common/operand.hpp	/^    Second,$/;"	e	enum:ArgPos
 Setup testing	tests/README.md	/^# Setup testing$/;"	c
@@ -593,10 +768,15 @@ StackSection	compilation/include/frontend/azlpparser/parser_defs.hpp	/^struct St
 StackSectionParser	compilation/include/frontend/azlpparser/stack_section_parser.hpp	/^class StackSectionParser$/;"	c
 StackSectionParserUtilities	compilation/include/frontend/azlpparser/stack_section_parser_utilities.hpp	/^namespace StackSectionParserUtilities$/;"	n
 StringVector	compilation/include/frontend/common/common.hpp	/^using StringVector = std::vector<std::string>;$/;"	t	typeref:typename:std::vector<std::string>
-TEST_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view TEST_INSTR_NAME     = "TEST";$/;"	v	typeref:typename:std::string_view
+TEST_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string TEST_INSTR_NAME     = "TEST";$/;"	v	typeref:typename:const std::string
 Third	compilation/include/frontend/common/operand.hpp	/^    Third$/;"	e	enum:ArgPos
+TranslationResult	compilation/include/backend/zlpcodegen/interface_translator_impl.hpp	/^  using TranslationResult = std::pair<bool, ByteVec>;$/;"	t	struct:ITranslatorImpl	typeref:typename:std::pair<bool,ByteVec>
+Translator	compilation/include/backend/zlpcodegen/translator.hpp	/^struct Translator$/;"	s
 UNIX	build/CMakeFiles/3.15.0/CMakeCCompiler.cmake	/^  set(UNIX 1)$/;"	v
 UNIX	build/CMakeFiles/3.15.0/CMakeCXXCompiler.cmake	/^  set(UNIX 1)$/;"	v
+UNIX	build/CMakeFiles/3.15.1/CMakeCCompiler.cmake	/^  set(UNIX 1)$/;"	v
+UNIX	build/CMakeFiles/3.15.1/CMakeCXXCompiler.cmake	/^  set(UNIX 1)$/;"	v
+UniqueTransPtr	compilation/include/backend/zlpcodegen/translator_defs.hpp	/^using UniqueTransPtr = std::unique_ptr<ITranslatorImpl>;$/;"	t	typeref:typename:std::unique_ptr<ITranslatorImpl>
 VM_DEFAULT_STACK_SIZE	runtime/include/vm/vm_config.hpp	/^static std::size_t VM_DEFAULT_STACK_SIZE = 1024;$/;"	v	typeref:typename:std::size_t
 VM_INC	compilation/src/frontend/azlpparser/CMakeLists.txt	/^set(VM_INC "${CMAKE_SOURCE_DIR}\/runtime\/include\/vm\/")$/;"	v
 VM_INC	compilation/src/frontend/common/CMakeLists.txt	/^set(VM_INC "${CMAKE_SOURCE_DIR}\/runtime\/include\/vm")$/;"	v
@@ -609,10 +789,12 @@ Virtual Machine	runtime/include/vm/README.md	/^# Virtual Machine$/;"	c
 Virtual Machine	runtime/src/vm/README.md	/^# Virtual Machine$/;"	c
 VirtualMachine	runtime/include/vm/vm.hpp	/^struct VirtualMachine$/;"	s
 WORD	compilation/include/frontend/common/type_defs.hpp	/^using WORD  = uint16_t;$/;"	t	typeref:typename:uint16_t
-XOR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^constexpr std::string_view XOR_INSTR_NAME      = "XOR";$/;"	v	typeref:typename:std::string_view
+XOR_INSTR_NAME	compilation/include/frontend/common/instruction_envirnoment.hpp	/^const std::string XOR_INSTR_NAME      = "XOR";$/;"	v	typeref:typename:const std::string
+__anon6a3eee0c0102	compilation/include/frontend/azlpparser/parser_defs.hpp	/^        { return fn.name_ == name; }) != std::end(code_);$/;"	f	function:CodeSection::functionExists	file:
 __anon756d87960102	compilation/src/frontend/common/utility.cpp	/^    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch) {$/;"	f	function:utility::ltrim	file:
 __anon756d87960202	compilation/src/frontend/common/utility.cpp	/^    s.erase(std::find_if(s.rbegin(), s.rend(), [](int ch) {$/;"	f	function:utility::rtrim	file:
 __anon756d87960302	compilation/src/frontend/common/utility.cpp	/^        s.end(), [](char c) { return !std::isdigit(c); }) == s.end();$/;"	f	function:utility::is_number	file:
+__anon9f08a30c010a	compilation/include/frontend/common/operand.hpp	/^    {$/;"	u	struct:Operand
 __anonea131db80102	compilation/src/frontend/common/instruction_envirnoment.cpp	/^  auto findByName = [&name](const ValueType& value) {$/;"	f	function:InstructionEnvirnoment::findInstructionName	file:
 all	build/Makefile	/^all: cmake_check_build_system$/;"	t
 all	build/apps/Makefile	/^all: cmake_check_build_system$/;"	t
@@ -626,7 +808,7 @@ all	build/compilation/src/frontend/common/Makefile	/^all: cmake_check_build_syst
 apps/main_driver/src/CMakeFiles/main_driver.dir/rule	build/apps/main_driver/src/Makefile	/^apps\/main_driver\/src\/CMakeFiles\/main_driver.dir\/rule:$/;"	t
 areEqual	compilation/src/frontend/common/variable.cpp	/^bool Variable::areEqual(const Variable& var1, const Variable& var2)$/;"	f	class:Variable	typeref:typename:bool
 arrayExists	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  bool arrayExists(const std::string& name) { return false; }$/;"	f	struct:DataSection	typeref:typename:bool
-arrayMap_	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  std::unordered_map<std::string, Array>    arrayMap_;  $/;"	m	struct:DataSection	typeref:typename:std::unordered_map<std::string,Array>
+arrayMap_	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  std::unordered_map<std::string, Array> arrayMap_;  $/;"	m	struct:DataSection	typeref:typename:std::unordered_map<std::string,Array>
 azlpparser	build/Makefile	/^azlpparser: cmake_check_build_system$/;"	t
 azlpparser	build/compilation/src/frontend/azlpparser/Makefile	/^azlpparser: compilation\/src\/frontend\/azlpparser\/CMakeFiles\/azlpparser.dir\/rule$/;"	t
 azlpparser	compilation/src/frontend/azlpparser/CMakeLists.txt	/^add_library(azlpparser STATIC ${AZLPPARSER_CPP} ${AZLPPARSER_HPP})$/;"	t
@@ -694,6 +876,7 @@ common/fast	build/compilation/src/frontend/common/Makefile	/^common\/fast:$/;"	t
 compilation/src/frontend/azlpparser/CMakeFiles/azlpparser.dir/rule	build/compilation/src/frontend/azlpparser/Makefile	/^compilation\/src\/frontend\/azlpparser\/CMakeFiles\/azlpparser.dir\/rule:$/;"	t
 compilation/src/frontend/common/CMakeFiles/common.dir/rule	build/compilation/src/frontend/common/Makefile	/^compilation\/src\/frontend\/common\/CMakeFiles\/common.dir\/rule:$/;"	t
 const	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^# define const$/;"	d	file:
+const	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^# define const$/;"	d	file:
 convertBoolToString	compilation/src/frontend/common/utility.cpp	/^std::string utility::convertBoolToString(const bool value)$/;"	f	class:utility	typeref:typename:std::string
 convertVectorOfStringToString	compilation/src/frontend/common/utility.cpp	/^std::string utility::convertVectorOfStringToString(const std::vector<std::string>& strings)$/;"	f	class:utility	typeref:typename:std::string
 dataSec_	compilation/include/frontend/azlpparser/parser.hpp	/^  DataSection   dataSec_{};$/;"	m	struct:Parser	typeref:typename:DataSection
@@ -752,12 +935,13 @@ endOfFunctionDecl	compilation/src/frontend/azlpparser/code_section_parser.cpp	/^
 env_	compilation/include/frontend/azlpparser/instruction_parser.hpp	/^    InstructionEnvirnoment            env_{};$/;"	m	struct:InstructionParser	typeref:typename:InstructionEnvirnoment
 ex_	compilation/include/frontend/common/instruction.hpp	/^  Extensions::Extension ex_{Extensions::Extension::EXT_DWORD};$/;"	m	struct:Instruction	typeref:typename:Extensions::Extension
 ext_	compilation/include/frontend/common/instruction.hpp	/^    bool                    ext_{false};$/;"	m	struct:InstructionInfo	typeref:typename:bool
+extensionToString	compilation/include/frontend/common/extension_defs.hpp	/^static std::string extensionToString(Extension ext)$/;"	f	namespace:Extensions	typeref:typename:std::string
 findInstructionName	compilation/src/frontend/common/instruction_envirnoment.cpp	/^InstructionEnvirnoment::findInstructionName(const std::string& name)$/;"	f	class:InstructionEnvirnoment	typeref:typename:InstructionEnvirnoment::ResultType
 find_and_replace	compilation/src/frontend/common/utility.cpp	/^void utility::find_and_replace(std::string& str,$/;"	f	class:utility	typeref:typename:void
 functionCount_	compilation/include/frontend/azlpparser/code_section_parser.hpp	/^    int functionCount_{0};$/;"	m	class:CodeSectionParser	typeref:typename:int
 functionCount_	compilation/include/frontend/azlpparser/lexer.hpp	/^    std::size_t functionCount_{0};$/;"	m	struct:Lexer	typeref:typename:std::size_t
 functionExists	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  bool functionExists(const Function& name) { return false; }$/;"	f	struct:CodeSection	typeref:typename:bool
-functionExists	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  bool functionExists(const std::string& name) { return false; }$/;"	f	struct:CodeSection	typeref:typename:bool
+functionExists	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  bool functionExists(const std::string& name) $/;"	f	struct:CodeSection	typeref:typename:bool
 getArray	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  const Array& getArray(const std::string& name) { }$/;"	f	struct:DataSection	typeref:typename:const Array &
 getArrayName	compilation/src/frontend/azlpparser/data_section_parser.cpp	/^std::string DataSectionParser::getArrayName(const std::string& line)$/;"	f	class:DataSectionParser	typeref:typename:std::string
 getArraySize	compilation/src/frontend/azlpparser/data_section_parser.cpp	/^std::pair<bool, std::size_t> DataSectionParser::getArraySize(const std::string& line)$/;"	f	class:DataSectionParser	typeref:typename:std::pair<bool,std::size_t>
@@ -786,29 +970,50 @@ help	build/compilation/src/Makefile	/^help:$/;"	t
 help	build/compilation/src/frontend/Makefile	/^help:$/;"	t
 help	build/compilation/src/frontend/azlpparser/Makefile	/^help:$/;"	t
 help	build/compilation/src/frontend/common/Makefile	/^help:$/;"	t
+i16	compilation/include/frontend/common/operand.hpp	/^      int16_t i16;$/;"	m	union:Operand::__anon9f08a30c010a	typeref:typename:int16_t
+i32	compilation/include/frontend/common/operand.hpp	/^      int32_t i32;$/;"	m	union:Operand::__anon9f08a30c010a	typeref:typename:int32_t
+i8	compilation/include/frontend/common/operand.hpp	/^      int8_t i8;$/;"	m	union:Operand::__anon9f08a30c010a	typeref:typename:int8_t
 immtype_	compilation/include/frontend/common/instruction.hpp	/^    ImmediateValueType      immtype_{ImmediateValueType::IMVNULL};$/;"	m	struct:InstructionInfo	typeref:typename:ImmediateValueType
 immtype_	compilation/include/frontend/common/instruction.hpp	/^  ImmediateValueType    immtype_{};$/;"	m	struct:Instruction	typeref:typename:ImmediateValueType
-index_	compilation/include/frontend/common/operand.hpp	/^    std::size_t index_{ 0 };$/;"	m	struct:Operand	typeref:typename:std::size_t
+index_	compilation/include/frontend/common/operand.hpp	/^      std::size_t index_{ 0 };$/;"	m	union:Operand::__anon9f08a30c010a	typeref:typename:std::size_t
 info_arch	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v	typeref:typename:char const *
 info_arch	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v	typeref:typename:char const *
+info_arch	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v	typeref:typename:char const *
+info_arch	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v	typeref:typename:char const *
 info_compiler	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v	typeref:typename:char const *
 info_compiler	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v	typeref:typename:char const *
+info_compiler	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v	typeref:typename:char const *
+info_compiler	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v	typeref:typename:char const *
 info_cray	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";$/;"	v	typeref:typename:char const *
 info_cray	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";$/;"	v	typeref:typename:char const *
+info_cray	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";$/;"	v	typeref:typename:char const *
+info_cray	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";$/;"	v	typeref:typename:char const *
 info_language_dialect_default	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^const char* info_language_dialect_default =$/;"	v	typeref:typename:const char *
 info_language_dialect_default	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^const char* info_language_dialect_default = "INFO" ":" "dialect_default["$/;"	v	typeref:typename:const char *
+info_language_dialect_default	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^const char* info_language_dialect_default =$/;"	v	typeref:typename:const char *
+info_language_dialect_default	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^const char* info_language_dialect_default = "INFO" ":" "dialect_default["$/;"	v	typeref:typename:const char *
 info_platform	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v	typeref:typename:char const *
 info_platform	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v	typeref:typename:char const *
+info_platform	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v	typeref:typename:char const *
+info_platform	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v	typeref:typename:char const *
 info_simulate	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v	typeref:typename:char const *
 info_simulate	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v	typeref:typename:char const *
+info_simulate	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v	typeref:typename:char const *
+info_simulate	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v	typeref:typename:char const *
 info_simulate_version	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^char const info_simulate_version[] = {$/;"	v	typeref:typename:char const[]
 info_simulate_version	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_simulate_version[] = {$/;"	v	typeref:typename:char const[]
+info_simulate_version	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^char const info_simulate_version[] = {$/;"	v	typeref:typename:char const[]
+info_simulate_version	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_simulate_version[] = {$/;"	v	typeref:typename:char const[]
 info_version	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^char const info_version[] = {$/;"	v	typeref:typename:char const[]
 info_version	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version[] = {$/;"	v	typeref:typename:char const[]
+info_version	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^char const info_version[] = {$/;"	v	typeref:typename:char const[]
+info_version	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version[] = {$/;"	v	typeref:typename:char const[]
 info_version_internal	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^char const info_version_internal[] = {$/;"	v	typeref:typename:char const[]
 info_version_internal	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version_internal[] = {$/;"	v	typeref:typename:char const[]
+info_version_internal	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^char const info_version_internal[] = {$/;"	v	typeref:typename:char const[]
+info_version_internal	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version_internal[] = {$/;"	v	typeref:typename:char const[]
 insertArray	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  void insertArray(const std::string& name, const Array& var) {}$/;"	f	struct:DataSection	typeref:typename:void
-insertFunction	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  void insertFunction(const Function& function) {}$/;"	f	struct:CodeSection	typeref:typename:void
+insertFunction	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  void insertFunction(const Function& function) $/;"	f	struct:CodeSection	typeref:typename:void
 insertVariable	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  void insertVariable(const std::string& name, const Variable& var) {}$/;"	f	struct:DataSection	typeref:typename:void
 instrIndex_	compilation/include/frontend/common/label.hpp	/^  std::size_t       instrIndex_{}; $/;"	m	struct:Label	typeref:typename:std::size_t
 instructionRange	compilation/include/frontend/common/instruction_envirnoment.hpp	/^  auto instructionRange(const std::string& name)$/;"	f	struct:InstructionEnvirnoment	typeref:typename:auto
@@ -850,6 +1055,7 @@ lexer.cpp.s	build/compilation/src/frontend/azlpparser/Makefile	/^lexer.cpp.s:$/;
 lexer.i	build/compilation/src/frontend/azlpparser/Makefile	/^lexer.i: lexer.cpp.i$/;"	t
 lexer.o	build/compilation/src/frontend/azlpparser/Makefile	/^lexer.o: lexer.cpp.o$/;"	t
 lexer.s	build/compilation/src/frontend/azlpparser/Makefile	/^lexer.s: lexer.cpp.s$/;"	t
+lineNumber	compilation/include/frontend/azlpparser/lexer.hpp	/^    std::size_t lineNumber() const$/;"	f	struct:Lexer	typeref:typename:std::size_t
 lineNumber_	compilation/include/frontend/azlpparser/code_section_parser.hpp	/^    int lineNumber_{0};$/;"	m	class:CodeSectionParser	typeref:typename:int
 lineNumber_	compilation/include/frontend/azlpparser/data_section_parser.hpp	/^    int lineNumber_{0};$/;"	m	class:DataSectionParser	typeref:typename:int
 lineNumber_	compilation/include/frontend/azlpparser/instruction_parser.hpp	/^    std::size_t lineNumber_{0};$/;"	m	struct:InstructionParser	typeref:typename:std::size_t
@@ -867,6 +1073,9 @@ main	apps/main_driver/src/main.cpp	/^int main(int argc, char *argv[])$/;"	f	type
 main	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^int main(argc, argv) int argc; char *argv[];$/;"	f
 main	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	f	typeref:typename:void
 main	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^int main(int argc, char* argv[])$/;"	f	typeref:typename:int
+main	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^int main(argc, argv) int argc; char *argv[];$/;"	f
+main	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	f	typeref:typename:void
+main	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^int main(int argc, char* argv[])$/;"	f	typeref:typename:int
 main.cpp.i	build/apps/main_driver/src/Makefile	/^main.cpp.i:$/;"	t
 main.cpp.o	build/apps/main_driver/src/Makefile	/^main.cpp.o:$/;"	t
 main.cpp.s	build/apps/main_driver/src/Makefile	/^main.cpp.s:$/;"	t
@@ -890,9 +1099,13 @@ name_	compilation/include/frontend/common/array.hpp	/^  std::string             
 name_	compilation/include/frontend/common/function.hpp	/^  std::string     name_{};$/;"	m	struct:Function	typeref:typename:std::string
 name_	compilation/include/frontend/common/label.hpp	/^  std::string       name_{};$/;"	m	struct:Label	typeref:typename:std::string
 name_	compilation/include/frontend/common/variable.hpp	/^  std::string name_{};$/;"	m	struct:Variable	typeref:typename:std::string
+opcnt_	compilation/include/frontend/common/instruction.hpp	/^    std::size_t             opcnt_{0};$/;"	m	struct:InstructionInfo	typeref:typename:std::size_t
+operator !=	compilation/include/frontend/common/operand.hpp	/^    bool operator!=(const Operand& other)$/;"	f	struct:Operand	typeref:typename:bool
+operator ==	compilation/include/frontend/common/operand.hpp	/^    bool operator==(const Operand& other)$/;"	f	struct:Operand	typeref:typename:bool
 oplst_	compilation/include/frontend/common/instruction.hpp	/^    Operand                 oplst_[MAX_ARG_CNT]{ {OperandType::OT_NULL, 0}};$/;"	m	struct:InstructionInfo	typeref:typename:Operand[]
 oplst_	compilation/include/frontend/common/instruction.hpp	/^  OperandList           oplst_;$/;"	m	struct:Instruction	typeref:typename:OperandList
 pLexer_	compilation/include/frontend/azlpparser/parser.hpp	/^  LexerPtr      pLexer_{nullptr};$/;"	m	struct:Parser	typeref:typename:LexerPtr
+pTransImpl_	compilation/include/backend/zlpcodegen/translator.hpp	/^  UniqueTransPtr pTransImpl_{nullptr};$/;"	m	struct:Translator	typeref:typename:UniqueTransPtr
 parse	compilation/src/frontend/azlpparser/code_section_parser.cpp	/^CodeSection CodeSectionParser::parse(std::fstream &inputStream)$/;"	f	class:CodeSectionParser	typeref:typename:CodeSection
 parse	compilation/src/frontend/azlpparser/data_section_parser.cpp	/^DataSection DataSectionParser::parse(std::fstream& inputStream)$/;"	f	class:DataSectionParser	typeref:typename:DataSection
 parse	compilation/src/frontend/azlpparser/instruction_parser.cpp	/^std::pair<bool, Instruction> InstructionParser::parse(std::string line)$/;"	f	class:InstructionParser	typeref:typename:std::pair<bool,Instruction>
@@ -934,12 +1147,15 @@ preinstall/fast	build/compilation/src/frontend/Makefile	/^preinstall\/fast:$/;"	
 preinstall/fast	build/compilation/src/frontend/azlpparser/Makefile	/^preinstall\/fast:$/;"	t
 preinstall/fast	build/compilation/src/frontend/common/Makefile	/^preinstall\/fast:$/;"	t
 printArray	compilation/include/frontend/common/debug.hpp	/^inline void printArray(const Array& array)$/;"	f	typeref:typename:void
+printInstruction	compilation/include/frontend/common/debug.hpp	/^inline void printInstruction(const Instruction& instr)$/;"	f	typeref:typename:void
 printMessage	compilation/src/frontend/common/logger.cpp	/^void Logger::printMessage(const std::string& msg, LogLevel lvl)$/;"	f	class:Logger	typeref:typename:void
 printStackSection	compilation/include/frontend/common/debug.hpp	/^inline void printStackSection(const StackSection& stackSec)$/;"	f	typeref:typename:void
 printUsage	apps/main_driver/src/main.cpp	/^void printUsage()$/;"	f	typeref:typename:void
 printVariable	compilation/include/frontend/common/debug.hpp	/^inline void printVariable(const Variable& variable)$/;"	f	typeref:typename:void
 qnxnto	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v	typeref:typename:char const *
 qnxnto	build/CMakeFiles/3.15.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v	typeref:typename:char const *
+qnxnto	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v	typeref:typename:char const *
+qnxnto	build/CMakeFiles/3.15.1/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v	typeref:typename:char const *
 qword	compilation/include/frontend/common/immediate_value.hpp	/^        int64_t qword;$/;"	m	union:ImmediateValue::IMV	typeref:typename:int64_t
 rebuild_cache	build/Makefile	/^rebuild_cache:$/;"	t
 rebuild_cache	build/apps/Makefile	/^rebuild_cache:$/;"	t
@@ -967,6 +1183,7 @@ setDefaultStackSize	compilation/src/frontend/azlpparser/stack_section_parser.cpp
 setLineNumber	compilation/include/frontend/azlpparser/code_section_parser.hpp	/^    void setLineNumber(int lineNumber) { lineNumber_ = lineNumber; }$/;"	f	class:CodeSectionParser	typeref:typename:void
 setLineNumber	compilation/include/frontend/azlpparser/data_section_parser.hpp	/^    void setLineNumber(int lineNumber) { lineNumber_ = lineNumber; }$/;"	f	class:DataSectionParser	typeref:typename:void
 setLineNumber	compilation/include/frontend/azlpparser/stack_section_parser.hpp	/^        void setLineNumber(int lineNumber) { lineNumber_ = lineNumber; }$/;"	f	class:StackSectionParser	typeref:typename:void
+setTranslator	compilation/include/backend/zlpcodegen/translator.hpp	/^  void setTranslator(UniqueTransPtr&& transPtr)$/;"	f	struct:Translator	typeref:typename:void
 size_	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  std::size_t size_{};$/;"	m	struct:StackSection	typeref:typename:std::size_t
 size_	compilation/include/frontend/common/array.hpp	/^  std::size_t               size_{};$/;"	m	struct:Array	typeref:typename:std::size_t
 stackSec_	compilation/include/frontend/azlpparser/parser.hpp	/^  StackSection  stackSec_{};$/;"	m	struct:Parser	typeref:typename:StackSection
@@ -997,6 +1214,9 @@ type_	compilation/include/frontend/common/operand.hpp	/^    OperandType type_{ O
 type_	compilation/include/frontend/common/variable.hpp	/^  ValueType   type_{};$/;"	m	struct:Variable	typeref:typename:ValueType
 ubyte	compilation/include/frontend/common/immediate_value.hpp	/^        uint8_t  ubyte;$/;"	m	union:ImmediateValue::IMV	typeref:typename:uint8_t
 udword	compilation/include/frontend/common/immediate_value.hpp	/^        uint32_t udword;$/;"	m	union:ImmediateValue::IMV	typeref:typename:uint32_t
+ui16	compilation/include/frontend/common/operand.hpp	/^      uint16_t ui16;$/;"	m	union:Operand::__anon9f08a30c010a	typeref:typename:uint16_t
+ui32	compilation/include/frontend/common/operand.hpp	/^      uint32_t ui32;$/;"	m	union:Operand::__anon9f08a30c010a	typeref:typename:uint32_t
+ui8	compilation/include/frontend/common/operand.hpp	/^      uint8_t ui8;$/;"	m	union:Operand::__anon9f08a30c010a	typeref:typename:uint8_t
 uqword	compilation/include/frontend/common/immediate_value.hpp	/^        uint64_t uqword;$/;"	m	union:ImmediateValue::IMV	typeref:typename:uint64_t
 utility	compilation/include/frontend/common/utility.hpp	/^namespace utility {$/;"	n
 utility.cpp.i	build/compilation/src/frontend/common/Makefile	/^utility.cpp.i:$/;"	t
@@ -1018,7 +1238,8 @@ variable.i	build/compilation/src/frontend/common/Makefile	/^variable.i: variable
 variable.o	build/compilation/src/frontend/common/Makefile	/^variable.o: variable.cpp.o$/;"	t
 variable.s	build/compilation/src/frontend/common/Makefile	/^variable.s: variable.cpp.s$/;"	t
 variableExists	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  bool variableExists(const std::string& name) {return false;}$/;"	f	struct:DataSection	typeref:typename:bool
-variableMap_	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  private: std::unordered_map<std::string, Variable> variableMap_;  $/;"	m	struct:DataSection	typeref:typename:std::unordered_map<std::string,Variable>
+variableMap_	compilation/include/frontend/azlpparser/parser_defs.hpp	/^  std::unordered_map<std::string, Variable> variableMap_;  $/;"	m	struct:DataSection	typeref:typename:std::unordered_map<std::string,Variable>
 volatile	build/CMakeFiles/3.15.0/CompilerIdC/CMakeCCompilerId.c	/^# define volatile$/;"	d	file:
+volatile	build/CMakeFiles/3.15.1/CompilerIdC/CMakeCCompilerId.c	/^# define volatile$/;"	d	file:
 word	compilation/include/frontend/common/immediate_value.hpp	/^        int16_t word;$/;"	m	union:ImmediateValue::IMV	typeref:typename:int16_t
 zpl	CMakeLists.txt	/^project(zpl)$/;"	p

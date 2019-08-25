@@ -10,6 +10,7 @@
 #include "parser_defs.hpp"
 #include "array.hpp"
 #include "utility.hpp"
+#include "instruction.hpp"
 #endif
 
 inline void printStackSection(const StackSection& stackSec)
@@ -114,5 +115,21 @@ inline void printVariable(const Variable& variable)
 
   Logger::printMessage(variableInfo, LogLevel::DEBUG);
   std::cout << std::endl;
+#endif
+}
+
+inline void printInstruction(const Instruction& instr)
+{
+#ifdef DEBUG_MODE
+  const std::string prefix = "\n<InstructionInfo: ";
+
+  std::string padding = std::string(prefix.size(), '-');
+  padding += "> ";
+
+  const std::string postfix = "\nEND InstructionInfo>";
+
+  std::string variableInfo;
+  variableInfo += prefix;
+
 #endif
 }

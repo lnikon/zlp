@@ -5,6 +5,8 @@
 #include "stack_section_parser_utilities.hpp"
 #include "data_section_parser_utilities.hpp"
 
+#include <string>
+
 Parser::Parser()
 {
   pLexer_ = std::make_unique<Lexer>();

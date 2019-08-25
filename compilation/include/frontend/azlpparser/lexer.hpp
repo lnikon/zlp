@@ -16,6 +16,11 @@ struct Lexer
     CodeSection  parseCodeSection(std::fstream& inputStream);
     MainSection  parseMainSection(std::fstream& inputStream);
 
+    std::size_t lineNumber() const
+    {
+      return lineNumber_;
+    }
+
     private:
     /*
      * Parsers for general sections

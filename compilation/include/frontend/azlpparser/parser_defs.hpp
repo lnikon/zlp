@@ -1,6 +1,9 @@
 #pragma once
 
+#include <algorithm>
+#include <iterator>
 #include <unordered_map>
+#include <vector>
 
 #include "common.hpp"
 #include "vm_config.hpp"
@@ -55,8 +58,9 @@ struct DataSection
     return arrs;
   }
 
-  private: std::unordered_map<std::string, Variable> variableMap_;  
-  std::unordered_map<std::string, Array>    arrayMap_;  
+  private: 
+  std::unordered_map<std::string, Variable> variableMap_;  
+  std::unordered_map<std::string, Array> arrayMap_;  
 };
 
 /*
@@ -66,9 +70,20 @@ struct CodeSection
 {
   FunctionList code_{};
 
-  void insertFunction(const Function& function) {}
+  void insertFunction(const Function& function) 
+  {
+    code_.emplace_back(function);
+  }
+
   bool isForwardDeclared(const std::string& name) { return false; }
-  bool functionExists(const std::string& name) { return false; }
+ 
+  bool functionExists(const std::string& name) 
+  {
+    return 
+      std::find_if(std::begin(code_), std::end(code_), [&name](const auto& fn) 
+        { return fn.name_ == name; }) != std::end(code_);
+  }
+
   bool functionExists(const Function& name) { return false; }
 };
 

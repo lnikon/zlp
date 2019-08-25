@@ -12,9 +12,10 @@ std::pair<bool, Instruction> InstructionParser::parse(std::string line)
 
 std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string& line)
 {
+  /* Instruction parsing starts here */
   bool isInstr = false;
-  Instruction instruction;
 
+  // Use index for token lookahead
   std::size_t nextToken = 0;
 
   StringVector tokens;
@@ -28,21 +29,36 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
   std::string instrName = tokens[nextToken++];
   utility::trim(instrName);
 
+  // Use instruction info for internal representation matching
   InstructionInfo instrInfo;
   instrInfo.type_ = InstructionType::IT_NOP;
 
+  // Actual instruction which will be returned
+  Instruction instr;
+  
   if(tokens.size() < 2)
   {
-    return std::make_pair(isInstr, instruction);
+    return std::make_pair(isInstr, instr);
   }
 
-  std::string opSize = tokens[nextToken];
-  if(auto [ok, ext] = isExtension(opSize); ok)
+  // Store externsion for operands
+  std::string opSize = tokens[nextToken]; 
+
+  // Holds true, if extension is present
+  bool extOk = false;
+
+  // Default extension should be DoubleWord
+  Extensions::Extension ext = Extensions::Extension::EXT_DWORD;
+  
+  // Unpack result
+  // If extensions is present, increment lookahead
+  if(std::tie(extOk, ext) = isExtension(opSize); extOk)
   {
-    instrInfo.ext_ = ok;
+    instrInfo.ext_ = extOk;
     nextToken++;
   }
 
+  // Parse argument
   for(std::size_t argIdx = 0; argIdx < MAX_ARG_CNT; ++argIdx)
   {
     if(nextToken == tokens.size())
@@ -58,22 +74,30 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
         ++nextToken;
     }
   }
+  /* Instruction parsing is done */
 
+  /* Try to match parsed instruction by one of internal representations */
+  bool isMatched = false;
   auto itInstrRange = env_.instructionRange(instrName);    
   for(auto itInstrRangeBegin = itInstrRange.first;
       itInstrRangeBegin != itInstrRange.second;
       ++itInstrRangeBegin)
   {
+    // For now, skip matching by conditional code
+ 
+    // Match by extension
     if(itInstrRangeBegin->second.ext_ != instrInfo.ext_)
     {
         continue;
     }
 
+    // Match by operand count
     if(itInstrRangeBegin->second.opcnt_ != instrInfo.opcnt_)
     {
         continue;
     }
 
+    // Match by types of operands
     for(std::size_t idx = 0; idx < instrInfo.opcnt_; ++idx)
     {
         if(itInstrRangeBegin->second.oplst_[idx] != instrInfo.oplst_[idx])
@@ -81,9 +105,38 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
             break;
         }
     }
+
+    isMatched = true;
   } 
 
-  return std::make_pair(isInstr, instruction);
+  if(!isMatched)
+  {
+    return std::make_pair(isInstr, instr);
+  }
+
+  // Create actual instruction from the information that we've actually got
+  // Copy instruction type
+  instr.type_ = instrInfo.type_;
+
+  // Assign actual extension
+  if(instrInfo.ext_)
+  {
+    instr.ex_ = ext;
+  }
+
+  // Handle conditional code
+  instr.cnd_ = instrInfo.cnd_;
+
+  // Handle arguments
+  for(std::size_t opidx = 0; opidx < instrInfo.opcnt_; ++opidx)
+  {
+    instr.oplst_.emplace_back(instrInfo.oplst_[opidx]);
+  }
+
+  /* TODO: Add support for immediate values */
+
+  isInstr = true;
+  return std::make_pair(isInstr, instr);
 }
 
 std::pair<bool, InstructionType> InstructionParser::isInstructionType(const std::string& token)
@@ -132,6 +185,11 @@ std::pair<bool, Operand> InstructionParser::isOperand(const std::string &token)
         else if(token[0] == 'R')
         {
             result.second.type_ = OperandType::OT_REG;
+        }
+        else 
+        {
+            // TODO: Support for immediate values
+            result.second.type_ = OperandType::OT_NULL;
         }
 
         result.second.index_ = utility::parse_int(token.substr(1, token.size() - 1));

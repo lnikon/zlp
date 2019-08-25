@@ -20,12 +20,18 @@ StackSection StackSectionParser::parse(std::fstream& inputStream)
 
         line = utility::trim_copy(line);
 
-        if(line.empty())
+        if(line.empty() || utility::starts_with(line, "#"))
         {
             continue;
         }
 
         isStackSizeOk = parseStackSize(stackSec, line);
+
+        if(!isStackSizeOk)
+        {
+          lineNumber_--;
+          break;
+        }
     }
 
     // If stack size hasn't been specified,

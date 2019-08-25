@@ -21,6 +21,8 @@ target_include_directories(main_driver PUBLIC ${MAIN_DRIVER_INC})
 
 target_link_libraries(main_driver PUBLIC azlpparser)
 
+target_link_libraries(main_driver PUBLIC zlpcodegen)
+
 target_link_libraries(main_driver PUBLIC common)
 
 # target_link_libraries(main_driver PUBLIC vm)

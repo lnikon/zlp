@@ -30,6 +30,12 @@ DataSection DataSectionParser::parse(std::fstream& inputStream)
         // else, read the next line
         const auto dataSectionPos = line.find(DATA_SEC_NAME);
         isDataSectionPresent = (dataSectionPos != std::string::npos);
+
+        if(!isDataSectionPresent)
+        {
+          lineNumber_--;
+          break;
+        }
     }
 
     if(isDataSectionPresent)
