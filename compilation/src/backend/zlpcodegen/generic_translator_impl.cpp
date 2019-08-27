@@ -8,9 +8,9 @@ TranslationResult GenericTranslatorImpl::translate(const CodeSection& codeSec)
   bool fnListDone = true;
   ByteVec bytevec;
 
-  for(const auto& fn : fnList)
+  for (const auto& fn : fnList)
   {
-    if(const auto& [ok, funcBytes] = translate(fn); ok)
+    if (const auto & [ok, funcBytes] = translate(fn); ok)
     {
       bytevec.insert(std::end(bytevec), std::begin(funcBytes), std::end(funcBytes));
     }
@@ -23,7 +23,7 @@ TranslationResult GenericTranslatorImpl::translate(const CodeSection& codeSec)
     }
   }
 
-  return TranslationResult{fnListDone, bytevec};
+  return TranslationResult{ fnListDone, bytevec };
 }
 
 TranslationResult GenericTranslatorImpl::translate(const Function& func)
@@ -36,9 +36,9 @@ TranslationResult GenericTranslatorImpl::translate(const InstructionList& instrL
   bool fnDone = true;
   ByteVec bytevec{};
 
-  for(const auto& instr : instrList)
+  for (const auto& instr : instrList)
   {
-    if(auto [ok, instrBytes] = translate(instr); ok)
+    if (auto [ok, instrBytes] = translate(instr); ok)
     {
       bytevec.insert(std::end(bytevec), std::begin(instrBytes), std::end(instrBytes));
     }
@@ -53,7 +53,7 @@ TranslationResult GenericTranslatorImpl::translate(const InstructionList& instrL
     }
   }
 
-  return TranslationResult{fnDone, bytevec};
+  return TranslationResult{ fnDone, bytevec };
 }
 
 TranslationResult GenericTranslatorImpl::translate(const Instruction& instr)
@@ -76,7 +76,7 @@ TranslationResult GenericTranslatorImpl::translate(const Instruction& instr)
   /***** Extension Compilation *****/
   existsByte = 0;
   valueByte = 0;
-  if(instr.ex_ != Extensions::Extension::EXT_NULL)
+  if (instr.ex_ != Extensions::Extension::EXT_NULL)
   {
     existsByte = 1;
     valueByte = static_cast<ubyte>(instr.ex_);
@@ -90,7 +90,7 @@ TranslationResult GenericTranslatorImpl::translate(const Instruction& instr)
   /***** Conditional Code Compilation *****/
   existsByte = 0;
   valueByte = 0;
-  if(instr.cnd_ != ConditionalCode::CC_NULL)
+  if (instr.cnd_ != ConditionalCode::CC_NULL)
   {
     existsByte = 1;
     valueByte = static_cast<ubyte>(instr.cnd_);
@@ -101,15 +101,51 @@ TranslationResult GenericTranslatorImpl::translate(const Instruction& instr)
   bytevec.emplace_back(valueByte);
   /***** END Conditional Code Compilation *****/
 
-  /***** Immediate Value Compilation *****/
-  if(instr.immtype_ != ImmediateValueType::IMVNULL)
+  /***** First Register Compilation *****/
+  existsByte = 0;
+  valueByte = 0;
+  if (instr.oplst_.size() >= 1)
+  {
+    existsByte = 1;
+    valueByte = static_cast<ubyte>(instr.oplst_[0].index_);
+  }
+  /***** First Register Compilation *****/
+
+  /***** Second and Third Registers or Immediate Value Compilation *****/
+  existsByte = 0;
+  valueByte = 0;
+  if (instr.immtype_ == ImmediateValueType::IMVNULL)
   {
 
+  }
+  else
+  {
+    // Check for second register
+    if (instr.oplst_.size() >= 2)
+    {
+      existsByte = 1;
+      valueByte = static_cast<ubyte>(instr.oplst_[1].index_);
+
+      // Append second register index
+      bytevec.emplace_back(existsByte);
+      bytevec.emplace_back(valueByte);
+
+      // Check for third register
+      if (instr.oplst_.size() >= 2)
+      {
+        existsByte = 1;
+        valueByte = static_cast<ubyte>(instr.oplst_[2].index_);
+        
+        // Append third register index
+        bytevec.emplace_back(existsByte);
+        bytevec.emplace_back(valueByte);
+      }
+    }
   }
   /***** End Immediate Value Compilation *****/
 
   ok = true;
-  return TranslationResult{ok, bytevec};
+  return TranslationResult{ ok, bytevec };
 }
 
 
