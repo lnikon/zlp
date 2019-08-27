@@ -99,6 +99,7 @@ struct InstructionInfo
     ConditionalCode         cnd_{ ConditionalCode::CC_NULL };
     Operand                 oplst_[MAX_ARG_CNT]{ {OperandType::OT_NULL, 0}};
     std::size_t             opcnt_{0};
-    ImmediateValueType      immtype_{ImmediateValueType::IMVNULL};
+    ImmediateValueType      immtype_{ImmediateValueType::IMV_NULL};
     bool                    ext_{false};
+    Extensions::MatchExtension mext_{ Extensions::MatchExtension::ME_NULL };
 };

@@ -31,5 +31,6 @@ private:
     std::pair<bool, InstructionType>  isInstructionType(const std::string& token);
     std::pair<bool, Extension>        isExtension(const std::string& token);
     std::pair<bool, OperandList>      isOperandList(const std::string& token);
-    std::pair<bool, Operand>          isOperand(const std::string& token);
+    std::pair<bool, Operand>          isOperand(const std::string& token, Extensions::Extension ext);
+    std::pair<bool, ImmediateValue>   handleIMV(const std::string& token, Extensions::Extension ext);
 };

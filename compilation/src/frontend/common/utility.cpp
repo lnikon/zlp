@@ -140,10 +140,10 @@ bool utility::checkCorrectKeyword(const std::string& line)
 
 unsigned long utility::parse_int(const std::string &str)
 {
-    return std::stoul(str, nullptr, 10);
+    return std::stoi(str, nullptr, 10);
 }
 
-bool utility::parse_uint(const std::string &str, std::size_t from)
+bool utility::parse_uint(const std::string& str, std::size_t from)
 {
-    return false;
+  return false;
 }

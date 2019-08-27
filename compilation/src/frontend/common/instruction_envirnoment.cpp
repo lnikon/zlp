@@ -7,140 +7,203 @@
 
 InstructionEnvirnoment::InstructionEnvirnoment() noexcept
 {
-    // Control
-    internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
-        NOP_INSTR_NAME,
+  // Control
+  internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
+    NOP_INSTR_NAME,
+    {
+        InstructionType::IT_NOP
+    })
+  );
+
+  // Memory Access 
+  internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
+    LOAD_INSTR_NAME,
+    {
+        InstructionType::IT_LOAD,
+        ConditionalCode::CC_NULL,
+        {   // init @oplist_
+            {OperandType::OT_REG_ARG, 0},
+            {OperandType::OT_ARG, 0},
+        },
+        2,
+        ImmediateValueType::IMV_NULL,    // immediate value type
+        false   // no extension
+    })
+  );
+
+  // Stack
+
+  // Assignment
+  internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
+    ASSIGN_INSTR_NAME,
+    {
+      InstructionType::IT_ASSIGN,
+      ConditionalCode::CC_NULL,
+      {
+        {OperandType::OT_ARG, 0},
+        {OperandType::OT_IMV, 1}
+      },
+      2,
+      ImmediateValueType::IMV_NUM8,
+      true,
+      Extensions::MatchExtension::ME_DONT_CARE
+    }
+  ));
+
+  internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
+    ASSIGN_INSTR_NAME,
+    {
+      InstructionType::IT_ASSIGN,
+      ConditionalCode::CC_NULL,
+      {
+        {OperandType::OT_ARG, 0},
+        {OperandType::OT_IMV, 1}
+      },
+      2,
+      ImmediateValueType::IMV_NUM16,
+      true,
+      Extensions::MatchExtension::ME_DONT_CARE
+    }
+  ));
+
+  internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
+    ASSIGN_INSTR_NAME,
+    {
+      InstructionType::IT_ASSIGN,
+      ConditionalCode::CC_NULL,
+      {
+        {OperandType::OT_ARG, 0},
+        {OperandType::OT_IMV, 1}
+      },
+      2,
+      ImmediateValueType::IMV_NUM32,
+      true,
+      Extensions::MatchExtension::ME_DONT_CARE
+    }
+  ));
+
+  internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
+    ASSIGN_INSTR_NAME,
+    {
+      InstructionType::IT_ASSIGN,
+      ConditionalCode::CC_NULL,
+      {
+        {OperandType::OT_ARG, 0},
+        {OperandType::OT_IMV, 1}
+      },
+      2,
+      ImmediateValueType::IMV_NUM64,
+      true,
+      Extensions::MatchExtension::ME_DONT_CARE
+    }
+  ));
+
+  // Move Across Register
+  internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
+    "MOVE",
+    {
+      InstructionType::IT_MOVE,
+      ConditionalCode::CC_NULL,
+      {
+          {OperandType::OT_REG, 0},
+          {OperandType::OT_REG, 1}
+      },
+      2,
+      ImmediateValueType::IMV_NULL,
+      true
+    }
+  ));
+
+  internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
+    "MOVE_EQ",
+    {
+      InstructionType::IT_MOVE,
+      ConditionalCode::CC_EQUAL,
+      {
+          {OperandType::OT_REG_ARG, 0},
+          {OperandType::OT_REG_ARG, 1}
+      },
+      2,
+      ImmediateValueType::IMV_NULL,
+      false
+    }
+  ));
+
+  internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
+    "MOVE_NEQ",
+    {
+        InstructionType::IT_MOVE,
+        ConditionalCode::CC_EQUAL,
         {
-            InstructionType::IT_NOP
-        })
-     );
+            {OperandType::OT_REG, 0},
+            {OperandType::OT_REG, 1}
+        },
+        2,
+        ImmediateValueType::IMV_NULL,
+        true
+    }
+  ));
 
-    // Memory Access 
-    internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
-        LOAD_INSTR_NAME,
-        {
-            InstructionType::IT_LOAD,
-            ConditionalCode::CC_NULL,
-            {   // init @oplist_
-                {OperandType::OT_REG_ARG, 0},
-                {OperandType::OT_ARG, 0},
-            },
-            2,
-            IMVNULL,    // immediate value type
-            false   // no extension
-        })
-    );
+  // Address Manipulation
 
-    // Stack
+  // Comparison
 
-    // Assignment
+  // Input & Output
 
-    // Move Across Register
-    internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
-        "MOVE",
-        {
-            InstructionType::IT_MOVE,
-            ConditionalCode::CC_NULL,
-            {
-                {OperandType::OT_REG, 0},
-                {OperandType::OT_REG, 1}
-            },
-            2,
-            IMVNULL,
-            true
-        }
-    ));
-
-    internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
-        "MOVE_EQ",
-        {
-            InstructionType::IT_MOVE,
-            ConditionalCode::CC_EQUAL,
-            {
-                {OperandType::OT_REG_ARG, 0},
-                {OperandType::OT_REG_ARG, 1}
-            },
-            2,
-            IMVNULL,
-            false
-        }
-    ));
-
-    internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
-        "MOVE_NEQ",
-        {
-            InstructionType::IT_MOVE,
-            ConditionalCode::CC_EQUAL,
-            {
-                {OperandType::OT_REG, 0},
-                {OperandType::OT_REG, 1}
-            },
-            2,
-            IMVNULL,
-            true
-        }
-    ));
-
-    // Address Manipulation
-
-    // Comparison
-
-    // Input & Output
-
-    // Logical(bitwise)
+  // Logical(bitwise)
 
 
-  /*supportedInstructionsNames_.insert({NOP_INSTR_NAME,     InstructionType::NOP});
-  supportedInstructionsNames_.insert({BREAK_INSTR_NAME,   InstructionType::BREAK});
-  supportedInstructionsNames_.insert({END_INSTR_NAME,     InstructionType::END});
-  supportedInstructionsNames_.insert({JUMP_INSTR_NAME,    InstructionType::JUMP});
-  supportedInstructionsNames_.insert({CALL_INSTR_NAME,    InstructionType::CALL});
-  supportedInstructionsNames_.insert({RET_INSTR_NAME,     InstructionType::RET});
-  supportedInstructionsNames_.insert({GLFR_INSTR_NAME,    InstructionType::GFLR});
-  supportedInstructionsNames_.insert({SFLR_INSTR_NAME,    InstructionType::SFLR});
-  supportedInstructionsNames_.insert({LOAD_INSTR_NAME,    InstructionType::LOAD});
-  supportedInstructionsNames_.insert({STORE_INSTR_NAME,   InstructionType::STORE});
-  supportedInstructionsNames_.insert({LDREL_INSTR_NAME,   InstructionType::LDREL});
-  supportedInstructionsNames_.insert({STREL_INSTR_NAME,   InstructionType::STREL});
-  supportedInstructionsNames_.insert({PUSHSF_INSTR_NAME,  InstructionType::PUSHSF});
-  supportedInstructionsNames_.insert({POPSF_INSTR_NAME,   InstructionType::POPSF});
-  supportedInstructionsNames_.insert({PUSHA_INSTR_NAME,   InstructionType::PUSHA});
-  supportedInstructionsNames_.insert({POP_INSTR_NAME,     InstructionType::POP});
-  supportedInstructionsNames_.insert({PUSH_INSTR_NAME,    InstructionType::PUSH});
-  supportedInstructionsNames_.insert({ASSIGN_INSTR_NAME,  InstructionType::ASSIGN});
-  supportedInstructionsNames_.insert({SET_INSTR_NAME,     InstructionType::SET});
-  supportedInstructionsNames_.insert({MOVE_INSTR_NAME,    InstructionType::MOVE});
-  supportedInstructionsNames_.insert({SWAP_INSTR_NAME,    InstructionType::SWAP});
-  supportedInstructionsNames_.insert({INC_INSTR_NAME,     InstructionType::INC});
-  supportedInstructionsNames_.insert({DEC_INSTR_NAME,     InstructionType::DEC});
-  supportedInstructionsNames_.insert({TEST_INSTR_NAME,    InstructionType::TEST});
-  supportedInstructionsNames_.insert({CMP_INSTR_NAME,     InstructionType::CMP});
-  supportedInstructionsNames_.insert({IN_INSTR_NAME,      InstructionType::IN});
-  supportedInstructionsNames_.insert({OUT_INSTR_NAME,     InstructionType::OUT});
-  supportedInstructionsNames_.insert({AND_INSTR_NAME,     InstructionType::ADD});
-  supportedInstructionsNames_.insert({OR_INSTR_NAME,      InstructionType::OR});
-  supportedInstructionsNames_.insert({XOR_INSTR_NAME,     InstructionType::XOR});
-  supportedInstructionsNames_.insert({NAND_INSTR_NAME,    InstructionType::NAND});
-  supportedInstructionsNames_.insert({NOR_INSTR_NAME,     InstructionType::NOR});
-  supportedInstructionsNames_.insert({NOT_INSTR_NAME,     InstructionType::NOT});
-  supportedInstructionsNames_.insert({SHL_INSTR_NAME,     InstructionType::SHL});
-  supportedInstructionsNames_.insert({SHR_INSTR_NAME,     InstructionType::SHR});
-  supportedInstructionsNames_.insert({ROL_INSTR_NAME,     InstructionType::ROL});
-  supportedInstructionsNames_.insert({ROR_INSTR_NAME,     InstructionType::ROR});
-  supportedInstructionsNames_.insert({SAL_INSTR_NAME,     InstructionType::SAL});
-  supportedInstructionsNames_.insert({SAR_INSTR_NAME,     InstructionType::SAR});
-  supportedInstructionsNames_.insert({RCL_INSTR_NAME,     InstructionType::RCL});
-  supportedInstructionsNames_.insert({RCR_INSTR_NAME,     InstructionType::RCR});
-  supportedInstructionsNames_.insert({ADD_INSTR_NAME,     InstructionType::ADD});
-  supportedInstructionsNames_.insert({ADC_INSTR_NAME,     InstructionType::ADC});
-  supportedInstructionsNames_.insert({SUB_INSTR_NAME,     InstructionType::SUB});
-  supportedInstructionsNames_.insert({SBB_INSTR_NAME,     InstructionType::SBB});
-  supportedInstructionsNames_.insert({MUL_INSTR_NAME,     InstructionType::MUL});
-  supportedInstructionsNames_.insert({IMUL_INSTR_NAME,    InstructionType::IMUL});
-  supportedInstructionsNames_.insert({DIV_INSTR_NAME,     InstructionType::DIV});
-  supportedInstructionsNames_.insert({IDIV_INSTR_NAME,    InstructionType::IDIV});
-  supportedInstructionsNames_.insert({NEG_INSTR_NAME,     InstructionType::NEG});
-  supportedInstructionsNames_.insert({CAST_INSTR_NAME,    InstructionType::CAST});*/
+/*supportedInstructionsNames_.insert({NOP_INSTR_NAME,     InstructionType::NOP});
+supportedInstructionsNames_.insert({BREAK_INSTR_NAME,   InstructionType::BREAK});
+supportedInstructionsNames_.insert({END_INSTR_NAME,     InstructionType::END});
+supportedInstructionsNames_.insert({JUMP_INSTR_NAME,    InstructionType::JUMP});
+supportedInstructionsNames_.insert({CALL_INSTR_NAME,    InstructionType::CALL});
+supportedInstructionsNames_.insert({RET_INSTR_NAME,     InstructionType::RET});
+supportedInstructionsNames_.insert({GLFR_INSTR_NAME,    InstructionType::GFLR});
+supportedInstructionsNames_.insert({SFLR_INSTR_NAME,    InstructionType::SFLR});
+supportedInstructionsNames_.insert({LOAD_INSTR_NAME,    InstructionType::LOAD});
+supportedInstructionsNames_.insert({STORE_INSTR_NAME,   InstructionType::STORE});
+supportedInstructionsNames_.insert({LDREL_INSTR_NAME,   InstructionType::LDREL});
+supportedInstructionsNames_.insert({STREL_INSTR_NAME,   InstructionType::STREL});
+supportedInstructionsNames_.insert({PUSHSF_INSTR_NAME,  InstructionType::PUSHSF});
+supportedInstructionsNames_.insert({POPSF_INSTR_NAME,   InstructionType::POPSF});
+supportedInstructionsNames_.insert({PUSHA_INSTR_NAME,   InstructionType::PUSHA});
+supportedInstructionsNames_.insert({POP_INSTR_NAME,     InstructionType::POP});
+supportedInstructionsNames_.insert({PUSH_INSTR_NAME,    InstructionType::PUSH});
+supportedInstructionsNames_.insert({ASSIGN_INSTR_NAME,  InstructionType::ASSIGN});
+supportedInstructionsNames_.insert({SET_INSTR_NAME,     InstructionType::SET});
+supportedInstructionsNames_.insert({MOVE_INSTR_NAME,    InstructionType::MOVE});
+supportedInstructionsNames_.insert({SWAP_INSTR_NAME,    InstructionType::SWAP});
+supportedInstructionsNames_.insert({INC_INSTR_NAME,     InstructionType::INC});
+supportedInstructionsNames_.insert({DEC_INSTR_NAME,     InstructionType::DEC});
+supportedInstructionsNames_.insert({TEST_INSTR_NAME,    InstructionType::TEST});
+supportedInstructionsNames_.insert({CMP_INSTR_NAME,     InstructionType::CMP});
+supportedInstructionsNames_.insert({IN_INSTR_NAME,      InstructionType::IN});
+supportedInstructionsNames_.insert({OUT_INSTR_NAME,     InstructionType::OUT});
+supportedInstructionsNames_.insert({AND_INSTR_NAME,     InstructionType::ADD});
+supportedInstructionsNames_.insert({OR_INSTR_NAME,      InstructionType::OR});
+supportedInstructionsNames_.insert({XOR_INSTR_NAME,     InstructionType::XOR});
+supportedInstructionsNames_.insert({NAND_INSTR_NAME,    InstructionType::NAND});
+supportedInstructionsNames_.insert({NOR_INSTR_NAME,     InstructionType::NOR});
+supportedInstructionsNames_.insert({NOT_INSTR_NAME,     InstructionType::NOT});
+supportedInstructionsNames_.insert({SHL_INSTR_NAME,     InstructionType::SHL});
+supportedInstructionsNames_.insert({SHR_INSTR_NAME,     InstructionType::SHR});
+supportedInstructionsNames_.insert({ROL_INSTR_NAME,     InstructionType::ROL});
+supportedInstructionsNames_.insert({ROR_INSTR_NAME,     InstructionType::ROR});
+supportedInstructionsNames_.insert({SAL_INSTR_NAME,     InstructionType::SAL});
+supportedInstructionsNames_.insert({SAR_INSTR_NAME,     InstructionType::SAR});
+supportedInstructionsNames_.insert({RCL_INSTR_NAME,     InstructionType::RCL});
+supportedInstructionsNames_.insert({RCR_INSTR_NAME,     InstructionType::RCR});
+supportedInstructionsNames_.insert({ADD_INSTR_NAME,     InstructionType::ADD});
+supportedInstructionsNames_.insert({ADC_INSTR_NAME,     InstructionType::ADC});
+supportedInstructionsNames_.insert({SUB_INSTR_NAME,     InstructionType::SUB});
+supportedInstructionsNames_.insert({SBB_INSTR_NAME,     InstructionType::SBB});
+supportedInstructionsNames_.insert({MUL_INSTR_NAME,     InstructionType::MUL});
+supportedInstructionsNames_.insert({IMUL_INSTR_NAME,    InstructionType::IMUL});
+supportedInstructionsNames_.insert({DIV_INSTR_NAME,     InstructionType::DIV});
+supportedInstructionsNames_.insert({IDIV_INSTR_NAME,    InstructionType::IDIV});
+supportedInstructionsNames_.insert({NEG_INSTR_NAME,     InstructionType::NEG});
+supportedInstructionsNames_.insert({CAST_INSTR_NAME,    InstructionType::CAST});*/
 }
 
 InstructionEnvirnoment::ResultType
@@ -151,11 +214,11 @@ InstructionEnvirnoment::findInstructionName(const std::string& name)
   };
 
   auto itToTuple = std::find_if(std::begin(supportedInstructionsNames_),
-                                std::end(supportedInstructionsNames_),
-                                findByName);
+    std::end(supportedInstructionsNames_),
+    findByName);
 
-  ResultType result{std::nullopt};
-  if(itToTuple != std::end(supportedInstructionsNames_))
+  ResultType result{ std::nullopt };
+  if (itToTuple != std::end(supportedInstructionsNames_))
   {
     result = *itToTuple;
   }

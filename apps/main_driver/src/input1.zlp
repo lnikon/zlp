@@ -1,14 +1,15 @@
 .STACK = 512
 
 .DATA:
-DWROD 123 = 124
+DWORD 123 = 124
 QWORD arr1[] = 43, 23, 54
 
 .CODE:
     Func funcName:
 		# lbl1:
-		MOVE QW R0, R1
-		MOVE QW R0, R1
-		MOVE QW R0, R1
-		MOVE QW R0, R1
+		ASSIGN A0, 5
+		MOVE DW R0, R1
+		#MOVE QW R0, R1
+		#MOVE QW R0, R1
+		#MOVE QW R0, R1
 	EndF

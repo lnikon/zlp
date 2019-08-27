@@ -1,6 +1,5 @@
 #include "generic_translator_impl.hpp"
 
-
 TranslationResult GenericTranslatorImpl::translate(const CodeSection& codeSec)
 {
   const auto& fnList = codeSec.code_;
@@ -108,15 +107,40 @@ TranslationResult GenericTranslatorImpl::translate(const Instruction& instr)
   {
     existsByte = 1;
     valueByte = static_cast<ubyte>(instr.oplst_[0].index_);
+
+    // Append first register index
+    bytevec.emplace_back(existsByte);
+    bytevec.emplace_back(valueByte);
   }
   /***** First Register Compilation *****/
 
   /***** Second and Third Registers or Immediate Value Compilation *****/
   existsByte = 0;
   valueByte = 0;
-  if (instr.immtype_ == ImmediateValueType::IMVNULL)
+  if (instr.immtype_ != ImmediateValueType::IMV_NULL)
   {
+    existsByte = 1;
 
+    ImmediateValue imv = instr.oplst_[1].imv_;
+
+    // TODO: Wrap into separate function
+    // TODO: Convert integer into bytes
+    if (instr.immtype_ == ImmediateValueType::IMV_NUM8)
+    {
+      bytevec.emplace_back(imv.byte_);
+    }
+    else if (instr.immtype_ == ImmediateValueType::IMV_NUM16)
+    {
+      bytevec.emplace_back(imv.word_);
+    }
+    else if (instr.immtype_ == ImmediateValueType::IMV_NUM32)
+    {
+      bytevec.emplace_back(imv.dword_);
+    }
+    else if (instr.immtype_ == ImmediateValueType::IMV_NUM64)
+    {
+      bytevec.emplace_back(imv.qword_);
+    }
   }
   else
   {
@@ -131,7 +155,7 @@ TranslationResult GenericTranslatorImpl::translate(const Instruction& instr)
       bytevec.emplace_back(valueByte);
 
       // Check for third register
-      if (instr.oplst_.size() >= 2)
+      if (instr.oplst_.size() > 2)
       {
         existsByte = 1;
         valueByte = static_cast<ubyte>(instr.oplst_[2].index_);

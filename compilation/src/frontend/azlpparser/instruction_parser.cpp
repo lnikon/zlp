@@ -4,7 +4,14 @@
 
 std::pair<bool, Instruction> InstructionParser::parse(std::string line)
 {
-  // instr_name [empty|extension|condition] operands(up to 3)
+  /* Parsing algorithm */
+  /*
+  1. Parse instructi on line -> return @instructionInfo
+  2. Try match @instructionInfo against internal representations
+  3. If succeed, create and return insruction
+  4. Otherwise return false
+  */
+
   auto result = isInstruction(line);
 
   return result;
@@ -35,81 +42,95 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
 
   // Actual instruction which will be returned
   Instruction instr;
-  
-  if(tokens.size() < 2)
+
+  if (tokens.size() < 2)
   {
     return std::make_pair(isInstr, instr);
   }
 
   // Store externsion for operands
-  std::string opSize = tokens[nextToken]; 
+  std::string opSize = tokens[nextToken];
 
   // Holds true, if extension is present
   bool extOk = false;
 
   // Default extension should be DoubleWord
   Extensions::Extension ext = Extensions::Extension::EXT_DWORD;
-  
+
   // Unpack result
   // If extensions is present, increment lookahead
-  if(std::tie(extOk, ext) = isExtension(opSize); extOk)
+  if (const auto [extOk, ext] = isExtension(opSize); extOk)
   {
     instrInfo.ext_ = extOk;
-    nextToken++;
+
+    // If empty extension string is given, then don't icrement lookahead
+    if (!opSize.empty())
+    {
+      nextToken++;
+    }
   }
 
-  // Parse argument
-  for(std::size_t argIdx = 0; argIdx < MAX_ARG_CNT; ++argIdx)
+  // Parse argument list
+  for (std::size_t argIdx = 0; argIdx < MAX_ARG_CNT; ++argIdx)
   {
-    if(nextToken == tokens.size())
+    if (nextToken == tokens.size())
     {
-        break;
+      break;
     }
 
     const auto arg = tokens[nextToken];
-    if(auto[ok, operand] = isOperand(arg); ok)
+    if (auto [ok, operand] = isOperand(arg, ext); ok)
     {
-        instrInfo.oplst_[argIdx] = operand;
-        instrInfo.opcnt_++;
-        ++nextToken;
+      instrInfo.oplst_[argIdx] = operand;
+      instrInfo.opcnt_++;
+      ++nextToken;
     }
   }
   /* Instruction parsing is done */
 
   /* Try to match parsed instruction by one of internal representations */
   bool isMatched = false;
-  auto itInstrRange = env_.instructionRange(instrName);    
-  for(auto itInstrRangeBegin = itInstrRange.first;
-      itInstrRangeBegin != itInstrRange.second;
-      ++itInstrRangeBegin)
+  auto itInstrRange = env_.instructionRange(instrName);
+
+  for (auto itInstrRangeBegin = itInstrRange.first;
+    itInstrRangeBegin != itInstrRange.second;
+    ++itInstrRangeBegin)
   {
     // For now, skip matching by conditional code
- 
+
     // Match by extension
-    if(itInstrRangeBegin->second.ext_ != instrInfo.ext_)
+    // If internalRepresentation doesn't support extension 
+    // and extension is given in a source then skip
+    const bool isDontCare = itInstrRangeBegin->second.mext_ == Extensions::MatchExtension::ME_DONT_CARE;
+    const bool isExtNotMatch = itInstrRangeBegin->second.ext_ != instrInfo.ext_;
+    if (isExtNotMatch)
     {
+      if (!isDontCare)
+      {
         continue;
+      }
     }
 
     // Match by operand count
-    if(itInstrRangeBegin->second.opcnt_ != instrInfo.opcnt_)
+    if (itInstrRangeBegin->second.opcnt_ != instrInfo.opcnt_)
     {
-        continue;
+      continue;
     }
 
     // Match by types of operands
-    for(std::size_t idx = 0; idx < instrInfo.opcnt_; ++idx)
+    for (std::size_t idx = 0; idx < instrInfo.opcnt_; ++idx)
     {
-        if(itInstrRangeBegin->second.oplst_[idx] != instrInfo.oplst_[idx])
-        {
-            break;
-        }
+      if (itInstrRangeBegin->second.oplst_[idx] != instrInfo.oplst_[idx])
+      {
+        break;
+      }
     }
 
     isMatched = true;
-  } 
+    break;
+  }
 
-  if(!isMatched)
+  if (!isMatched)
   {
     return std::make_pair(isInstr, instr);
   }
@@ -119,7 +140,7 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
   instr.type_ = instrInfo.type_;
 
   // Assign actual extension
-  if(instrInfo.ext_)
+  if (instrInfo.ext_)
   {
     instr.ex_ = ext;
   }
@@ -128,12 +149,10 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
   instr.cnd_ = instrInfo.cnd_;
 
   // Handle arguments
-  for(std::size_t opidx = 0; opidx < instrInfo.opcnt_; ++opidx)
+  for (std::size_t opidx = 0; opidx < instrInfo.opcnt_; ++opidx)
   {
     instr.oplst_.emplace_back(instrInfo.oplst_[opidx]);
   }
-
-  /* TODO: Add support for immediate values */
 
   isInstr = true;
   return std::make_pair(isInstr, instr);
@@ -151,51 +170,96 @@ std::pair<bool, Extensions::Extension> InstructionParser::isExtension(const std:
 
 std::pair<bool, OperandList> InstructionParser::isOperandList(const std::string& token)
 {
-    return std::pair<bool, OperandList>();
+  return std::pair<bool, OperandList>();
 }
 
-std::pair<bool, Operand> InstructionParser::isOperand(const std::string &token)
+std::pair<bool, Operand> InstructionParser::isOperand(const std::string& token, Extensions::Extension ext)
 {
-    auto result = std::make_pair(false, Operand{});
+  auto result = std::make_pair(false, Operand{});
 
-    auto tokentrmd = utility::trim_copy(token);
+  auto tokentrmd = utility::trim_copy(token);
 
-    if(token.empty())
-    {
-        return result;
-    }
-
-    // AR or GR
-    if(token[0] == 'A' || token[0] == 'R')
-    {
-        // Check index
-        bool isNumber = utility::is_number(token.substr(1, token.size() - 1));
-        if(!isNumber)
-        {
-            Logger::printMessage("Syntax error on line "
-                    + std::to_string(lineNumber_)
-                    + ". Invalid index for Address\\Global Register\n", LogLevel::HIGH);
-            exit(1);
-        }
-
-        if(token[0] == 'A')
-        {
-            result.second.type_ = OperandType::OT_ARG;
-        }
-        else if(token[0] == 'R')
-        {
-            result.second.type_ = OperandType::OT_REG;
-        }
-        else 
-        {
-            // TODO: Support for immediate values
-            result.second.type_ = OperandType::OT_NULL;
-        }
-
-        result.second.index_ = utility::parse_int(token.substr(1, token.size() - 1));
-
-        result.first = true;
-    }
-
+  if (token.empty())
+  {
     return result;
+  }
+
+  // AR or GR
+  if (token[0] == 'A' || token[0] == 'R')
+  {
+    // Check index
+    bool isNumber = utility::is_number(token.substr(1, token.size() - 1));
+    if (!isNumber)
+    {
+      Logger::printMessage("Syntax error on line "
+        + std::to_string(lineNumber_)
+        + ". Invalid index for Address\\Global Register\n", LogLevel::HIGH);
+      exit(1);
+    }
+
+    if (token[0] == 'A')
+    {
+      result.second.type_ = OperandType::OT_ARG;
+      result.second.index_ = utility::parse_int(token.substr(1, token.size() - 1));
+
+    }
+    else if (token[0] == 'R')
+    {
+      result.second.type_ = OperandType::OT_REG;
+      result.second.index_ = utility::parse_int(token.substr(1, token.size() - 1));
+    }
+
+
+    result.first = true;
+  }
+  else
+  {
+    if (const auto [ok, imv] = handleIMV(token, ext); ok)
+    {
+      // TODO: Support for immediate values
+      result.second.type_ = OperandType::OT_IMV;
+
+      result.second.imv_ = imv;
+
+      result.first = true;
+    }
+  }
+
+  return result;
+}
+
+std::pair<bool, ImmediateValue> InstructionParser::handleIMV(const std::string& token, Extensions::Extension ext)
+{
+  std::pair<bool, ImmediateValue> result{ true, ImmediateValue{} };
+
+  long long value = utility::parse_int(token);
+
+  // TODO: Handle numeric sign for immediate values
+
+  if (ext == Extensions::Extension::EXT_BYTE || ext == Extensions::Extension::EXT_CHAR)
+  {
+    result.second.type_ = ImmediateValueType::IMV_NUM8;
+    result.second.byte_ = value;
+  }
+  else if (ext == Extensions::Extension::EXT_WORD)
+  {
+    result.second.type_ = ImmediateValueType::IMV_NUM16;
+    result.second.word_ = value;
+  }
+  else if (ext == Extensions::Extension::EXT_DWORD)
+  {
+    result.second.type_ = ImmediateValueType::IMV_NUM32;
+    result.second.dword_ = value;
+  }
+  else if (ext == Extensions::Extension::EXT_QWORD)
+  {
+    result.second.type_ = ImmediateValueType::IMV_NUM64;
+    result.second.qword_ = value;
+  }
+  else
+  {
+    result.first = false;
+  }
+
+  return result;
 }
