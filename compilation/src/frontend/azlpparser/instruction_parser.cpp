@@ -118,12 +118,19 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
     }
 
     // Match by types of operands
+    bool opListMatch = true;
     for (std::size_t idx = 0; idx < instrInfo.opcnt_; ++idx)
     {
       if (itInstrRangeBegin->second.oplst_[idx] != instrInfo.oplst_[idx])
       {
+        opListMatch = false;
         break;
       }
+    }
+
+    if(!opListMatch)
+    {
+      break;
     }
 
     isMatched = true;
@@ -137,7 +144,7 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
 
   // Create actual instruction from the information that we've actually got
   // Copy instruction type
-  instr.type_ = instrInfo.type_;
+  instr.type_ = itInstrRange.first->second.type_;
 
   // Assign actual extension
   if (instrInfo.ext_)

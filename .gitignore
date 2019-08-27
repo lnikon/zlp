@@ -1,3 +1,6 @@
 build
 .cmake
 .vs
+CMakeLists.txt.user
+CMakeLists.txt.user.396369f
+*.autosave

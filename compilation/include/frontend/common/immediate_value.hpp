@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-enum class ImmediateValueType
+enum class ImmediateValueType  : uint8_t
 {
     IMV_NULL,
     IMV_NUM8,

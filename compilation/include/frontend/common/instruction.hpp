@@ -6,7 +6,7 @@
 #include "immediate_value.hpp"
 
 /* Supported instructions */
-enum class InstructionType 
+enum class InstructionType : std::uint8_t
 {
   IT_NULL = 0x00000000,
   IT_NOP,

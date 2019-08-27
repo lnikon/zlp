@@ -4,6 +4,7 @@
 #include <iterator>
 #include <optional>
 #include <utility>
+#include <iostream>
 
 InstructionEnvirnoment::InstructionEnvirnoment() noexcept
 {
@@ -65,6 +66,8 @@ InstructionEnvirnoment::InstructionEnvirnoment() noexcept
       Extensions::MatchExtension::ME_DONT_CARE
     }
   ));
+
+  std::cout << "assign static cast: " << static_cast<int>(InstructionType::IT_ASSIGN) << std::endl;
 
   internalRepresentations_.emplace(std::pair<std::string, InstructionInfo>(
     ASSIGN_INSTR_NAME,

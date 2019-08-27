@@ -117,27 +117,28 @@ TranslationResult GenericTranslatorImpl::translate(const Instruction& instr)
   /***** Second and Third Registers or Immediate Value Compilation *****/
   existsByte = 0;
   valueByte = 0;
-  if (instr.immtype_ != ImmediateValueType::IMV_NULL)
+  if (instr.oplst_[1].imv_.type_ != ImmediateValueType::IMV_NULL)
   {
     existsByte = 1;
+    bytevec.emplace_back(existsByte);
 
     ImmediateValue imv = instr.oplst_[1].imv_;
 
     // TODO: Wrap into separate function
     // TODO: Convert integer into bytes
-    if (instr.immtype_ == ImmediateValueType::IMV_NUM8)
+    if (imv.type_ == ImmediateValueType::IMV_NUM8)
     {
       bytevec.emplace_back(imv.byte_);
     }
-    else if (instr.immtype_ == ImmediateValueType::IMV_NUM16)
+    else if (imv.type_ == ImmediateValueType::IMV_NUM16)
     {
       bytevec.emplace_back(imv.word_);
     }
-    else if (instr.immtype_ == ImmediateValueType::IMV_NUM32)
+    else if (imv.type_ == ImmediateValueType::IMV_NUM32)
     {
       bytevec.emplace_back(imv.dword_);
     }
-    else if (instr.immtype_ == ImmediateValueType::IMV_NUM64)
+    else if (imv.type_ == ImmediateValueType::IMV_NUM64)
     {
       bytevec.emplace_back(imv.qword_);
     }
