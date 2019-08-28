@@ -13,3 +13,5 @@ QWORD arr1[] = 43, 23, 54
 		#MOVE QW R0, R1
 		#MOVE QW R0, R1
 	EndF
+	
+.MAIN = funcName
