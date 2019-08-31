@@ -1,6 +1,10 @@
 build
 .cmake
 .vs
+.vscode
 CMakeLists.txt.user
 CMakeLists.txt.user.396369f
 *.autosave
+GPATH
+GRTAGS
+GTAGS

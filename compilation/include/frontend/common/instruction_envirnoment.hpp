@@ -82,4 +82,15 @@ struct InstructionEnvirnoment
 
   private:
   std::set<ValueType> supportedInstructionsNames_{};
+
+  void initControlInstructions() noexcept;
+  void initMemoryAccessInstructions() noexcept;
+  void initStackInstructions() noexcept;
+  void initAssignmentInstructions() noexcept;
+  void initMoveInstructions() noexcept;
+  void initAddressManipulationInstructions() noexcept;
+  void initComparisonInstructions() noexcept;
+  void initInputOutputInstructions() noexcept;
+  void initLogicalInstructions() noexcept;
+
 };
