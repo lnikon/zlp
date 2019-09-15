@@ -1,7 +1,7 @@
 #pragma once
 
 #include "translator_defs.hpp"
-#include "interface_translator_impl.hpp"
+#include "interface_translator.hpp"
 #include "generic_translator_impl.hpp"
 
 #include <memory>

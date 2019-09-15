@@ -5,10 +5,10 @@
 #include <cstdint>
 
 struct Translator;
-struct ITranslatorImpl;
+struct ITranslator;
 
 using ByteVec = std::vector<uint8_t>;
 using TranslationResult = std::pair<bool, ByteVec>;
 using UniqueTransPtr = std::unique_ptr<Translator>;
-using UniqueTransImplPtr = std::unique_ptr<ITranslatorImpl>;
+using UniqueTransImplPtr = std::unique_ptr<ITranslator>;
 

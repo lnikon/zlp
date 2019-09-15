@@ -11,9 +11,9 @@
  * Generic interface for translators of different chain models.
  */
 
-struct ITranslatorImpl
+struct ITranslator
 {
-  virtual ~ITranslatorImpl() {}
+  virtual ~ITranslator() {}
 
   virtual TranslationResult translate(const CodeSection& codeSec) = 0;
 

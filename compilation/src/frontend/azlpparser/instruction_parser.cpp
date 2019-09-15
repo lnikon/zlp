@@ -6,7 +6,7 @@ std::pair<bool, Instruction> InstructionParser::parse(std::string line)
 {
   /* Parsing algorithm */
   /*
-  1. Parse instructi on line -> return @instructionInfo
+  1. Parse instruction on line -> return @instructionInfo
   2. Try match @instructionInfo against internal representations
   3. If succeed, create and return insruction
   4. Otherwise return false

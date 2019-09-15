@@ -38,8 +38,9 @@ int main(int argc, char *argv[])
     // TODO:  Pack these into FinalCompilationPhases,
     //        make compilation of each unit multithreaded
     Compiler compiler;
+    compiler.setDataSection(dataSec);
     compiler.setCodeSection(codeSec);
-    compiler.compile();
+    const auto[ok, bytevec] = compiler.compile();
 
     return 0;
 }

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "interface_translator_impl.hpp"
+#include "interface_translator.hpp"
 
-class GenericTranslatorImpl final : public ITranslatorImpl
+class GenericTranslatorImpl final : public ITranslator
 {
   TranslationResult translate(const CodeSection& codeSec) override;
 

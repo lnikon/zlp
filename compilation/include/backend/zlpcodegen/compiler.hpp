@@ -10,13 +10,16 @@ struct Compiler final
   Compiler(const Compiler&) = delete;
   Compiler operator=(const Compiler&) = delete;
 
+  void setDataSection(const DataSection& codeSec);
   void setCodeSection(const CodeSection& codeSec);
 
-  bool compile();
+  std::pair<bool, ByteVec> compile();
 
   private:
   // Holder for different chain model translators
   UniqueTransPtr translator_{nullptr};
 
+  DataSection dataSec_{};
   CodeSection codeSec_{};
+  
 };
