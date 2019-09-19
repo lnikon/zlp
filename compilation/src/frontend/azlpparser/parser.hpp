@@ -8,6 +8,7 @@
 
 struct Parser
 {
+
   Parser();
   void parse(const std::string& inputFilename);
 
@@ -20,6 +21,7 @@ struct Parser
   static std::string returnStringForType(const ValueType type);
 
   private:
+
   using LexerPtr = std::unique_ptr<Lexer>;
   LexerPtr      pLexer_{nullptr};
 
@@ -30,8 +32,6 @@ struct Parser
   DataSection   dataSec_{};
   CodeSection   codeSec_{};
   MainSection   mainSec_{};
-
-
 
   /*
    * Utilities for semantic checks
@@ -44,4 +44,8 @@ struct Parser
   bool staticTypeCheck(const DataSection& dataSec)        const;
   bool isExpessionTypeSupported(ValueType type)           const;
 
+  /*
+  * Pointer to instace of shared logger.
+  * Usually set by parent which is @CompilerPipelines
+  */
 };

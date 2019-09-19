@@ -43,7 +43,6 @@ int main(int argc, char *argv[])
 
     CodeGenerator codeGen;
     codeGen.setInputFilenames(std::move(inputFilenames));
-
     codeGen.build();
 
     // Input - Assembly

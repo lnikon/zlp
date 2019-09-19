@@ -1,12 +1,13 @@
 #pragma once
 
 #include "compilation_pipeline.hpp"
+#include "logger.hpp"
 
 #include <vector>
 #include <thread>
 
 struct CodeGenerator {
-  CodeGenerator() = default;
+  CodeGenerator();
   
   CodeGenerator(const CodeGenerator&) = delete;
   CodeGenerator& operator=(const CodeGenerator&) = delete;
@@ -29,4 +30,5 @@ struct CodeGenerator {
 private:
   std::vector<std::thread>  vec_pipelines_{};
   std::vector<std::string>  svec_inputFilenames_{};
+  new_logger::LoggerSPtr ps_logger_{nullptr};
 };

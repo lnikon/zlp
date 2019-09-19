@@ -20,6 +20,10 @@ void Parser::parse(const std::string& inputFilename)
     Logger::printMessage("Unable to open file " + inputFilename, LogLevel::HIGH);
     exit(1);
   }
+  else
+  {
+    Logger::printMessage("Parsing input file: " + inputFilename, LogLevel::LOW);
+  }
 
   StackSection stackSec = pLexer_->parseStackSection(inputStream);
   const bool isStackSectionOk = StackSectionParserUtilities::checkStackSection(stackSec);

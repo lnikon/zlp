@@ -1,6 +1,7 @@
 #pragma once
 
 #include "compiler.hpp"
+#include "logger.hpp"
 
 #include <memory>
 #include <fstream>
@@ -15,7 +16,7 @@
 struct CompilationPipeline
 {
 
-    CompilationPipeline(const std::string &filename);
+    explicit CompilationPipeline(const std::string &filename, new_logger::LoggerSPtr pLogger);
 
     /*
     * Compilation started via this operator
@@ -23,6 +24,7 @@ struct CompilationPipeline
     std::pair<bool, ByteVec> operator()();
 
 private:
+
     /*
     * Each pipline shoud have exactly one compiler
     */
@@ -37,6 +39,13 @@ private:
     * Stream associated with the Compilation Unit
     */
     std::fstream fs_file_;
+
+    /*
+    * This class spends time on synchronization of std::cout 
+    * with other instances
+    */
+    new_logger::LoggerSPtr ps_logger_{nullptr};
+
 };
 
 using CPipelineUPtr = std::unique_ptr<CompilationPipeline>;

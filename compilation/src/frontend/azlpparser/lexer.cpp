@@ -7,7 +7,7 @@
 #include "logger.hpp"
 #include "debug.hpp"
 
-#define DEBUG_MODE
+// #define DEBUG_MODE
 
 StackSection Lexer::parseStackSection(std::fstream& inputStream)
 {

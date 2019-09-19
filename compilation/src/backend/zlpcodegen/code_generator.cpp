@@ -2,6 +2,12 @@
 #include "compilation_pipeline.hpp"
 #include "logger.hpp"
 
+CodeGenerator::CodeGenerator()
+    : ps_logger_{std::make_shared<new_logger::Logger>()}
+{
+
+}
+
 void CodeGenerator::build()
 {
     if(svec_inputFilenames_.empty())
@@ -24,7 +30,15 @@ void CodeGenerator::build()
 
     for(const auto& inputFilename : svec_inputFilenames_)
     {
-        vec_pipelines_.emplace_back(std::thread(CompilationPipeline{inputFilename}));
+        vec_pipelines_.emplace_back(std::thread(CompilationPipeline{inputFilename, ps_logger_}));
+    }
+
+    for(auto& piplineThread : vec_pipelines_)
+    {
+        if(piplineThread.joinable())
+        {
+            piplineThread.join();
+        }
     }
 }
 
