@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.1..3.13)
 
 set(ZLPCODEGEN_SRC "${CMAKE_SOURCE_DIR}/compilation/src/backend/zlpcodegen/")
 
-set(ZLPCODEGEN_INC "${CMAKE_SOURCE_DIR}/compilation/include/backend/zlpcodegen/")
+set(ZLPCODEGEN_INC "${CMAKE_SOURCE_DIR}/compilation/src/backend/zlpcodegen/")
 
-set(AZLPPARSER_INC "${CMAKE_SOURCE_DIR}/compilation/include/frontend/azlpparser/")
+set(AZLPPARSER_INC "${CMAKE_SOURCE_DIR}/compilation/src/frontend/azlpparser/")
 
-set(COMMON_INC "${CMAKE_SOURCE_DIR}/compilation/include/frontend/common/")
+set(COMMON_INC "${CMAKE_SOURCE_DIR}/compilation/src/frontend/common/")
 
-set(VM_INC "${CMAKE_SOURCE_DIR}/runtime/include/vm/")
+set(VM_INC "${CMAKE_SOURCE_DIR}/runtime/src/vm/")
 
 file(GLOB ZLPCODEGEN_CPP "${ZLPCODEGEN_SRC}/*.cpp")
 

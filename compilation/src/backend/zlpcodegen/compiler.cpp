@@ -26,4 +26,6 @@ std::pair<bool, ByteVec> Compiler::compile()
     Logger::printMessage("Compilation did not succeed", LogLevel::HIGH);
     return std::make_pair(ok, ByteVec{});
   }
+
+  return std::make_pair(ok, bytes);
 }

@@ -9,7 +9,7 @@ TranslationResult GenericTranslatorImpl::translate(const CodeSection& codeSec)
 
   for (const auto& fn : fnList)
   {
-    if (const auto & [ok, funcBytes] = translate(fn); ok)
+    if (const auto& [ok, funcBytes] = translate(fn); ok)
     {
       bytevec.insert(std::end(bytevec), std::begin(funcBytes), std::end(funcBytes));
     }

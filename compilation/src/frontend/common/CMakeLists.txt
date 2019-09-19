@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.1..3.13)
 
 set(COMMON_SRC "${CMAKE_SOURCE_DIR}/compilation/src/frontend/common")
 
-set(COMMON_INC "${CMAKE_SOURCE_DIR}/compilation/include/frontend/common")
+set(COMMON_INC "${CMAKE_SOURCE_DIR}/compilation/src/frontend/common")
 
-set(VM_INC "${CMAKE_SOURCE_DIR}/runtime/include/vm")
+set(VM_INC "${CMAKE_SOURCE_DIR}/runtime/src/vm")
 
 file(GLOB COMMON_CPP "${COMMON_SRC}/*.cpp")
 
