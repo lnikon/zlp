@@ -1,9 +1,10 @@
 #include "code_generator.hpp"
+#include "compilation_pipeline.hpp"
 #include "logger.hpp"
 
 void CodeGenerator::build()
 {
-    if(inputFilenames_.empty())
+    if(svec_inputFilenames_.empty())
     {
         Logger::printMessage("\nEmpty compilation filename list specified.\nNothing to do here...\n", LogLevel::HIGH);
         return;
@@ -21,18 +22,18 @@ void CodeGenerator::build()
     // 6. Write it to the output 'object file' using 'binary writer'
     // 7. Repeat starting from step @1 as there are files that are didn't compiled
 
-    for(const auto& inputFilename : inputFilenames_)
+    for(const auto& inputFilename : svec_inputFilenames_)
     {
-        
+        vec_pipelines_.emplace_back(std::thread(CompilationPipeline{inputFilename}));
     }
 }
 
 void CodeGenerator::setInputFilenames(std::vector<std::string>&& inputFilenames)
 {
-    inputFilenames_ = std::move(inputFilenames);
+    svec_inputFilenames_ = std::move(inputFilenames);
 }
 
 void CodeGenerator::setInputFilenames(const std::vector<std::string>& inputFilenames)
 {
-    inputFilenames_ = inputFilenames;
+    svec_inputFilenames_ = inputFilenames;
 }

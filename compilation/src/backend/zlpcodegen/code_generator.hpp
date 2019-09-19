@@ -27,7 +27,6 @@ struct CodeGenerator {
   void setInputFilenames(const std::vector<std::string> &inputFilenames);
 
 private:
-  // std::vector<CompilerSPtr> pCompilers_{};
-  std::vector<std::thread>  pPipelines_{};
-  std::vector<std::string>  inputFilenames_{};
+  std::vector<std::thread>  vec_pipelines_{};
+  std::vector<std::string>  svec_inputFilenames_{};
 };

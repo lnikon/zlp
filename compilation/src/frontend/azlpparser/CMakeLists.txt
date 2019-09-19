@@ -28,3 +28,4 @@ endif()
 
 target_compile_features(azlpparser PUBLIC cxx_std_17)
 
+target_link_libraries(azlpparser PUBLIC common)

@@ -14,19 +14,28 @@ file(GLOB ZLPCODEGEN_CPP "${ZLPCODEGEN_SRC}/*.cpp")
 
 file(GLOB ZLPCODEGEN_HPP "${ZLPCODEGEN_INC}/*.hpp")
 
+set(CMAKE_CXX_FLAGS "-no-pie -std=c++17 ${CMAKE_CXX_FLAGS}")
+
+if (MSVC_VERSION GREATER_EQUAL "1900")
+include(CheckCXXCompilerFlag)
+CHECK_CXX_COMPILER_FLAG("/std:c++latest" _cpp_latest_flag_supported)
+if (_cpp_latest_flag_supported)
+add_compile_options("/std:c++latest")
+endif()
+endif()
+
 add_library(zlpcodegen STATIC ${ZLPCODEGEN_CPP} ${ZLPCODEGEN_HPP})
 
-set(CMAKE_CXX_FLAGS "-no-pie -std=c++17 ${CMAKE_CXX_FLAGS}")
+## pthread support
+find_package (Threads)
+target_link_libraries(zlpcodegen PUBLIC ${CMAKE_THREAD_LIBS_INIT})
+## END pthread support
 
 target_include_directories(zlpcodegen PUBLIC ${ZLPCODEGEN_INC} ${AZLPPARSER_INC} ${COMMON_INC} ${VM_INC})
 
-if (MSVC_VERSION GREATER_EQUAL "1900")
-    include(CheckCXXCompilerFlag)
-    CHECK_CXX_COMPILER_FLAG("/std:c++latest" _cpp_latest_flag_supported)
-    if (_cpp_latest_flag_supported)
-        add_compile_options("/std:c++latest")
-    endif()
-endif()
-
 target_compile_features(zlpcodegen PUBLIC cxx_std_17)
+
+target_link_libraries(zlpcodegen PUBLIC common)
+
+target_link_libraries(zlpcodegen PUBLIC azlpparser)
 
