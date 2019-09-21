@@ -7,29 +7,30 @@
 
 #include <string>
 
-Parser::Parser()
+Parser::Parser(logger::LoggerSPtr pLogger)
+    : ps_logger_{pLogger}
 {
-  pLexer_ = std::make_unique<Lexer>();
+  pLexer_ = std::make_unique<Lexer>(ps_logger_);
 }
 
-void Parser::parse(const std::string& inputFilename)
+void Parser::parse(const std::string &inputFilename)
 {
   std::fstream inputStream(inputFilename);
-  if(!inputStream.is_open())
+  if (!inputStream.is_open())
   {
-    Logger::printMessage("Unable to open file " + inputFilename, LogLevel::HIGH);
+    ps_logger_->printMessage("Unable to open file", logger::LogLevel::HIGH);
     exit(1);
   }
   else
   {
-    Logger::printMessage("Parsing input file: " + inputFilename, LogLevel::LOW);
+    ps_logger_->printMessage("Parsing input file", logger::LogLevel::INFO);
   }
 
   StackSection stackSec = pLexer_->parseStackSection(inputStream);
-  const bool isStackSectionOk = StackSectionParserUtilities::checkStackSection(stackSec);
-  if(!isStackSectionOk)
+  const bool isStackSectionOk = StackSectionParserUtilities::checkStackSection(stackSec, ps_logger_);
+  if (!isStackSectionOk)
   {
-    Logger::printMessage("StackSection is incorrect. Please review your code.\n", LogLevel::HIGH);
+    ps_logger_->printMessage("StackSection is incorrect. Please review your code", logger::LogLevel::HIGH);
     exit(1);
   }
   stackSec_ = stackSec;
@@ -38,17 +39,17 @@ void Parser::parse(const std::string& inputFilename)
   inputStream.clear();
   inputStream.seekg(0, std::ios::beg);
   inputStream.open(inputFilename);
-  if(!inputStream.is_open())
+  if (!inputStream.is_open())
   {
-    Logger::printMessage("Unable to open file " + inputFilename, LogLevel::HIGH);
+    ps_logger_->printMessage("Unable to open file", logger::LogLevel::HIGH);
     exit(1);
   }
 
   DataSection dataSec = pLexer_->parseDataSection(inputStream);
-  const bool isDataSectionOk = DataSectionParserUtilities::checkDataSection(dataSec);
-  if(!isDataSectionOk)
+  const bool isDataSectionOk = DataSectionParserUtilities::checkDataSection(dataSec, ps_logger_);
+  if (!isDataSectionOk)
   {
-    Logger::printMessage("DataSection is incorrect. Please review your code.\n", LogLevel::HIGH);
+    ps_logger_->printMessage("DataSection is incorrect. Please, review your code or &*() yourself", logger::LogLevel::HIGH);
     exit(1);
   }
   dataSec_ = dataSec;
@@ -57,9 +58,9 @@ void Parser::parse(const std::string& inputFilename)
   inputStream.clear();
   inputStream.seekg(0, std::ios::beg);
   inputStream.open(inputFilename);
-  if(!inputStream.is_open())
+  if (!inputStream.is_open())
   {
-    Logger::printMessage("Unable to open file " + inputFilename, LogLevel::HIGH);
+    ps_logger_->printMessage("Unable to open file", logger::LogLevel::HIGH);
     exit(1);
   }
 
@@ -70,9 +71,9 @@ void Parser::parse(const std::string& inputFilename)
   inputStream.clear();
   inputStream.seekg(0, std::ios::beg);
   inputStream.open(inputFilename);
-  if(!inputStream.is_open())
+  if (!inputStream.is_open())
   {
-    Logger::printMessage("Unable to open file " + inputFilename, LogLevel::HIGH);
+    ps_logger_->printMessage("Unable to open file", logger::LogLevel::HIGH);
     exit(1);
   }
 
@@ -80,9 +81,9 @@ void Parser::parse(const std::string& inputFilename)
   inputStream.clear();
   inputStream.seekg(0, std::ios::beg);
   inputStream.open(inputFilename);
-  if(!inputStream.is_open())
+  if (!inputStream.is_open())
   {
-    Logger::printMessage("Unable to open file " + inputFilename, LogLevel::HIGH);
+    ps_logger_->printMessage("Unable to open file", logger::LogLevel::HIGH);
     exit(1);
   }
 
@@ -108,52 +109,4 @@ CodeSection Parser::getCodeSection() const
 MainSection Parser::getMainSection() const
 {
   return mainSec_;
-}
-
-ValueType Parser::returnTypeForString(const std::string& type)
-{
-  if(type == "CHAR")
-  {
-    return ValueType::EXT_CHAR;
-  }
-  else if(type == "BYTE") 
-  {
-    return ValueType::EXT_BYTE;
-  }
-  else if(type == "WORD")
-  {
-    return ValueType::EXT_WORD;
-  }
-  else if(type == "DWORD")
-  {
-    return ValueType::EXT_DWORD;
-  }
-  else if(type == "QWORD")
-  {
-    return ValueType::EXT_QWORD;
-  }
-  else
-  {
-    return ValueType::EXT_NULL;
-  }
-}
-
-std::string Parser::returnStringForType(const ValueType type)
-{
-  switch(type)
-  {
-    case ValueType::EXT_CHAR:
-      return std::string{"CHAR"};
-    case ValueType::EXT_BYTE:
-      return std::string{"BYTE"};
-    case ValueType::EXT_WORD:
-      return std::string{"WORD"};
-    case ValueType::EXT_DWORD:
-      return std::string{"DWORD"};
-    case ValueType::EXT_QWORD:
-      return std::string{"QWORD"};
-    case ValueType::EXT_NULL:
-    default:
-      return std::string{"INVALID"};
-  }
 }

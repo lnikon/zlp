@@ -2,27 +2,27 @@
 
 #include "logger.hpp"
 
-bool DataSectionParserUtilities::checkDataSection(const DataSection& dataSec)
+bool DataSectionParserUtilities::checkDataSection(const DataSection& dataSec, logger::LoggerSPtr pLogger)
 {
   bool isAllOk = true;
 
-  const bool isStaticTypeCheckOk = staticTypeCheck(dataSec); 
+  const bool isStaticTypeCheckOk = staticTypeCheck(dataSec, pLogger); 
   isAllOk = isStaticTypeCheckOk;
 
   return isAllOk;
 }
 
-bool DataSectionParserUtilities::staticTypeCheck(const DataSection& dataSec)
+bool DataSectionParserUtilities::staticTypeCheck(const DataSection& dataSec, logger::LoggerSPtr pLogger)
 {
   bool isStaticTypeCheckOk = true;
 
   auto vars = dataSec.getVariablesVector();
   for(const auto& var : vars)
   {
-    const bool isVarTypeSupported = isExpressionTypeSupported(var.type_);
+    const bool isVarTypeSupported = isExpressionTypeSupported(var.type_, pLogger);
     if(!isVarTypeSupported)
     {
-      Logger::printMessage("Variable " + var.name_ + " has unsupported type.\n", LogLevel::HIGH);
+      pLogger->printMessage("Variable " + var.name_ + " has unsupported type.\n", logger::LogLevel::HIGH);
       exit(1);
     }
 
@@ -32,7 +32,7 @@ bool DataSectionParserUtilities::staticTypeCheck(const DataSection& dataSec)
   return isStaticTypeCheckOk;
 }
 
-bool DataSectionParserUtilities::isExpressionTypeSupported(ValueType type)
+bool DataSectionParserUtilities::isExpressionTypeSupported(ValueType type, logger::LoggerSPtr)
 {
   switch(type)
   {
@@ -46,5 +46,4 @@ bool DataSectionParserUtilities::isExpressionTypeSupported(ValueType type)
     default:
       return false;
   }
-
 }

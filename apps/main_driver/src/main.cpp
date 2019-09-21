@@ -1,6 +1,4 @@
 #include "main_utils.hpp"
-#include "parser.hpp"
-#include "compiler.hpp"
 #include "code_generator.hpp"
 
 #include <iostream>

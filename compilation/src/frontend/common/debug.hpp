@@ -6,28 +6,32 @@
 #include <iostream>
 
 #include "logger.hpp"
-#include "parser.hpp"
 #include "parser_defs.hpp"
 #include "array.hpp"
 #include "utility.hpp"
 #include "instruction.hpp"
 #endif
 
-inline void printStackSection(const StackSection& stackSec)
+namespace debug
+{
+
+inline void print(const StackSection &stackSec, logger::LoggerSPtr pLogger)
 {
 #ifdef DEBUG_MODE
+
   std::string stackInfo;
   stackInfo += "Stack Size: " + std::to_string(stackSec.size_) + "\n";
 
-  Logger::printMessage(stackInfo, LogLevel::DEBUG);
-  std::cout << std::endl;
+  pLogger->printMessage(stackInfo, logger::LogLevel::DEBUG);
+
 #endif
 }
 
 // TODO: Pack into specilied function with multiple argument handling
-inline void printArray(const Array& array)
+inline void print(const Array &array, logger::LoggerSPtr pLogger)
 {
 #ifdef DEBUG_MODE
+
   const std::string prefix = "\n<ArrayInfo: ";
 
   std::string padding = std::string(prefix.size(), '-');
@@ -36,45 +40,26 @@ inline void printArray(const Array& array)
   const std::string postfix = "\nEND ArrayInfo>";
 
   std::string arrayInfo;
-  arrayInfo += prefix 
-    + "\n" 
-    + padding 
-    + "name_ = " 
-    + array.name_ 
+  arrayInfo += prefix + "\n" + padding + "name_ = " + array.name_
 
-    + "\n" 
-    + padding 
-    + "type_ = "
-    + Parser::returnStringForType(array.type_)
+               + "\n" + padding + "type_ = " + utility::returnStringForType(array.type_)
 
-    + "\n" 
-    + padding 
-    + "isSizeSpecified_ = " 
-    + utility::convertBoolToString(array.isSizeSpecified_)
+               + "\n" + padding + "isSizeSpecified_ = " + utility::convertBoolToString(array.isSizeSpecified_)
 
-    + "\n" 
-    + padding 
-    + "size_ = " 
-    + std::to_string(array.size_) 
+               + "\n" + padding + "size_ = " + std::to_string(array.size_)
 
-    + "\n" 
-    + padding 
-    + "valueFromLexer_.size = "
-    + std::to_string(array.valueFromLexer_.size())
+               + "\n" + padding + "valueFromLexer_.size = " + std::to_string(array.valueFromLexer_.size())
 
-    + "\n" 
-    + padding 
-    + "valueFromLexer_ = "
-    + utility::convertVectorOfStringToString(array.valueFromLexer_)
+               + "\n" + padding + "valueFromLexer_ = " + utility::convertVectorOfStringToString(array.valueFromLexer_)
 
-    + postfix;
+               + postfix;
 
-  Logger::printMessage(arrayInfo, LogLevel::DEBUG);
-  std::cout << std::endl;
+  pLogger->printMessage(arrayInfo, logger::LogLevel::DEBUG);
+  
 #endif
 }
 
-inline void printVariable(const Variable& variable)
+inline void print(const Variable &variable, logger::LoggerSPtr pLogger)
 {
 #ifdef DEBUG_MODE
   const std::string prefix = "\n<VariableInfo: ";
@@ -85,42 +70,27 @@ inline void printVariable(const Variable& variable)
   const std::string postfix = "\nEND VariableInfo>";
 
   std::string variableInfo;
-  variableInfo += prefix 
-    + "\n" 
-    + padding 
-    + "name_ = " 
-    + variable.name_ 
+  variableInfo += prefix + "\n" + padding + "name_ = " + variable.name_
 
-    + "\n" 
-    + padding 
-    + "type_ = "
-    + Parser::returnStringForType(variable.type_)
+                  + "\n" + padding + "type_ = " + utility::returnStringForType(variable.type_)
 
-    + "\n" 
-    + padding 
-    + "valueFromLexer_ = "
-    + variable.valueFromLexer_
-    
-    + "\n" 
-    + padding 
-    + "value_ = "
-    + std::to_string(variable.value_)
-    
-    + "\n" 
-    + padding 
-    + "charValue_ = "
-    + std::string(1, variable.charValue_)
+                  + "\n" + padding + "valueFromLexer_ = " + variable.valueFromLexer_
 
-    + postfix;
+                  + "\n" + padding + "value_ = " + std::to_string(variable.value_)
 
-  Logger::printMessage(variableInfo, LogLevel::DEBUG);
-  std::cout << std::endl;
+                  + "\n" + padding + "charValue_ = " + std::string(1, variable.charValue_)
+
+                  + postfix;
+
+  pLogger->printMessage(variableInfo, logger::LogLevel::DEBUG);
+
 #endif
 }
 
-inline void printInstruction(const Instruction& instr)
+inline void printInstruction(const Instruction &instr, logger::LoggerSPtr pLogger)
 {
 #ifdef DEBUG_MODE
+
   const std::string prefix = "\n<InstructionInfo: ";
 
   std::string padding = std::string(prefix.size(), '-');
@@ -133,3 +103,5 @@ inline void printInstruction(const Instruction& instr)
 
 #endif
 }
+
+} // namespace debug

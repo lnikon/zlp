@@ -7,7 +7,14 @@
 #include "logger.hpp"
 #include "debug.hpp"
 
-// #define DEBUG_MODE
+Lexer::Lexer(logger::LoggerSPtr pLogger)
+  : ps_logger_{pLogger},
+    stackSectionParser_{ps_logger_},
+    dataSectionParser_{ps_logger_},
+    codeSectionParser_{ps_logger_}
+{
+
+}
 
 StackSection Lexer::parseStackSection(std::fstream& inputStream)
 {

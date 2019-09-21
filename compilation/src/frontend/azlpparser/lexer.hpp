@@ -9,37 +9,51 @@
 #include "data_section_parser.hpp"
 #include "code_section_parser.hpp"
 
-struct Lexer
+struct Lexer final
 {
-    StackSection parseStackSection(std::fstream& inputStream);
-    DataSection  parseDataSection(std::fstream& inputStream);
-    CodeSection  parseCodeSection(std::fstream& inputStream);
-    MainSection  parseMainSection(std::fstream& inputStream);
+  explicit Lexer(logger::LoggerSPtr pLogger);
+  ~Lexer() = default;
 
-    std::size_t lineNumber() const
-    {
-      return lineNumber_;
-    }
+  Lexer(const Lexer &) = delete;
+  Lexer &operator=(const Lexer &) = delete;
 
-    private:
-    /*
-     * Parsers for general sections
-     */
-    StackSectionParser stackSectionParser_{};
-    DataSectionParser dataSectionParser_{};
-    CodeSectionParser codeSectionParser_{};
+  Lexer(Lexer &&) = delete;
+  Lexer &operator=(Lexer &&) = delete;
 
-    std::size_t lineNumber_{0};
-    std::size_t functionCount_{0};
+  StackSection parseStackSection(std::fstream &inputStream);
+  DataSection parseDataSection(std::fstream &inputStream);
+  CodeSection parseCodeSection(std::fstream &inputStream);
+  MainSection parseMainSection(std::fstream &inputStream);
 
-    /*
-     * Stack section parsing routines
-     */
-    bool parseStackSize(StackSection& rStackSec, std::string line);
-    void setDefaultStackSize(StackSection& rStackSec);
+  std::size_t lineNumber() const
+  {
+    return lineNumber_;
+  }
 
-    /*
-     * Main section parsing routines
-     */
-    void parseMainFunction(MainSection& rMainSec);
+private:
+  /*
+  * Synchronized logger
+  */
+  logger::LoggerSPtr ps_logger_{nullptr};
+
+  /*
+  * Parsers for general sections
+  */
+  StackSectionParser stackSectionParser_;
+  DataSectionParser dataSectionParser_;
+  CodeSectionParser codeSectionParser_;
+
+  std::size_t lineNumber_{0};
+  std::size_t functionCount_{0};
+
+  /*
+  * Stack section parsing routines
+  */
+  bool parseStackSize(StackSection &rStackSec, std::string line);
+  void setDefaultStackSize(StackSection &rStackSec);
+
+  /*
+  * Main section parsing routines
+  */
+  void parseMainFunction(MainSection &rMainSec);
 };

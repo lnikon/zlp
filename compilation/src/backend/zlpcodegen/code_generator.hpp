@@ -30,5 +30,7 @@ struct CodeGenerator {
 private:
   std::vector<std::thread>  vec_pipelines_{};
   std::vector<std::string>  svec_inputFilenames_{};
-  new_logger::LoggerSPtr ps_logger_{nullptr};
+
+  logger::PrinterSPtr ps_printer_{nullptr};
+  logger::LoggerSPtr ps_logger_{nullptr};
 };

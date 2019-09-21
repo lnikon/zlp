@@ -2,6 +2,11 @@
 #include "utility.hpp"
 #include "logger.hpp"
 
+InstructionParser::InstructionParser(logger::LoggerSPtr pLogger)
+    : ps_logger_{pLogger}
+{
+}
+
 std::pair<bool, Instruction> InstructionParser::parse(std::string line)
 {
   /* Parsing algorithm */
@@ -17,7 +22,7 @@ std::pair<bool, Instruction> InstructionParser::parse(std::string line)
   return result;
 }
 
-std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string& line)
+std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string &line)
 {
   /* Instruction parsing starts here */
   bool isInstr = false;
@@ -93,13 +98,13 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
   auto itInstrRange = env_.instructionRange(instrName);
 
   for (auto itInstrRangeBegin = itInstrRange.first;
-    itInstrRangeBegin != itInstrRange.second;
-    ++itInstrRangeBegin)
+       itInstrRangeBegin != itInstrRange.second;
+       ++itInstrRangeBegin)
   {
     // For now, skip matching by conditional code
 
     // Match by extension
-    // If internalRepresentation doesn't support extension 
+    // If internalRepresentation doesn't support extension
     // and extension is given in a source then skip
     const bool isDontCare = itInstrRangeBegin->second.mext_ == Extensions::MatchExtension::ME_DONT_CARE;
     const bool isExtNotMatch = itInstrRangeBegin->second.ext_ != instrInfo.ext_;
@@ -124,9 +129,7 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
       // A piece of SHIT!
       if (itInstrRangeBegin->second.oplst_[idx] != instrInfo.oplst_[idx])
       {
-        if(itInstrRangeBegin->second.oplst_[idx].type_ == OperandType::OT_REG_ARG
-        && instrInfo.oplst_[idx].type_ != OperandType::OT_REG 
-        && instrInfo.oplst_[idx].type_ != OperandType::OT_ARG)
+        if (itInstrRangeBegin->second.oplst_[idx].type_ == OperandType::OT_REG_ARG && instrInfo.oplst_[idx].type_ != OperandType::OT_REG && instrInfo.oplst_[idx].type_ != OperandType::OT_ARG)
         {
           opListMatch = false;
           break;
@@ -134,7 +137,7 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
       }
     }
 
-    if(!opListMatch)
+    if (!opListMatch)
     {
       break;
     }
@@ -177,22 +180,22 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string&
   return std::make_pair(isInstr, instr);
 }
 
-std::pair<bool, InstructionType> InstructionParser::isInstructionType(const std::string& token)
+std::pair<bool, InstructionType> InstructionParser::isInstructionType(const std::string &token)
 {
   return std::pair<bool, InstructionType>();
 }
 
-std::pair<bool, Extensions::Extension> InstructionParser::isExtension(const std::string& token)
+std::pair<bool, Extensions::Extension> InstructionParser::isExtension(const std::string &token)
 {
   return Extensions::isExtension(token);
 }
 
-std::pair<bool, OperandList> InstructionParser::isOperandList(const std::string& token)
+std::pair<bool, OperandList> InstructionParser::isOperandList(const std::string &token)
 {
   return std::pair<bool, OperandList>();
 }
 
-std::pair<bool, Operand> InstructionParser::isOperand(const std::string& token, Extensions::Extension ext)
+std::pair<bool, Operand> InstructionParser::isOperand(const std::string &token, Extensions::Extension ext)
 {
   auto result = std::make_pair(false, Operand{});
 
@@ -210,9 +213,7 @@ std::pair<bool, Operand> InstructionParser::isOperand(const std::string& token, 
     bool isNumber = utility::is_number(token.substr(1, token.size() - 1));
     if (!isNumber)
     {
-      Logger::printMessage("Syntax error on line "
-        + std::to_string(lineNumber_)
-        + ". Invalid index for Address\\Global Register\n", LogLevel::HIGH);
+      ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Invalid index for Address\\Global Register\n", logger::LogLevel::HIGH);
       exit(1);
     }
 
@@ -220,14 +221,12 @@ std::pair<bool, Operand> InstructionParser::isOperand(const std::string& token, 
     {
       result.second.type_ = OperandType::OT_ARG;
       result.second.index_ = utility::parse_int(token.substr(1, token.size() - 1));
-
     }
     else if (token[0] == 'R')
     {
       result.second.type_ = OperandType::OT_REG;
       result.second.index_ = utility::parse_int(token.substr(1, token.size() - 1));
     }
-
 
     result.first = true;
   }
@@ -247,9 +246,9 @@ std::pair<bool, Operand> InstructionParser::isOperand(const std::string& token, 
   return result;
 }
 
-std::pair<bool, ImmediateValue> InstructionParser::handleIMV(const std::string& token, Extensions::Extension ext)
+std::pair<bool, ImmediateValue> InstructionParser::handleIMV(const std::string &token, Extensions::Extension ext)
 {
-  std::pair<bool, ImmediateValue> result{ true, ImmediateValue{} };
+  std::pair<bool, ImmediateValue> result{true, ImmediateValue{}};
 
   long long value = utility::parse_int(token);
 

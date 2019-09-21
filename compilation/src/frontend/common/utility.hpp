@@ -5,6 +5,7 @@
 #include <locale>
 
 #include "common.hpp"
+#include "type_defs.hpp"
 
 namespace utility {
 // trim from start (in place)
@@ -43,4 +44,8 @@ bool checkCorrectKeyword(const std::string& line);
 
 unsigned long parse_int(const std::string& str);
 bool parse_uint(const std::string& str, std::size_t from);
-}
+
+ValueType returnTypeForString(const std::string &type);
+
+std::string returnStringForType(const ValueType type);
+} 
