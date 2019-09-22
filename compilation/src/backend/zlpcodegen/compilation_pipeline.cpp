@@ -1,8 +1,10 @@
 #include "compilation_pipeline.hpp"
+#include "generic_binary_writer.hpp"
 #include "parser.hpp"
 
 CompilationPipeline::CompilationPipeline(const std::string &filename, logger::PrinterSPtr pPrinter)
     : pu_compiler_{std::make_unique<Compiler>()},
+      pu_bin_writer_{std::make_unique<GenericBinaryWriter>(filename)},
       s_filename_{filename},
       ps_logger_{std::make_shared<logger::Logger>(pPrinter, filename)}
 {
@@ -35,7 +37,9 @@ std::pair<bool, ByteVec> CompilationPipeline::operator()()
         return std::make_pair(false, ByteVec{});
     }
 
-    ps_logger_->printMessage("Compilation of " + s_filename_+ " succeeded\n", logger::LogLevel::INFO);
+    pu_bin_writer_->write(bytevec);
+
+    ps_logger_->printMessage("Compilation of " + s_filename_ + " succeeded\n", logger::LogLevel::INFO);
 
     return std::make_pair(ok, bytevec);
 }

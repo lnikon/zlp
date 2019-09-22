@@ -4,7 +4,7 @@
 
 CodeGenerator::CodeGenerator()
     : ps_printer_{std::make_shared<logger::Printer>()},
-      ps_logger_{std::make_shared<logger::Logger>(ps_printer_, "")}
+      ps_logger_{std::make_shared<logger::Logger>(ps_printer_, "Code Generator")}
 {
 }
 

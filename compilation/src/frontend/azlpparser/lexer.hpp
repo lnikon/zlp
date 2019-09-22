@@ -1,4 +1,3 @@
-// For the language specification of Zpl see src/syntax_description.txt
 #pragma once
 
 #include <fstream>

@@ -27,4 +27,4 @@
 enum class ChainModel
 {
   GENERIC = 0,
-}
+};

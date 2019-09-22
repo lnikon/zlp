@@ -1,6 +1,8 @@
 #pragma once
 
 #include "compiler.hpp"
+#include "interface_binary_writer.hpp"
+
 #include "logger.hpp"
 
 #include <memory>
@@ -28,6 +30,11 @@ private:
     * Each pipline shoud have exactly one compiler
     */
     CompilerUPtr pu_compiler_{nullptr};
+
+    /*
+    * Interface to use different bytecode writers
+    */
+    IBinWriterUPtr pu_bin_writer_{nullptr};
 
     /*
     * Filename of Compilation Unit
