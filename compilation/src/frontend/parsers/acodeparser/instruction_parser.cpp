@@ -7,7 +7,7 @@ InstructionParser::InstructionParser(logger::LoggerSPtr pLogger)
 {
 }
 
-std::pair<bool, Instruction> InstructionParser::parse(std::string line)
+std::optional<Instruction> InstructionParser::parse(std::string line)
 {
   /* Parsing algorithm */
   /*
@@ -22,7 +22,7 @@ std::pair<bool, Instruction> InstructionParser::parse(std::string line)
   return result;
 }
 
-std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string &line)
+std::optional<Instruction> InstructionParser::isInstruction(const std::string &line)
 {
   /* Instruction parsing starts here */
   bool isInstr = false;
@@ -35,7 +35,7 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string 
 
   if (tokens.empty())
   {
-    return std::make_pair(false, Instruction{});
+	  return std::nullopt;
   }
 
   std::string instrName = tokens[nextToken++];
@@ -50,29 +50,30 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string 
 
   if (tokens.size() < 2)
   {
-    return std::make_pair(isInstr, instr);
+	  return std::nullopt;
   }
 
   // Store externsion for operands
   std::string opSize = tokens[nextToken];
 
-  // Holds true, if extension is present
-  bool extOk = false;
-
   // Default extension should be DoubleWord
-  Extensions::Extension ext = Extensions::Extension::EXT_DWORD;
+  auto ext = std::optional<Extensions::Extension>(Extensions::Extension::EXT_DWORD);
 
   // Unpack result
   // If extensions is present, increment lookahead
-  if (const auto [extOk, ext] = isExtension(opSize); extOk)
+  if (ext = isExtension(opSize); ext.has_value())
   {
-    instrInfo.ext_ = extOk;
+    instrInfo.ext_ = true;
 
     // If empty extension string is given, then don't icrement lookahead
     if (!opSize.empty())
     {
       nextToken++;
     }
+  }
+  else
+  {
+	  ext = std::optional<Extensions::Extension>(Extensions::Extension::EXT_DWORD);
   }
 
   // Parse argument list
@@ -84,9 +85,9 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string 
     }
 
     const auto arg = tokens[nextToken];
-    if (auto [ok, operand] = isOperand(arg, ext); ok)
+    if (auto operand = isOperand(arg, *ext); operand.has_value())
     {
-      instrInfo.oplst_[argIdx] = operand;
+      instrInfo.oplst_[argIdx] = *operand;
       instrInfo.opcnt_++;
       ++nextToken;
     }
@@ -126,10 +127,12 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string 
     bool opListMatch = true;
     for (std::size_t idx = 0; idx < instrInfo.opcnt_; ++idx)
     {
-      // A piece of SHIT!
+      // Really, fuckin' really, a piece of SHIT!
       if (itInstrRangeBegin->second.oplst_[idx] != instrInfo.oplst_[idx])
       {
-        if (itInstrRangeBegin->second.oplst_[idx].type_ == OperandType::OT_REG_ARG && instrInfo.oplst_[idx].type_ != OperandType::OT_REG && instrInfo.oplst_[idx].type_ != OperandType::OT_ARG)
+        if (itInstrRangeBegin->second.oplst_[idx].type_ == OperandType::OT_REG_ARG 
+			&& instrInfo.oplst_[idx].type_ != OperandType::OT_REG 
+			&& instrInfo.oplst_[idx].type_ != OperandType::OT_ARG)
         {
           opListMatch = false;
           break;
@@ -154,7 +157,7 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string 
 
   if (!isMatched)
   {
-    return std::make_pair(isInstr, instr);
+	  return std::nullopt;
   }
 
   // Create actual instruction from the information that we've actually got
@@ -164,7 +167,7 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string 
   // Assign actual extension
   if (instrInfo.ext_)
   {
-    instr.ex_ = ext;
+    instr.ex_ = *ext;
   }
 
   // Handle conditional code
@@ -177,33 +180,33 @@ std::pair<bool, Instruction> InstructionParser::isInstruction(const std::string 
   }
 
   isInstr = true;
-  return std::make_pair(isInstr, instr);
+  return std::nullopt;
 }
 
-std::pair<bool, InstructionType> InstructionParser::isInstructionType(const std::string &token)
+std::optional<InstructionType> InstructionParser::isInstructionType(const std::string &token)
 {
-  return std::pair<bool, InstructionType>();
+  return std::nullopt;
 }
 
-std::pair<bool, Extensions::Extension> InstructionParser::isExtension(const std::string &token)
+std::optional<Extensions::Extension> InstructionParser::isExtension(const std::string &token)
 {
-  return Extensions::isExtension(token);
+  return Extensions::extension(token);
 }
 
-std::pair<bool, OperandList> InstructionParser::isOperandList(const std::string &token)
+std::optional<OperandList> InstructionParser::isOperandList(const std::string &token)
 {
-  return std::pair<bool, OperandList>();
+  return std::nullopt;
 }
 
-std::pair<bool, Operand> InstructionParser::isOperand(const std::string &token, Extensions::Extension ext)
+std::optional<Operand> InstructionParser::isOperand(const std::string &token, Extensions::Extension ext)
 {
-  auto result = std::make_pair(false, Operand{});
+  auto result = std::optional<Operand>{std::nullopt};
 
   auto tokentrmd = utility::trim_copy(token);
 
   if (token.empty())
   {
-    return result;
+    return std::nullopt;
   }
 
   // AR or GR
@@ -219,36 +222,30 @@ std::pair<bool, Operand> InstructionParser::isOperand(const std::string &token, 
 
     if (token[0] == 'A')
     {
-      result.second.type_ = OperandType::OT_ARG;
-      result.second.index_ = utility::parse_int(token.substr(1, token.size() - 1));
+      result->type_ = OperandType::OT_ARG;
+      result->index_ = utility::parse_int(token.substr(1, token.size() - 1));
     }
     else if (token[0] == 'R')
     {
-      result.second.type_ = OperandType::OT_REG;
-      result.second.index_ = utility::parse_int(token.substr(1, token.size() - 1));
+      result->type_ = OperandType::OT_REG;
+      result->index_ = utility::parse_int(token.substr(1, token.size() - 1));
     }
-
-    result.first = true;
   }
   else
   {
-    if (const auto [ok, imv] = handleIMV(token, ext); ok)
+    if (auto imv = handleIMV(token, ext); imv.has_value())
     {
-      // TODO: Support for immediate values
-      result.second.type_ = OperandType::OT_IMV;
-
-      result.second.imv_ = imv;
-
-      result.first = true;
+      result->type_ = OperandType::OT_IMV;
+	  result->imv_ = std::move(imv.value());
     }
   }
 
   return result;
 }
 
-std::pair<bool, ImmediateValue> InstructionParser::handleIMV(const std::string &token, Extensions::Extension ext)
+std::optional<ImmediateValue> InstructionParser::handleIMV(const std::string &token, Extensions::Extension ext)
 {
-  std::pair<bool, ImmediateValue> result{true, ImmediateValue{}};
+	auto result = std::optional<ImmediateValue>{std::nullopt};
 
   long long value = utility::parse_int(token);
 
@@ -256,27 +253,23 @@ std::pair<bool, ImmediateValue> InstructionParser::handleIMV(const std::string &
 
   if (ext == Extensions::Extension::EXT_BYTE || ext == Extensions::Extension::EXT_CHAR)
   {
-    result.second.type_ = ImmediateValueType::IMV_NUM8;
-    result.second.byte_ = value;
+    result->type_ = ImmediateValueType::IMV_NUM8;
+    result->byte_ = value;
   }
   else if (ext == Extensions::Extension::EXT_WORD)
   {
-    result.second.type_ = ImmediateValueType::IMV_NUM16;
-    result.second.word_ = value;
+    result->type_ = ImmediateValueType::IMV_NUM16;
+    result->word_ = value;
   }
   else if (ext == Extensions::Extension::EXT_DWORD)
   {
-    result.second.type_ = ImmediateValueType::IMV_NUM32;
-    result.second.dword_ = value;
+    result->type_ = ImmediateValueType::IMV_NUM32;
+    result->dword_ = value;
   }
   else if (ext == Extensions::Extension::EXT_QWORD)
   {
-    result.second.type_ = ImmediateValueType::IMV_NUM64;
-    result.second.qword_ = value;
-  }
-  else
-  {
-    result.first = false;
+    result->type_ = ImmediateValueType::IMV_NUM64;
+    result->qword_ = value;
   }
 
   return result;

@@ -4,6 +4,7 @@
 #include "parser_defs.hpp"
 #include "logger.hpp"
 
+#include <optional>
 #include <fstream>
 
 struct CodeSectionParser final
@@ -41,11 +42,11 @@ private:
   /*
      * Methods
      */
-  std::pair<bool, std::string> getFunctionName(const std::string &line);
-  std::pair<bool, std::string> isFunctionDeclaration(const std::string &line);
-  void parseFunctionBody(std::fstream &inputStream, Function &rFunc);
-  std::pair<bool, Label> isLabel(const std::string &line);
-  bool endOfFunctionDecl(const std::string &line);
+  std::pair<bool, std::string>		getFunctionName(const std::string &line);
+  std::pair<bool, std::string>		isFunctionDeclaration(const std::string &line);
+  void								parseFunctionBody(std::fstream &inputStream, Function &rFunc);
+  std::optional<Label>				isLabel(const std::string &line);
+  bool								endOfFunctionDecl(const std::string &line);
 };
 
 #endif // CODE_SECTION_PARSER_H

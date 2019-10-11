@@ -32,5 +32,5 @@ private:
   std::vector<std::string>  svec_inputFilenames_{};
 
   logger::PrinterSPtr ps_printer_{nullptr};
-  logger::LoggerSPtr ps_logger_{nullptr};
+  logger::LoggerSPtr  ps_logger_{nullptr};
 };

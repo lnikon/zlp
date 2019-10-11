@@ -15,7 +15,7 @@ struct SimpleProgramArgumentParser
     {
         std::vector<std::string> inputFilenames;
 
-        for(int c = 2; c < argc; ++c)
+        for(int c = 1; c < argc; ++c)
         {
             inputFilenames.emplace_back(std::string{argv[c]});
         }       

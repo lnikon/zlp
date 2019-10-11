@@ -1,9 +1,9 @@
 #pragma once
 
-#include <memory>
-
 #include "translator_defs.hpp"
 #include "translator.hpp"
+
+#include <memory>
 
 struct Compiler final
 {

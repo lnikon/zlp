@@ -20,7 +20,7 @@ namespace Extensions {
     EXT_QWORD,
   };
 
-  static std::string extensionToString(Extension ext)
+  static auto extensionToString(Extension ext)
   {
     if (ext == Extension::EXT_BYTE)
     {
@@ -48,33 +48,38 @@ namespace Extensions {
     }
   }
 
-  static auto isExtension(const std::string& ext)
+  /*
+  * If @ext is empty, then return default value for extension,
+  * else if @ext is supported extension string, return that extension value,
+  * otherwise, return Extension::EXT_NULL value
+  */
+  static auto extension(const std::string& ext)
   {
     // Default value
     if (ext.empty())
     {
-      return std::make_pair(true, Extension::EXT_DWORD);
+      return Extension::EXT_DWORD;
     }
 
     if (ext == "B")
     {
-      return std::make_pair(true, Extension::EXT_BYTE);
+      return Extension::EXT_BYTE;
     }
     else if (ext == "W")
     {
-      return std::make_pair(true, Extension::EXT_WORD);
+      return Extension::EXT_WORD;
     }
     else if (ext == "DW")
     {
-      return std::make_pair(true, Extension::EXT_DWORD);
+      return Extension::EXT_DWORD;
     }
     else if (ext == "QW")
     {
-      return std::make_pair(true, Extension::EXT_QWORD);
+      return Extension::EXT_QWORD;
     }
     else
     {
-      return std::make_pair(false, Extension::EXT_NULL);
+      return Extension::EXT_NULL;
     }
   }
 }

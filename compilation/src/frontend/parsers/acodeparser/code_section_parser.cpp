@@ -152,13 +152,13 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream, Function &r
             continue;
         }
 
-        if (auto [isLabelParam, label] = isLabel(line); isLabelParam)
+        if (auto label = isLabel(line); label.has_value())
         {
-            rFunc.labels_.push_back(label);
+            rFunc.labels_.emplace_back(label.value());
         }
         else if (auto [isInstrParam, instr] = instrParser.parse(line); isInstrParam)
         {
-            rFunc.code_.push_back(instr);
+            rFunc.code_.emplace_back(instr);
         }
         else if (endOfFunctionDecl(line))
         {
@@ -172,7 +172,7 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream, Function &r
     }
 }
 
-std::pair<bool, Label> CodeSectionParser::isLabel(const std::string &line)
+std::optional<Label> CodeSectionParser::isLabel(const std::string &line)
 {
     auto label = Label{};
     auto isLabelParam = false;
@@ -183,8 +183,7 @@ std::pair<bool, Label> CodeSectionParser::isLabel(const std::string &line)
     // Label declaration can consist of maximum 2 tokens
     if (tokens.size() > 2)
     {
-        isLabelParam = false;
-        return std::make_pair(isLabelParam, label);
+        return std::nullopt;
     }
 
     auto name = std::string{};
@@ -192,8 +191,6 @@ std::pair<bool, Label> CodeSectionParser::isLabel(const std::string &line)
     {
         name = tokens[0];
         name = utility::trim_copy(name);
-
-        isLabelParam = true;
     }
     else if (tokens.size() == 1)
     {
@@ -202,8 +199,7 @@ std::pair<bool, Label> CodeSectionParser::isLabel(const std::string &line)
 
         if (name[name.size() - 1] != ':')
         {
-            isLabelParam = false;
-            return std::make_pair(isLabelParam, label);
+            return std::nullopt;
         }
 
         name = name.substr(0, name.size() - 1);
@@ -213,13 +209,11 @@ std::pair<bool, Label> CodeSectionParser::isLabel(const std::string &line)
             ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Invalid identifier name for label", logger::LogLevel::HIGH);
             exit(1);
         }
-
-        isLabelParam = true;
     }
 
     label.name_ = name;
 
-    return std::make_pair(isLabelParam, label);
+    return label;
 }
 
 bool CodeSectionParser::endOfFunctionDecl(const std::string &line)

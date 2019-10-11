@@ -16,9 +16,6 @@ void CodeGenerator::build()
         return;
     }
 
-    // For now, use a single thread approach for compilation
-    // But for the future, this process can be easly parallelized
-
     // A simple pipline for compilation
     // 1. Open the file
     // 2. Parse it

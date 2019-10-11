@@ -6,11 +6,11 @@
 
 struct Function
 {
-  std::string     name_{};
-  InstructionList code_{};
-  LabelList       labels_{};
+  std::string		name_{};
+  InstructionList	code_{};
+  LabelList			labels_{};
   
-  bool isForwardDeclared{false};
+  bool				isForwardDeclared{false};
 };
 using FunctionList = std::vector<Function>;
 

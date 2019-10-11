@@ -21,7 +21,7 @@ struct InstructionParser final
     InstructionParser(InstructionParser &&) = delete;
     InstructionParser &operator=(InstructionParser &&) = delete;
 
-    std::pair<bool, Instruction> parse(std::string line);
+    std::optional<Instruction> parse(std::string line);
 
     std::size_t lineNumber_{0};
 
@@ -33,10 +33,10 @@ private:
 
     InstructionEnvirnoment env_{};
 
-    std::pair<bool, Instruction> isInstruction(const std::string &line);
-    std::pair<bool, InstructionType> isInstructionType(const std::string &token);
-    std::pair<bool, Extensions::Extension> isExtension(const std::string &token);
-    std::pair<bool, OperandList> isOperandList(const std::string &token);
-    std::pair<bool, Operand> isOperand(const std::string &token, Extensions::Extension ext);
-    std::pair<bool, ImmediateValue> handleIMV(const std::string &token, Extensions::Extension ext);
+	std::optional<Instruction>				isInstruction(const std::string &line);
+	std::optional<InstructionType>			isInstructionType(const std::string &token);
+	std::optional<Extensions::Extension>	isExtension(const std::string &token);
+	std::optional<OperandList>				isOperandList(const std::string &token);
+	std::optional<Operand>					isOperand(const std::string &token, Extensions::Extension ext);
+	std::optional<ImmediateValue>			handleIMV(const std::string &token, Extensions::Extension ext);
 };
