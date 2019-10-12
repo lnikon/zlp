@@ -156,9 +156,9 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream, Function &r
         {
             rFunc.labels_.emplace_back(label.value());
         }
-        else if (auto [isInstrParam, instr] = instrParser.parse(line); isInstrParam)
+        else if (auto instruction = instrParser.parse(line); instruction.has_value())
         {
-            rFunc.code_.emplace_back(instr);
+            rFunc.code_.emplace_back(instruction.value());
         }
         else if (endOfFunctionDecl(line))
         {

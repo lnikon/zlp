@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../ide -I. -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/qt/mkspecs/linux-g++
+CXXFLAGS      = -pipe -g -std=gnu++1z -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+INCPATH       = -I../ide -I. -I../../runtime/src/vm -I../../compilation/src/backend/zlpcodegen -I../../compilation/src/frontend/common -I../../compilation/src/frontend/azlpparser -I../../compilation/src/frontend/parsers/acodeparser -I../../compilation/src/frontend/parsers/adataparser -I../../compilation/src/frontend/parsers/amainparser -I../../compilation/src/frontend/parsers/astackparser -I../../compilation/src/frontend/parsers/astackparser -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtQml -isystem /usr/include/qt/QtNetwork -isystem /usr/include/qt/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/qt/mkspecs/linux-g++
 QMAKE         = /usr/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = ide1.0.0
 DISTDIR = /home/nikon/projects/zlp/ide/build-ide-Desktop-Debug/.tmp/ide1.0.0
 LINK          = g++
 LFLAGS        = 
-LIBS          = $(SUBLIBS) /usr/lib/libQt5Widgets.so /usr/lib/libQt5Gui.so /usr/lib/libQt5Core.so /usr/lib/libGL.so -lpthread   
+LIBS          = $(SUBLIBS) -L/home/nikon/projects/zlp/ide/ide/../../build/compilation/src/backend/zlpcodegen/ -lzlpcodegen -L/home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/common/ -lcommon -L/home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/azlpparser/ -lazlpparser -L/home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/parsers/acodeparser/ -lacodeparser -L/home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/parsers/adataparser/ -ladataparser -L/home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/parsers/amainparser/ -lamainparser -L/home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/parsers/astackparser/ -lastackparser /usr/lib/libQt5Widgets.so /usr/lib/libQt5Gui.so /usr/lib/libQt5Qml.so /usr/lib/libQt5Network.so /usr/lib/libQt5Core.so /usr/lib/libGL.so -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -53,12 +53,16 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../ide/main.cpp \
-		../ide/mainwindow.cpp qrc_icons.cpp \
-		moc_mainwindow.cpp
+		../ide/mainwindow.cpp \
+		../ide/sourcetextedit.cpp qrc_icons.cpp \
+		moc_mainwindow.cpp \
+		moc_sourcetextedit.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
+		sourcetextedit.o \
 		qrc_icons.o \
-		moc_mainwindow.o
+		moc_mainwindow.o \
+		moc_sourcetextedit.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -277,8 +281,10 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/exceptions.prf \
 		/usr/lib/qt/mkspecs/features/yacc.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
-		../ide/ide.pro ../ide/mainwindow.h ../ide/main.cpp \
-		../ide/mainwindow.cpp
+		../ide/ide.pro ../ide/mainwindow.h \
+		../ide/sourcetextedit.h ../ide/main.cpp \
+		../ide/mainwindow.cpp \
+		../ide/sourcetextedit.cpp
 QMAKE_TARGET  = ide
 DESTDIR       = 
 TARGET        = ide
@@ -287,7 +293,7 @@ TARGET        = ide
 first: all
 ####### Build rules
 
-ide: ui_mainwindow.h $(OBJECTS)  
+ide: /home/nikon/projects/zlp/ide/ide/../../build/compilation/src/backend/zlpcodegen/libzlpcodegen.a /home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/common/libcommon.a /home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/azlpparser/libazlpparser.a /home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/parsers/acodeparser/libacodeparser.a /home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/parsers/adataparser/libadataparser.a /home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/parsers/amainparser/libamainparser.a /home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/parsers/astackparser/libastackparser.a /home/nikon/projects/zlp/ide/ide/../../build/compilation/src/frontend/parsers/astackparser/libastackparser.a ui_mainwindow.h ui_sourcetextedit.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../ide/ide.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs/features/spec_pre.prf \
@@ -747,9 +753,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../ide/icons.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../ide/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../ide/main.cpp ../ide/mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../ide/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../ide/mainwindow.h ../ide/sourcetextedit.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../ide/main.cpp ../ide/mainwindow.cpp ../ide/sourcetextedit.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../ide/mainwindow.ui ../ide/sourcetextedit.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -786,26 +792,35 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /usr/lib/qt/mkspecs/features/data/dummy.cpp
-	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /usr/lib/qt/mkspecs/features/data/dummy.cpp
+	g++ -pipe -g -std=gnu++1z -Wall -W -dM -E -o moc_predefs.h /usr/lib/qt/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_sourcetextedit.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_sourcetextedit.cpp
 moc_mainwindow.cpp: ../ide/mainwindow.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /home/nikon/projects/zlp/ide/build-ide-Desktop-Debug/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/nikon/projects/zlp/ide/ide -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I. -I/usr/include/c++/9.1.0 -I/usr/include/c++/9.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include-fixed -I/usr/include ../ide/mainwindow.h -o moc_mainwindow.cpp
+	/usr/bin/moc $(DEFINES) --include /home/nikon/projects/zlp/ide/build-ide-Desktop-Debug/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/nikon/projects/zlp/ide/ide -I/home/nikon/projects/zlp/runtime/src/vm -I/home/nikon/projects/zlp/compilation/src/backend/zlpcodegen -I/home/nikon/projects/zlp/compilation/src/frontend/common -I/home/nikon/projects/zlp/compilation/src/frontend/azlpparser -I/home/nikon/projects/zlp/compilation/src/frontend/parsers/acodeparser -I/home/nikon/projects/zlp/compilation/src/frontend/parsers/adataparser -I/home/nikon/projects/zlp/compilation/src/frontend/parsers/amainparser -I/home/nikon/projects/zlp/compilation/src/frontend/parsers/astackparser -I/home/nikon/projects/zlp/compilation/src/frontend/parsers/astackparser -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtQml -I/usr/include/qt/QtNetwork -I/usr/include/qt/QtCore -I. -I/usr/include/c++/9.1.0 -I/usr/include/c++/9.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include-fixed -I/usr/include ../ide/mainwindow.h -o moc_mainwindow.cpp
+
+moc_sourcetextedit.cpp: ../ide/sourcetextedit.h \
+		moc_predefs.h \
+		/usr/bin/moc
+	/usr/bin/moc $(DEFINES) --include /home/nikon/projects/zlp/ide/build-ide-Desktop-Debug/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/nikon/projects/zlp/ide/ide -I/home/nikon/projects/zlp/runtime/src/vm -I/home/nikon/projects/zlp/compilation/src/backend/zlpcodegen -I/home/nikon/projects/zlp/compilation/src/frontend/common -I/home/nikon/projects/zlp/compilation/src/frontend/azlpparser -I/home/nikon/projects/zlp/compilation/src/frontend/parsers/acodeparser -I/home/nikon/projects/zlp/compilation/src/frontend/parsers/adataparser -I/home/nikon/projects/zlp/compilation/src/frontend/parsers/amainparser -I/home/nikon/projects/zlp/compilation/src/frontend/parsers/astackparser -I/home/nikon/projects/zlp/compilation/src/frontend/parsers/astackparser -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtQml -I/usr/include/qt/QtNetwork -I/usr/include/qt/QtCore -I. -I/usr/include/c++/9.1.0 -I/usr/include/c++/9.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include-fixed -I/usr/include ../ide/sourcetextedit.h -o moc_sourcetextedit.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_sourcetextedit.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_sourcetextedit.h
 ui_mainwindow.h: ../ide/mainwindow.ui \
 		/usr/bin/uic
 	/usr/bin/uic ../ide/mainwindow.ui -o ui_mainwindow.h
+
+ui_sourcetextedit.h: ../ide/sourcetextedit.ui \
+		/usr/bin/uic
+	/usr/bin/uic ../ide/sourcetextedit.ui -o ui_sourcetextedit.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -821,14 +836,43 @@ main.o: ../ide/main.cpp ../ide/mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../ide/main.cpp
 
 mainwindow.o: ../ide/mainwindow.cpp ../ide/mainwindow.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../ide/sourcetextedit.h \
+		../../compilation/src/backend/zlpcodegen/code_generator.hpp \
+		../../compilation/src/backend/zlpcodegen/compilation_pipeline.hpp \
+		../../compilation/src/backend/zlpcodegen/compiler.hpp \
+		../../compilation/src/backend/zlpcodegen/translator_defs.hpp \
+		../../compilation/src/backend/zlpcodegen/translator.hpp \
+		../../compilation/src/backend/zlpcodegen/interface_translator.hpp \
+		../../compilation/src/frontend/common/parser_defs.hpp \
+		../../compilation/src/frontend/common/common.hpp \
+		../../runtime/src/vm/vm_config.hpp \
+		../../compilation/src/frontend/common/extension_defs.hpp \
+		../../compilation/src/frontend/common/type_defs.hpp \
+		../../compilation/src/frontend/common/instruction.hpp \
+		../../compilation/src/frontend/common/operand.hpp \
+		../../compilation/src/frontend/common/immediate_value.hpp \
+		../../compilation/src/frontend/common/label.hpp \
+		../../compilation/src/frontend/common/function.hpp \
+		../../compilation/src/frontend/common/array.hpp \
+		../../compilation/src/frontend/common/variable.hpp \
+		../../compilation/src/backend/zlpcodegen/generic_translator_impl.hpp \
+		../../compilation/src/backend/zlpcodegen/interface_binary_writer.hpp \
+		../../compilation/src/frontend/common/logger.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../ide/mainwindow.cpp
+
+sourcetextedit.o: ../ide/sourcetextedit.cpp ../ide/sourcetextedit.h \
+		ui_sourcetextedit.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sourcetextedit.o ../ide/sourcetextedit.cpp
 
 qrc_icons.o: qrc_icons.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_icons.o qrc_icons.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_sourcetextedit.o: moc_sourcetextedit.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_sourcetextedit.o moc_sourcetextedit.cpp
 
 ####### Install
 

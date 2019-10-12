@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTabWidget>
 
 namespace Ui {
 class MainWindow;
@@ -16,9 +17,13 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow* ui;
+    QTabWidget*     mainTabWidget_{Q_NULLPTR};
 
     void setupMainToolbar();
+
+    void openSourceFile();
+    void compileSourceFile();
 };
 
 #endif // MAINWINDOW_H

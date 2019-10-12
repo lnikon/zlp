@@ -33,6 +33,7 @@ public:
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->setEnabled(true);
         MainWindow->resize(900, 600);
+        MainWindow->setStyleSheet(QString::fromUtf8(""));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         MainWindow->setCentralWidget(centralWidget);
@@ -42,6 +43,12 @@ public:
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
+        mainToolBar->setStyleSheet(QString::fromUtf8("border-bottom-height: 1px;\n"
+"border-bottom-width: 1px;\n"
+"border-bottom-color: rgb(85, 85, 255);"));
+        mainToolBar->setMovable(false);
+        mainToolBar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        mainToolBar->setFloatable(false);
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
