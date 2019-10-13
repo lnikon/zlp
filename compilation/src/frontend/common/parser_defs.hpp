@@ -4,6 +4,7 @@
 #include <iterator>
 #include <unordered_map>
 #include <vector>
+#include <optional>
 
 #include "common.hpp"
 #include "vm_config.hpp"
@@ -18,7 +19,7 @@
 
 struct StackSection
 {
-  std::size_t size_{};
+    std::size_t size_{};
 };
 
 /*
@@ -26,41 +27,75 @@ struct StackSection
  */
 struct DataSection
 {
-  void insertVariable(const std::string& name, const Variable& var) {}
-  const Variable& getVariable(const std::string& name) { }
-  bool variableExists(const std::string& name) {return false;}
-
-  void insertArray(const std::string& name, const Array& var) {}
-  const Array& getArray(const std::string& name) { }
-  bool arrayExists(const std::string& name) { return false; }
-
-  std::vector<Variable> getVariablesVector() const 
-  {
-    std::vector<Variable> vars;
-
-    for(const auto var : variableMap_)
+    void insertVariable(const std::string& name, const Variable& var)
     {
-      vars.push_back(var.second);
+        variableMap_.emplace(name, var);
     }
 
-    return vars;
-  }
-
-  std::vector<Array> getArraysVector() const 
-  {
-    std::vector<Array> arrs;
-
-    for(const auto arr : arrayMap_)
+    std::optional<Variable> getVariable(const std::string& name)
     {
-      arrs.push_back(arr.second);
+        auto it = variableMap_.find(name);
+        if(it != std::end(variableMap_))
+        {
+            return it->second;
+        }
+
+        return std::nullopt;
     }
 
-    return arrs;
-  }
+    bool variableExists(const std::string& name)
+    {
+        return variableMap_.find(name) != std::end(variableMap_);
+    }
 
-  private: 
-  std::unordered_map<std::string, Variable> variableMap_;  
-  std::unordered_map<std::string, Array> arrayMap_;  
+    void insertArray(const std::string& name, const Array& var)
+    {
+        arrayMap_.emplace(name, var);
+    }
+
+    std::optional<Array> getArray(const std::string& name)
+    {
+        auto it = arrayMap_.find(name);
+        if(it != std::end(arrayMap_))
+        {
+            return it->second;
+        }
+
+        return std::nullopt;
+    }
+
+    bool arrayExists(const std::string& name)
+    {
+        return arrayMap_.find(name) != std::end(arrayMap_);
+    }
+
+    std::vector<Variable> getVariablesVector() const
+    {
+        std::vector<Variable> vars;
+
+        for(const auto& var : variableMap_)
+        {
+            vars.push_back(var.second);
+        }
+
+        return vars;
+    }
+
+    std::vector<Array> getArraysVector() const
+    {
+        std::vector<Array> arrs;
+
+        for(const auto& arr : arrayMap_)
+        {
+            arrs.push_back(arr.second);
+        }
+
+        return arrs;
+    }
+
+private:
+    std::unordered_map<std::string, Variable> variableMap_;
+    std::unordered_map<std::string, Array> arrayMap_;
 };
 
 /*
@@ -68,26 +103,37 @@ struct DataSection
  */
 struct CodeSection
 {
-  FunctionList code_{};
+    FunctionList code_{};
 
-  void insertFunction(const Function& function) 
-  {
-    code_.emplace_back(function);
-  }
+    void insertFunction(const Function& function)
+    {
+        code_.emplace_back(function);
+    }
 
-  bool isForwardDeclared(const std::string& name) { return false; }
- 
-  bool functionExists(const std::string& name) 
-  {
-    return 
-      std::find_if(std::begin(code_), std::end(code_), [&name](const auto& fn) 
+    bool isForwardDeclared(const std::string& name)
+    {
+        if(auto it = std::find_if(std::begin(code_), std::end(code_), [&name](const auto& fn) { return fn.name_ == name; } );
+                it != std::end(code_))
+        {
+            return it->isForwardDeclared;
+        }
+
+        return false;
+    }
+
+    bool functionExists(const std::string& name)
+    {
+        return std::find_if(std::begin(code_), std::end(code_), [&name](const auto& fn)
         { return fn.name_ == name; }) != std::end(code_);
-  }
+    }
 
-  bool functionExists(const Function& name) { return false; }
+    bool functionExists(const Function& fn)
+    {
+        return functionExists(fn.name_);
+    }
 };
 
 struct MainSection
 {
-  std::string mainFunctionName_{};
+    std::string mainFunctionName_{};
 };

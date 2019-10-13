@@ -97,7 +97,7 @@ struct InstructionInfo
 {
     InstructionType				type_{ InstructionType::IT_NULL};
     ConditionalCode				cnd_{ ConditionalCode::CC_NULL };
-    Operand						oplst_[MAX_ARG_CNT]{ {OperandType::OT_NULL, 0}};
+    Operand						oplst_[MAX_ARG_CNT];
     std::size_t					opcnt_{0};
     ImmediateValueType			immtype_{ImmediateValueType::IMV_NULL};
     bool						ext_{false};

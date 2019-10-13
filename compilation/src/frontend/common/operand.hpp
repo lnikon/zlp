@@ -36,6 +36,17 @@ struct Operand
 
     ImmediateValue imv_{};
 
+    Operand() = default;
+
+    Operand(OperandType type, std::size_t index)
+        : type_{type},
+          index_{index} {}
+
+    Operand(const Operand& other)
+        : type_{other.type_},
+          index_{other.index_},
+          imv_{other.imv_} {}
+
     bool operator==(const Operand& other)
     {
         return type_ == other.type_;

@@ -28,6 +28,10 @@ private:
     */
     logger::LoggerSPtr ps_logger_{nullptr};
     
+    /*
+     * Shared pointer to the symbol table
+     */
+
     std::size_t lineNumber_{0};
 
     bool parseStackSize(StackSection &rStackSec, std::string line);

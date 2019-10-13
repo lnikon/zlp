@@ -15,14 +15,14 @@ struct SimpleProgramArgumentParser
     {
         std::vector<std::string> inputFilenames;
 
-        for(int c = 1; c < argc; ++c)
+        for(int c = 2; c < argc; ++c)
         {
             inputFilenames.emplace_back(std::string{argv[c]});
         }       
 
         return inputFilenames;
     }
-} simpleProgramArgumentParser;
+};
 
 void printUsage()
 {
@@ -36,6 +36,8 @@ int main(int argc, char *argv[])
         printUsage();
         exit(1);
     }
+
+    SimpleProgramArgumentParser simpleProgramArgumentParser;
 
     auto inputFilenames = simpleProgramArgumentParser.parseInputFilenames(argc, argv);
 

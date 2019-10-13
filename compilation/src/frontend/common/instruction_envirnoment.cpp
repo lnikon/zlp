@@ -74,7 +74,7 @@ void InstructionEnvirnoment::initMemoryAccessInstructions() noexcept
         ConditionalCode::CC_NULL,
         {   // init @oplist_
             {OperandType::OT_REG_ARG, 0},
-            {OperandType::OT_ARG, 0},
+            {OperandType::OT_ARG, 1},
         },
         2,
         ImmediateValueType::IMV_NULL,    // immediate value type
