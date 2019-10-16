@@ -4,25 +4,21 @@ TranslationResult GenericTranslatorImpl::translate(const CodeSection& codeSec)
 {
   const auto& fnList = codeSec.code_;
 
-  bool fnListDone = true;
   ByteVec bytevec;
 
   for (const auto& fn : fnList)
   {
-    if (const auto& [ok, funcBytes] = translate(fn); ok)
+    if (const auto fnBytes = translate(fn); fnBytes.has_value())
     {
-      bytevec.insert(std::end(bytevec), std::begin(funcBytes), std::end(funcBytes));
+      bytevec.insert(std::end(bytevec), std::begin(fnBytes.value()), std::end(fnBytes.value()));
     }
     else
     {
-      fnListDone = false;
-      bytevec.clear();
-
-      break;
+        return std::nullopt;
     }
   }
 
-  return TranslationResult{ fnListDone, bytevec };
+  return std::make_optional(bytevec);
 }
 
 TranslationResult GenericTranslatorImpl::translate(const Function& func)
@@ -37,29 +33,23 @@ TranslationResult GenericTranslatorImpl::translate(const InstructionList& instrL
 
   for (const auto& instr : instrList)
   {
-    if (auto [ok, instrBytes] = translate(instr); ok)
+    if (const auto& instrBytes = translate(instr); instrBytes.has_value())
     {
-      bytevec.insert(std::end(bytevec), std::begin(instrBytes), std::end(instrBytes));
+      bytevec.insert(std::end(bytevec), std::begin(instrBytes.value()), std::end(instrBytes.value()));
     }
     else
     {
-      // Can't compile current instruction,
-      // set fnDone to false, clear compilation result,
-      // break out of the loop and stop compilation
-      fnDone = false;
-      bytevec.clear();
-      break;
+        return std::nullopt;
     }
   }
 
-  return TranslationResult{ fnDone, bytevec };
+  return std::make_optional(bytevec);
 }
 
 TranslationResult GenericTranslatorImpl::translate(const Instruction& instr)
 {
   using ubyte = std::uint8_t;
 
-  bool ok = false;
   ByteVec bytevec;
 
   ubyte existsByte = 0;
@@ -169,8 +159,7 @@ TranslationResult GenericTranslatorImpl::translate(const Instruction& instr)
   }
   /***** End Immediate Value Compilation *****/
 
-  ok = true;
-  return TranslationResult{ ok, bytevec };
+  return std::make_optional(bytevec);
 }
 
 

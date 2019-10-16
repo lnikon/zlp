@@ -26,7 +26,7 @@ struct Compiler final
   /*
   * Compilation Routines
   */
-  std::pair<bool, ByteVec> compile();
+  std::optional<ByteVec> compile();
 
   private:
 

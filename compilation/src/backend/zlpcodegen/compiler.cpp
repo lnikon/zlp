@@ -17,15 +17,15 @@ void Compiler::setCodeSection(const CodeSection& codeSec)
   codeSec_ = codeSec;
 }
 
-std::pair<bool, ByteVec> Compiler::compile()
+std::optional<ByteVec> Compiler::compile()
 {
   // @bytes will contain all the bytecode
-  auto [ok, bytes] = translator_->translate(codeSec_);
-  if (!ok)
+  const auto& bytes = translator_->translate(codeSec_);
+  if (!bytes.has_value())
   {
     Logger::printMessage("Compilation did not succeed", LogLevel::HIGH);
-    return std::make_pair(ok, ByteVec{});
+    return std::nullopt;
   }
 
-  return std::make_pair(ok, bytes);
+  return std::make_optional(bytes.value());
 }

@@ -6,6 +6,7 @@
 #include "logger.hpp"
 
 #include <memory>
+#include <optional>
 #include <fstream>
 
 /*  Why do we need this class?
@@ -23,7 +24,7 @@ struct CompilationPipeline
     /*
     * Compilation started via this operator
     */
-    std::pair<bool, ByteVec> operator()();
+    std::optional<ByteVec> operator()();
 
 private:
     /*

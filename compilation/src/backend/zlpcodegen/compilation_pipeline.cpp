@@ -11,7 +11,7 @@ CompilationPipeline::CompilationPipeline(const std::string &filename, logger::Pr
 }
 
 // Compilation pipelines goes here
-std::pair<bool, ByteVec> CompilationPipeline::operator()()
+std::optional<ByteVec> CompilationPipeline::operator()()
 {
     // Input - Assembly
     // Output - IR
@@ -30,16 +30,16 @@ std::pair<bool, ByteVec> CompilationPipeline::operator()()
     pu_compiler_->setDataSection(dataSec);
     pu_compiler_->setCodeSection(codeSec);
 
-    const auto [ok, bytevec] = pu_compiler_->compile();
-    if (!ok)
+    const auto& bytevec = pu_compiler_->compile();
+    if (!bytevec.has_value())
     {
         ps_logger_->printMessage(s_filename_ + ": Compilation did not succeed\n", logger::LogLevel::HIGH);
-        return std::make_pair(false, ByteVec{});
+        return std::nullopt;
     }
 
-    pu_bin_writer_->write(bytevec);
+    pu_bin_writer_->write(bytevec.value());
 
     ps_logger_->printMessage("Compilation of " + s_filename_ + " succeeded\n", logger::LogLevel::INFO);
 
-    return std::make_pair(ok, bytevec);
+    return std::nullopt;
 }
