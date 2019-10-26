@@ -37,7 +37,7 @@ bool DataSectionParserUtilities::isExpressionTypeSupported(ValueType type, logge
   switch(type)
   {
     case ValueType::EXT_CHAR:
-    case ValueType::EXT_byte_t:
+    case ValueType::EXT_BYTE:
     case ValueType::EXT_WORD:
     case ValueType::EXT_DWORD:
     case ValueType::EXT_QWORD:
