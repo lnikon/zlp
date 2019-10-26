@@ -5,18 +5,26 @@
 
 struct Array
 {
-  std::string               name_{};
+    Array() = default;
 
-  std::vector<std::string>  valueFromLexer_{};
-  std::size_t               valueSizeFromLexer_{};
+    Array(const Array&) = default;
+    Array& operator=(const Array&) = default;
 
-  std::vector<QWORD>        value_{};
-  std::size_t               size_{};
+    Array(Array&&) noexcept = default;
+    Array& operator=(Array&&) noexcept = default;
 
-  bool                      isSizeSpecified_{false};
+    std::string               name_{};
 
-  ValueType                 type_{};
+    std::vector<std::string>  valueFromLexer_{};
+    std::size_t               valueSizeFromLexer_{};
 
-  bool isInitialized_{false};
+    std::vector<QWORD>        value_{};
+    std::size_t               size_{};
+
+    bool                      isSizeSpecified_{false};
+
+    ValueType                 type_{};
+
+    bool isInitialized_{false};
 };
 

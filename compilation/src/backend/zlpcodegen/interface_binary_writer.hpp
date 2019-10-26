@@ -9,7 +9,7 @@ struct IBinaryWriter
 {
     explicit IBinaryWriter(const std::string& filename);
     
-    virtual void write(const ByteVec&) = 0;
+    virtual void write(ns_translator::byte_vec_cref_t) = 0;
 
     protected:
     std::string s_filename_{};

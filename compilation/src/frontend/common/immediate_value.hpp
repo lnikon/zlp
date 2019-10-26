@@ -20,12 +20,12 @@ struct ImmediateValue
     ImmediateValueType type_{ ImmediateValueType::IMV_NULL };
 
     union {
-        int8_t byte_;
+        int8_t byte_t_;
         int16_t word_;
         int32_t dword_;
         int64_t qword_;
 
-        uint8_t  ubyte_;
+        uint8_t  ubyte_t_;
         uint16_t uword_;
         uint32_t udword_;
         uint64_t uqword_;

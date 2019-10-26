@@ -6,7 +6,7 @@ struct GenericBinaryWriter : IBinaryWriter
 {
     explicit GenericBinaryWriter(const std::string& filename);
 
-    virtual void write(const ByteVec&) override;
+    virtual void write(ns_translator::byte_vec_cref_t) override;
 };
 
 using GenericBinWriterSPtr = std::shared_ptr<GenericBinaryWriter>;

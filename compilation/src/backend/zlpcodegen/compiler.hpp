@@ -2,45 +2,47 @@
 
 #include "translator_defs.hpp"
 #include "translator.hpp"
+#include "compilation_unit.hpp"
 
 #include <memory>
 
 struct Compiler final
 {
+    Compiler();
+    ~Compiler() = default;
 
-  Compiler();
-  ~Compiler() = default;
+    Compiler(const Compiler&) = delete;
+    Compiler& operator=(const Compiler&) = delete;
 
-  Compiler(const Compiler&) = delete;
-  Compiler& operator=(const Compiler&) = delete;
+    Compiler(Compiler&&) = delete;
+    Compiler& operator=(Compiler&&) = delete;
 
-  Compiler(Compiler&&) = delete;
-  Compiler& operator=(Compiler&&) = delete;
+    /*
+    * Setter/Getter Methods
+    */
+    void setDataSection(const DataSection& codeSec);
+    void setDataSection(DataSection&& codeSec);
 
-  /*
-  * Setter/Getter Methods
-  */
-  void setDataSection(const DataSection& codeSec);
-  void setCodeSection(const CodeSection& codeSec);
+    void setCodeSection(const CodeSection& codeSec);
+    void setCodeSection(CodeSection&& codeSec);
 
-  /*
-  * Compilation Routines
-  */
-  std::optional<ByteVec> compile();
+    /*
+    * Compilation Routines
+    */
+    ns_compilation_unit::CompilationUnitSPtr compile();
 
-  private:
+private:
 
-  /*
-  * Holder for different chain model translators
-  */
-  UniqueTransPtr translator_{nullptr};
+    /*
+     * Holder for different chain model translators
+    */
+    ns_translator::UniqueTransPtr translator_{nullptr};
 
-  /*
-  * Internal representations for input language
-  */
-  DataSection dataSec_{};
-  CodeSection codeSec_{};
-
+    /*
+    * Internal representations for input language
+    */
+    DataSection dataSec_{};
+    CodeSection codeSec_{};
 };
 
 using CompilerUPtr = std::unique_ptr<Compiler>;

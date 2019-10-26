@@ -27,6 +27,14 @@ struct StackSection
  */
 struct DataSection
 {
+    DataSection() = default;
+
+    DataSection(const DataSection&) = default;
+    DataSection& operator=(const DataSection&) = default;
+
+    DataSection(DataSection&&) noexcept = default;
+    DataSection& operator=(DataSection&&) noexcept = default;
+
     void insertVariable(const std::string& name, const Variable& var)
     {
         variableMap_.emplace(name, var);
@@ -94,8 +102,8 @@ struct DataSection
     }
 
 private:
-    std::unordered_map<std::string, Variable> variableMap_;
-    std::unordered_map<std::string, Array> arrayMap_;
+    std::unordered_map<std::string, Variable>   variableMap_;
+    std::unordered_map<std::string, Array>      arrayMap_;
 };
 
 /*
@@ -103,11 +111,24 @@ private:
  */
 struct CodeSection
 {
-    FunctionList code_{};
+    CodeSection() = default;
+
+    CodeSection(const CodeSection&) = default;
+    CodeSection& operator=(const CodeSection&) = default;
+
+    CodeSection(CodeSection&&) noexcept = default;
+    CodeSection& operator=(CodeSection&&) noexcept = default;
+
+    function_vec_t code_{};
 
     void insertFunction(const Function& function)
     {
         code_.emplace_back(function);
+    }
+
+    void insertFunction(Function&& function)
+    {
+        code_.emplace_back(std::move(function));
     }
 
     bool isForwardDeclared(const std::string& name)

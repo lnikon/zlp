@@ -11,7 +11,7 @@ CompilationPipeline::CompilationPipeline(const std::string &filename, logger::Pr
 }
 
 // Compilation pipelines goes here
-std::optional<ByteVec> CompilationPipeline::operator()()
+ns_compilation_unit::CompilationUnitSPtr CompilationPipeline::operator()()
 {
     // Input - Assembly
     // Output - IR
@@ -19,27 +19,25 @@ std::optional<ByteVec> CompilationPipeline::operator()()
     parser.parse(s_filename_);
 
     // Get IR for stack section
-    const auto &stackSec = parser.getStackSection();
+    auto stackSec = parser.getStackSection();
 
     // Get IR for data section
-    const auto &dataSec = parser.getDataSection();
+    auto dataSec = parser.getDataSection();
 
     // Get IR for code section
-    const auto &codeSec = parser.getCodeSection();
+    auto codeSec = parser.getCodeSection();
 
-    pu_compiler_->setDataSection(dataSec);
-    pu_compiler_->setCodeSection(codeSec);
+    pu_compiler_->setDataSection(std::move(dataSec));
+    pu_compiler_->setCodeSection(std::move(codeSec));
 
-    const auto& bytevec = pu_compiler_->compile();
-    if (!bytevec.has_value())
+    auto compUnit = pu_compiler_->compile();
+    if (!compUnit)
     {
         ps_logger_->printMessage(s_filename_ + ": Compilation did not succeed\n", logger::LogLevel::HIGH);
-        return std::nullopt;
+        return nullptr;
     }
-
-    pu_bin_writer_->write(bytevec.value());
 
     ps_logger_->printMessage("Compilation of " + s_filename_ + " succeeded\n", logger::LogLevel::INFO);
 
-    return std::nullopt;
+    return compUnit;
 }

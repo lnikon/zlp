@@ -1,16 +1,16 @@
 #include "generic_translator_impl.hpp"
 
-TranslationResult GenericTranslatorImpl::translate(const CodeSection& codeSec)
+ns_translator::TranslationResult GenericTranslatorImpl::translate(const CodeSection& codeSec)
 {
   const auto& fnList = codeSec.code_;
 
-  ByteVec bytevec;
+  ns_translator::byte_vec_t byte_tvec;
 
   for (const auto& fn : fnList)
   {
-    if (const auto fnBytes = translate(fn); fnBytes.has_value())
+    if (const auto fnbyte_ts = translate(fn); fnbyte_ts.has_value())
     {
-      bytevec.insert(std::end(bytevec), std::begin(fnBytes.value()), std::end(fnBytes.value()));
+      byte_tvec.insert(std::end(byte_tvec), std::begin(fnbyte_ts.value()), std::end(fnbyte_ts.value()));
     }
     else
     {
@@ -18,24 +18,24 @@ TranslationResult GenericTranslatorImpl::translate(const CodeSection& codeSec)
     }
   }
 
-  return std::make_optional(bytevec);
+  return std::make_optional(byte_tvec);
 }
 
-TranslationResult GenericTranslatorImpl::translate(const Function& func)
+ns_translator::TranslationResult GenericTranslatorImpl::translate(const Function& func)
 {
   return translate(func.code_);
 }
 
-TranslationResult GenericTranslatorImpl::translate(const InstructionList& instrList)
+ns_translator::TranslationResult GenericTranslatorImpl::translate(const InstructionList& instrList)
 {
   bool fnDone = true;
-  ByteVec bytevec{};
+  ns_translator::byte_vec_t byte_tvec{};
 
   for (const auto& instr : instrList)
   {
-    if (const auto& instrBytes = translate(instr); instrBytes.has_value())
+    if (const auto& instrbyte_ts = translate(instr); instrbyte_ts.has_value())
     {
-      bytevec.insert(std::end(bytevec), std::begin(instrBytes.value()), std::end(instrBytes.value()));
+      byte_tvec.insert(std::end(byte_tvec), std::begin(instrbyte_ts.value()), std::end(instrbyte_ts.value()));
     }
     else
     {
@@ -43,94 +43,94 @@ TranslationResult GenericTranslatorImpl::translate(const InstructionList& instrL
     }
   }
 
-  return std::make_optional(bytevec);
+  return std::make_optional(byte_tvec);
 }
 
-TranslationResult GenericTranslatorImpl::translate(const Instruction& instr)
+ns_translator::TranslationResult GenericTranslatorImpl::translate(const Instruction& instr)
 {
-  using ubyte = std::uint8_t;
+  using ubyte_t = std::uint8_t;
 
-  ByteVec bytevec;
+  ns_translator::byte_vec_t byte_tvec;
 
-  ubyte existsByte = 0;
-  ubyte valueByte = 0;
+  ubyte_t existsbyte_t = 0;
+  ubyte_t valuebyte_t = 0;
 
   /***** Opcode Compilation *****/
-  valueByte = static_cast<ubyte>(instr.type_);
+  valuebyte_t = static_cast<ubyte_t>(instr.type_);
 
   // Append opcode to chain
-  bytevec.emplace_back(valueByte);
+  byte_tvec.emplace_back(valuebyte_t);
   /***** END Opcode Compilation *****/
 
   /***** Extension Compilation *****/
-  existsByte = 0;
-  valueByte = 0;
+  existsbyte_t = 0;
+  valuebyte_t = 0;
   if (instr.ex_ != Extensions::Extension::EXT_NULL)
   {
-    existsByte = 1;
-    valueByte = static_cast<ubyte>(instr.ex_);
+    existsbyte_t = 1;
+    valuebyte_t = static_cast<ubyte_t>(instr.ex_);
   }
 
   // Append extension
-  bytevec.emplace_back(existsByte);
-  bytevec.emplace_back(valueByte);
+  byte_tvec.emplace_back(existsbyte_t);
+  byte_tvec.emplace_back(valuebyte_t);
   /***** END Extension compilation *****/
 
   /***** Conditional Code Compilation *****/
-  existsByte = 0;
-  valueByte = 0;
+  existsbyte_t = 0;
+  valuebyte_t = 0;
   if (instr.cnd_ != ConditionalCode::CC_NULL)
   {
-    existsByte = 1;
-    valueByte = static_cast<ubyte>(instr.cnd_);
+    existsbyte_t = 1;
+    valuebyte_t = static_cast<ubyte_t>(instr.cnd_);
   }
 
   // Append conditional code
-  bytevec.emplace_back(existsByte);
-  bytevec.emplace_back(valueByte);
+  byte_tvec.emplace_back(existsbyte_t);
+  byte_tvec.emplace_back(valuebyte_t);
   /***** END Conditional Code Compilation *****/
 
   /***** First Register Compilation *****/
-  existsByte = 0;
-  valueByte = 0;
+  existsbyte_t = 0;
+  valuebyte_t = 0;
   if (instr.oplst_.size() >= 1)
   {
-    existsByte = 1;
-    valueByte = static_cast<ubyte>(instr.oplst_[0].index_);
+    existsbyte_t = 1;
+    valuebyte_t = static_cast<ubyte_t>(instr.oplst_[0].index_);
 
     // Append first register index
-    bytevec.emplace_back(existsByte);
-    bytevec.emplace_back(valueByte);
+    byte_tvec.emplace_back(existsbyte_t);
+    byte_tvec.emplace_back(valuebyte_t);
   }
   /***** First Register Compilation *****/
 
   /***** Second and Third Registers or Immediate Value Compilation *****/
-  existsByte = 0;
-  valueByte = 0;
+  existsbyte_t = 0;
+  valuebyte_t = 0;
   if (instr.oplst_[1].imv_.type_ != ImmediateValueType::IMV_NULL)
   {
-    existsByte = 1;
-    bytevec.emplace_back(existsByte);
+    existsbyte_t = 1;
+    byte_tvec.emplace_back(existsbyte_t);
 
     ImmediateValue imv = instr.oplst_[1].imv_;
 
     // TODO: Wrap into separate function
-    // TODO: Convert integer into bytes
+    // TODO: Convert integer into byte_ts
     if (imv.type_ == ImmediateValueType::IMV_NUM8)
     {
-      bytevec.emplace_back(imv.byte_);
+      byte_tvec.emplace_back(imv.byte_t_);
     }
     else if (imv.type_ == ImmediateValueType::IMV_NUM16)
     {
-      bytevec.emplace_back(imv.word_);
+      byte_tvec.emplace_back(imv.word_);
     }
     else if (imv.type_ == ImmediateValueType::IMV_NUM32)
     {
-      bytevec.emplace_back(imv.dword_);
+      byte_tvec.emplace_back(imv.dword_);
     }
     else if (imv.type_ == ImmediateValueType::IMV_NUM64)
     {
-      bytevec.emplace_back(imv.qword_);
+      byte_tvec.emplace_back(imv.qword_);
     }
   }
   else
@@ -138,28 +138,28 @@ TranslationResult GenericTranslatorImpl::translate(const Instruction& instr)
     // Check for second register
     if (instr.oplst_.size() >= 2)
     {
-      existsByte = 1;
-      valueByte = static_cast<ubyte>(instr.oplst_[1].index_);
+      existsbyte_t = 1;
+      valuebyte_t = static_cast<ubyte_t>(instr.oplst_[1].index_);
 
       // Append second register index
-      bytevec.emplace_back(existsByte);
-      bytevec.emplace_back(valueByte);
+      byte_tvec.emplace_back(existsbyte_t);
+      byte_tvec.emplace_back(valuebyte_t);
 
       // Check for third register
       if (instr.oplst_.size() > 2)
       {
-        existsByte = 1;
-        valueByte = static_cast<ubyte>(instr.oplst_[2].index_);
+        existsbyte_t = 1;
+        valuebyte_t = static_cast<ubyte_t>(instr.oplst_[2].index_);
         
         // Append third register index
-        bytevec.emplace_back(existsByte);
-        bytevec.emplace_back(valueByte);
+        byte_tvec.emplace_back(existsbyte_t);
+        byte_tvec.emplace_back(valuebyte_t);
       }
     }
   }
   /***** End Immediate Value Compilation *****/
 
-  return std::make_optional(bytevec);
+  return std::make_optional(byte_tvec);
 }
 
 

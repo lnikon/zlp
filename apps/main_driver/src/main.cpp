@@ -45,27 +45,5 @@ int main(int argc, char *argv[])
     codeGen.setInputFilenames(std::move(inputFilenames));
     codeGen.build();
 
-    // Input - Assembly
-    // Output - IR
-    // Parser parser;
-    // parser.parse("");
-
-    // Get IR for stack section
-    // const auto& stackSec = parser.getStackSection();
-
-    // Get IR for data section
-    // const auto& dataSec = parser.getDataSection();
-
-    // Get IR for code section
-    // const auto& codeSec = parser.getCodeSection();
-
-    // Start compilation of a single compilation unit
-    // TODO:  Pack these into FinalCompilationPhases,
-    //        make compilation of each unit multithreaded
-    // Compiler compiler;
-    // compiler.setDataSection(dataSec);
-    // compiler.setCodeSection(codeSec);
-    // const auto[ok, bytevec] = compiler.compile();
-
     return 0;
 }

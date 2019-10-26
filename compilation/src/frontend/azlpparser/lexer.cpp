@@ -20,7 +20,7 @@ StackSection Lexer::parseStackSection(std::fstream& inputStream)
 {
     stackSectionParser_.setLineNumber(lineNumber_);
 
-    StackSection stackSection = std::move(stackSectionParser_.parse(inputStream));
+    StackSection stackSection = stackSectionParser_.parse(inputStream);
 
     lineNumber_ = stackSectionParser_.getLineNumber();
 
@@ -31,7 +31,7 @@ DataSection Lexer::parseDataSection(std::fstream& inputStream)
 {
     dataSectionParser_.setLineNumber(lineNumber_);
 
-    DataSection dataSection = std::move(dataSectionParser_.parse(inputStream));
+    DataSection dataSection = dataSectionParser_.parse(inputStream);
 
     lineNumber_ = dataSectionParser_.getLineNumber();
 
@@ -42,7 +42,7 @@ CodeSection Lexer::parseCodeSection(std::fstream& inputStream)
 {
   codeSectionParser_.setLineNumber(lineNumber_);
 
-  CodeSection codeSec = std::move(codeSectionParser_.parse(inputStream));
+  CodeSection codeSec = codeSectionParser_.parse(inputStream);
 
   lineNumber_ = codeSectionParser_.getLineNumber();
 

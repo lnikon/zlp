@@ -6,17 +6,31 @@
 
 #include <memory>
 
+namespace ns_translator {
+using namespace ns_interface_translator;
+
 struct Translator final
 {
-  Translator();
+    Translator();
 
-  Translator(const Translator&) = delete;
-  Translator& operator=(const Translator&) = delete;
+    Translator(const Translator&) = delete;
+    Translator& operator=(const Translator&) = delete;
 
-  void setTranslator(UniqueTransImplPtr&& transPtr);
+    Translator(Translator&&) noexcept = delete;
+    Translator& operator=(Translator&&) noexcept = delete;
 
-  TranslationResult translate(const CodeSection& codeSec);
+    /*
+     * Sets implementation for a translator
+     */
+    void setTranslator(UniqueTransImplPtr&& transPtr);
 
-  private:
-  UniqueTransImplPtr  pTransImpl_{nullptr};
+    /*
+     * Translates code section into byte_tcode
+     */
+    TranslationResult translate(const CodeSection& codeSec);
+
+private:
+    UniqueTransImplPtr pTransImpl_{nullptr};
 };
+
+} // namespace ns_translator

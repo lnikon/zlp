@@ -162,9 +162,9 @@ ValueType utility::returnTypeForString(const std::string &type)
   {
     return ValueType::EXT_CHAR;
   }
-  else if (type == "BYTE")
+  else if (type == "byte_t")
   {
-    return ValueType::EXT_BYTE;
+    return ValueType::EXT_byte_t;
   }
   else if (type == "WORD")
   {
@@ -190,8 +190,8 @@ std::string utility::returnStringForType(const ValueType type)
   {
   case ValueType::EXT_CHAR:
     return std::string{"CHAR"};
-  case ValueType::EXT_BYTE:
-    return std::string{"BYTE"};
+  case ValueType::EXT_byte_t:
+    return std::string{"byte_t"};
   case ValueType::EXT_WORD:
     return std::string{"WORD"};
   case ValueType::EXT_DWORD:

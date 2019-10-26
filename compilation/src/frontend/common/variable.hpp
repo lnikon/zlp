@@ -4,31 +4,28 @@
 
 struct Variable
 {
-  std::string name_{};
+    Variable() = default;
 
-  std::string valueFromLexer_{};
+    Variable(const Variable&) = default;
+    Variable& operator=(const Variable&) = default;
 
-  QWORD       value_{};
-  CHAR        charValue_{};
-  
-  ValueType   type_{};
-  
-  bool isInitialized_{false};
+    Variable(Variable&&) noexcept = default;
+    Variable& operator=(Variable&&) noexcept = default;
 
-  //friend bool operator==(const Variable& var1, const Variable& var2);
-  //friend bool operator!=(const Variable& var1, const Variable& var2);
+    std::string name_{};
 
-  static bool areEqual(const Variable& var1, const Variable& var2);
+    // TODO: Wrap into ZplValue
+    std::string valueFromLexer_{};
+
+    QWORD       value_{};
+    CHAR        charValue_{};
+
+    ValueType   type_{};
+
+    bool        isInitialized_{false};
+
+    static bool equal(const Variable& var1, const Variable& var2);
 };
 
-//bool operator==(const Variable& var1, const Variable& var2)
-//{
-  //return Variable::areEqual(var1, var2);
-//}
-
-//bool operator!=(const Variable& var1, const Variable& var2)
-//{
-  //return !(var1 == var2);
-//}
 
 

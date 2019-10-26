@@ -13,18 +13,17 @@
 *   @CompilationPipeline takes responsibility for
 *   1. Parsing file
 *   2. Gathering Internal Representation(short IR)
-*   3. Compilation of IR into bytecode for ZVM
+*   3. Compilation of IR into byte_tcode for ZVM
 */
 
 struct CompilationPipeline
 {
-
     explicit CompilationPipeline(const std::string &filename, logger::PrinterSPtr pLogger);
 
     /*
     * Compilation started via this operator
     */
-    std::optional<ByteVec> operator()();
+    ns_compilation_unit::CompilationUnitSPtr operator()();
 
 private:
     /*
@@ -33,7 +32,7 @@ private:
     CompilerUPtr pu_compiler_{nullptr};
 
     /*
-    * Interface to use different bytecode writers
+    * Interface to use different byte_tcode writers
     */
     IBinWriterUPtr pu_bin_writer_{nullptr};
 

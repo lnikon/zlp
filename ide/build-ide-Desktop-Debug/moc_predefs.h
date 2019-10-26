@@ -325,7 +325,7 @@
 #define __UINT32_C(c) c ## U
 #define __INTMAX_MAX__ 0x7fffffffffffffffL
 #define __cpp_alias_templates 200704
-#define __BYTE_ORDER__ __ORDER_LITTLE_ENDIAN__
+#define __byte_t_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define __FLT_DENORM_MIN__ 1.40129846432481707092372958328991613e-45F
 #define __INT8_MAX__ 0x7f
 #define __LONG_WIDTH__ 64

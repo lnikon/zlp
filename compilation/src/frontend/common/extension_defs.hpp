@@ -14,7 +14,7 @@ namespace Extensions {
   {
     EXT_NULL = 0,
     EXT_CHAR,
-    EXT_BYTE,
+    EXT_byte_t,
     EXT_WORD,
     EXT_DWORD,
     EXT_QWORD,
@@ -22,9 +22,9 @@ namespace Extensions {
 
   static auto extensionToString(Extension ext)
   {
-    if (ext == Extension::EXT_BYTE)
+    if (ext == Extension::EXT_byte_t)
     {
-      return std::string{ "EXT_BYTE" };
+      return std::string{ "EXT_byte_t" };
     }
     else if (ext == Extension::EXT_CHAR)
     {
@@ -63,7 +63,7 @@ namespace Extensions {
 
     if (ext == "B")
     {
-      return Extension::EXT_BYTE;
+      return Extension::EXT_byte_t;
     }
     else if (ext == "W")
     {

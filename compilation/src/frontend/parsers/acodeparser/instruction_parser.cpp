@@ -240,7 +240,7 @@ std::optional<Operand> InstructionParser::isOperand(const std::string &token, Ex
         }
     }
 
-    return result;
+    return std::make_optional(result);
 }
 
 std::optional<ImmediateValue> InstructionParser::handleIMV(const std::string &token, Extensions::Extension ext)
@@ -251,10 +251,10 @@ std::optional<ImmediateValue> InstructionParser::handleIMV(const std::string &to
 
     // TODO: Handle numeric sign for immediate values
 
-    if (ext == Extensions::Extension::EXT_BYTE || ext == Extensions::Extension::EXT_CHAR)
+    if (ext == Extensions::Extension::EXT_byte_t || ext == Extensions::Extension::EXT_CHAR)
     {
         result->type_ = ImmediateValueType::IMV_NUM8;
-        result->byte_ = value;
+        result->byte_t_ = value;
     }
     else if (ext == Extensions::Extension::EXT_WORD)
     {
