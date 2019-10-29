@@ -55,14 +55,37 @@ CodeSection CodeSectionParser::parse(std::fstream &inputStream)
             break;
         }
 
-        auto name = getFunctionName(line);
-        // TODO: Check for function name redifinition.
-        Function func;
+        std::size_t funcIndex = 0;
 
+        const auto& nameOpt = getFunctionName(line);
+        if(nameOpt.has_value())
+        {
+            const auto& name = nameOpt.value();
+            if (auto it = functionTable_.find(name); it != std::end(functionTable_))
+            {
+                funcIndex = it->second;
+            }
+            else
+            {
+                Function func;
+                func.name_ = name;
+
+                codeSec.code_.emplace_back(func);
+                funcIndex = codeSec.code_.size() - 1;
+                functionTable_.emplace(name, funcIndex);
+            }
+        }
+        else
+        {
+            ps_logger_->printMessage("Error occured during function parsing\n", logger::LogLevel::HIGH);
+            exit(1);
+        }
+
+        Function& func = codeSec.code_[funcIndex];
         parseFunctionBody(inputStream, func);
 
         // Insert parsed function into functions list
-        codeSec.insertFunction(func);
+//        codeSec.insertFunction(func);
 
         // Go to next line, at it isn't harmful :)
         lineNumber_++;
@@ -71,25 +94,19 @@ CodeSection CodeSectionParser::parse(std::fstream &inputStream)
     return codeSec;
 }
 
-std::pair<bool, std::string> CodeSectionParser::getFunctionName(const std::string &line)
+std::optional<std::string> CodeSectionParser::getFunctionName(const std::string &line)
 {
-    auto [isFuncDecl, funcName] = isFunctionDeclaration(line);
-    if (!isFuncDecl && functionCount_ < 1)
-    {
-        ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Function declaration parsing failed", logger::LogLevel::HIGH);
-        exit(1);
-    }
-
-    return std::make_pair(isFuncDecl, funcName);
+    auto funcName = isFunctionDeclaration(line);
+    return funcName;
 }
 
-std::pair<bool, std::string> CodeSectionParser::isFunctionDeclaration(const std::string &line)
+std::optional<std::string> CodeSectionParser::isFunctionDeclaration(const std::string &line)
 {
     bool startWithFunctionKeyword = utility::starts_with(line, FUNCTION_KWRD);
     if (!startWithFunctionKeyword)
     {
         ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". CODE section should start with function declaration", logger::LogLevel::HIGH);
-        exit(1);
+        return std::nullopt;
     }
 
     std::vector<std::string> tokens;
@@ -102,13 +119,13 @@ std::pair<bool, std::string> CodeSectionParser::isFunctionDeclaration(const std:
     if (tokens.size() > 3)
     {
         ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Too many tokens in function declaration.\n", logger::LogLevel::HIGH);
-        exit(1);
+        return std::nullopt;
     }
 
     if (tokens.size() < 2)
     {
         ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Missing function name", logger::LogLevel::HIGH);
-        exit(1);
+        return std::nullopt;
     }
 
     auto funcName = tokens[1];
@@ -121,25 +138,44 @@ std::pair<bool, std::string> CodeSectionParser::isFunctionDeclaration(const std:
 
     if (!utility::checkCorrectKeyword(funcName))
     {
-
         ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Missing function name", logger::LogLevel::HIGH);
-        exit(1);
+        return std::nullopt;
     }
 
-    const bool isFuncDecl = startWithFunctionKeyword && ((tokens.size() == 2) || (tokens.size() == 3));
-    if (isFuncDecl)
-    {
-        functionCount_++;
-    }
+//    const bool isFuncDecl = startWithFunctionKeyword && ((tokens.size() == 2) || (tokens.size() == 3));
+//    if (isFuncDecl)
+//    {
+//        functionCount_++;
+//    }
 
-    return std::make_pair(isFuncDecl, funcName);
+    return std::make_optional(funcName);
 }
 
 void CodeSectionParser::parseFunctionBody(std::fstream &inputStream, Function &rFunc)
 {
+    // Don't declaring labelTabel as member of class because it's local to a function
+    std::unordered_map<std::string, std::size_t> labelTabel;
+
     InstructionParser instrParser{ps_logger_};
 
+    // Remember current position of fstream
+    const auto originalCursor = inputStream.tellg();
+
+    // Do preprocessing of labels
     auto line = std::string{};
+    while (std::getline(inputStream, line))
+    {
+        if (auto label = isLabel(line); label.has_value())
+        {
+            rFunc.labels_.emplace_back(label.value());
+
+            const auto labelIndex = rFunc.labels_.size() - 1;
+            labelTabel.emplace(label.value(), labelIndex);
+        }
+    }
+
+    line.clear();
+    inputStream.seekg(originalCursor);
     while (std::getline(inputStream, line))
     {
         lineNumber_++;
@@ -152,11 +188,11 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream, Function &r
             continue;
         }
 
-        if (auto label = isLabel(line); label.has_value())
-        {
-            rFunc.labels_.emplace_back(label.value());
-        }
-        else if (auto instruction = instrParser.parse(line); instruction.has_value())
+//        if (auto label = isLabel(line); label.has_value())
+//        {
+//            rFunc.labels_.emplace_back(label.value());
+//        }
+        /*else */if (auto instruction = instrParser.parse(line); instruction.has_value())
         {
             rFunc.code_.emplace_back(instruction.value());
         }

@@ -14,8 +14,8 @@ enum class OperandType
     OT_ARG,         // Address reg index
     OT_IMV,         // Immediate value, used only with 'assign' command
     OT_REG_ARG,     // REG or ARG(for example AN/RN)
-    //OT_FUN,       // Function index
-    //OT_LBL,       // Label index
+    OT_FUN,         // Function index in symbol table
+    OT_LBL,         // Label index in symbol table
 };
 
 /* Instruction can have at most 3 arguments */
@@ -40,12 +40,12 @@ struct Operand
 
     Operand(OperandType type, std::size_t index)
         : type_{type},
-          index_{index} {}
+          index_{index} { }
 
     Operand(const Operand& other)
         : type_{other.type_},
           index_{other.index_},
-          imv_{other.imv_} {}
+          imv_{other.imv_} { }
 
     bool operator==(const Operand& other)
     {

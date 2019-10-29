@@ -8,11 +8,12 @@
 #include "lexer_defs.hpp"
 #include "extension_defs.hpp"
 #include "logger.hpp"
+#include "parser_defs.hpp"
 
 struct InstructionParser final
 {
 
-    explicit InstructionParser(logger::LoggerSPtr pLogger);
+    explicit InstructionParser(logger::LoggerSPtr pLogger, SimpleSymbolTable& varSymTbl, SimpleSymbolTable& funcSymTbl, SimpleSymbolTable& lblSymTbl);
     ~InstructionParser() = default;
 
     InstructionParser(const InstructionParser &) = delete;

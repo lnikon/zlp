@@ -2,9 +2,10 @@
 #include "utility.hpp"
 #include "logger.hpp"
 
-InstructionParser::InstructionParser(logger::LoggerSPtr pLogger)
+InstructionParser::InstructionParser(logger::LoggerSPtr pLogger, SimpleSymbolTable &varSymTbl, SimpleSymbolTable &funcSymTbl, SimpleSymbolTable &lblSymTbl)
     : ps_logger_{pLogger}
 {
+
 }
 
 std::optional<Instruction> InstructionParser::parse(std::string line)

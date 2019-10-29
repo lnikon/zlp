@@ -151,7 +151,7 @@ unsigned long utility::parse_int(const std::string &str)
   return std::stoi(str, nullptr, 10);
 }
 
-bool utility::parse_uint(const std::string &str, std::size_t from)
+bool utility::parse_uint(const std::string &, std::size_t )
 {
   return false;
 }
@@ -162,7 +162,7 @@ ValueType utility::returnTypeForString(const std::string &type)
   {
     return ValueType::EXT_CHAR;
   }
-  else if (type == "byte_t")
+  else if (type == "BYTE")
   {
     return ValueType::EXT_BYTE;
   }
@@ -191,7 +191,7 @@ std::string utility::returnStringForType(const ValueType type)
   case ValueType::EXT_CHAR:
     return std::string{"CHAR"};
   case ValueType::EXT_BYTE:
-    return std::string{"byte_t"};
+    return std::string{"BYTE"};
   case ValueType::EXT_WORD:
     return std::string{"WORD"};
   case ValueType::EXT_DWORD:

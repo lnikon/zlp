@@ -29,9 +29,9 @@ struct CompilationUnit
 
     std::string getName() const;
 
-private:
     std::string s_name_{};
     symbol_ns::SymbolTableSPtr ps_symbolTable_{symbol_ns::make_shared_symbol_table()};
+private:
 
     ns_translator::byte_vec_t vec_data_{};
     ns_translator::byte_vec_t vec_code_{};

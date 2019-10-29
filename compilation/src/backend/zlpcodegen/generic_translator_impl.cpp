@@ -28,7 +28,6 @@ ns_translator::TranslationResult GenericTranslatorImpl::translate(const Function
 
 ns_translator::TranslationResult GenericTranslatorImpl::translate(const InstructionList& instrList)
 {
-  bool fnDone = true;
   ns_translator::byte_vec_t byte_tvec{};
 
   for (const auto& instr : instrList)

@@ -4,7 +4,7 @@
 #include "extension_defs.hpp"
 
 /* Variable types */
-using byte_t  = uint8_t;
+using BYTE  = uint8_t;
 using CHAR  = unsigned char;
 using WORD  = uint16_t;
 using DWORD = uint32_t;

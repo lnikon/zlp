@@ -17,6 +17,8 @@
 #include "array.hpp"
 #include "variable.hpp"
 
+using SimpleSymbolTable = std::unordered_map<std::string, std::size_t>;
+
 struct StackSection
 {
     std::size_t size_{};
