@@ -78,9 +78,13 @@ DataSection DataSectionParser::parse(std::fstream &inputStream)
   return dataSec;
 }
 
+void DataSectionParser::setLineNumber(int lineNumber) { lineNumber_ = lineNumber; }
+
+int DataSectionParser::getLineNumber() const { return lineNumber_; }
+
 void DataSectionParser::parseVariable(DataSection &rDataSec, std::string line)
 {
-  Variable variable;
+    Variable variable;
 
   // Get variable type
   variable.type_ = getSpecifiedType(line);

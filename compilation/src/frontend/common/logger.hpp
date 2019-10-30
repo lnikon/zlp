@@ -34,7 +34,7 @@ struct Printer final
   /*
   * Synchronizes @std::cout
   */
-  void print(const std::string &prefix, const std::string &msg, const std::string &suffix);
+  void print(const std::string& prefix, const std::string& msg, const std::string& suffix);
 
 private:
   std::mutex mut_cout_;
@@ -43,7 +43,7 @@ using PrinterSPtr = std::shared_ptr<Printer>;
 
 struct Logger final
 {
-  Logger(PrinterSPtr pPrinter, const std::string &filename);
+  Logger(PrinterSPtr pPrinter, const std::string& filename);
   ~Logger() = default;
 
   Logger(const Logger &) = delete;
