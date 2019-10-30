@@ -53,7 +53,7 @@ void CodeGenerator::build()
         auto compilationUnit = future.get();
         if(!compilationUnit)
         {
-            ps_logger_->printMessage("Build process did not succeed on file " + compilationUnit->getName(), logger::LogLevel::HIGH);
+            ps_logger_->printMessage("Build process did not succeed on file " + compilationUnit->name(), logger::LogLevel::HIGH);
             break;
         }
 

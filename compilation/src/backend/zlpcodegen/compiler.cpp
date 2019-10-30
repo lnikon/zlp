@@ -29,6 +29,15 @@ void Compiler::setCodeSection(CodeSection&& codeSec)
 
 ns_compilation_unit::CompilationUnitSPtr Compiler::compile()
 {
+    /*
+     * Create compilation unit which
+     * will be filled by translator and returned
+     */
+    auto resultingCompUnit = ns_compilation_unit::make_shared();
+
+    /*
+     * Compile data section and setup symbol table for compilation unit
+     */
     auto dataBytesOpt = std::make_optional(ns_translator::byte_vec_t{});
     if (!dataBytesOpt.has_value())
     {
@@ -36,6 +45,9 @@ ns_compilation_unit::CompilationUnitSPtr Compiler::compile()
         return nullptr;
     }
 
+    /*
+     * Compile code section and setup symbol table for compilation unit
+     */
     auto codeBytesOpt = translator_->translate(codeSec_);
     if (!codeBytesOpt.has_value())
     {
@@ -46,5 +58,6 @@ ns_compilation_unit::CompilationUnitSPtr Compiler::compile()
     auto codeBytesValue = codeBytesOpt.value();
     auto dataBytesValue = dataBytesOpt.value();
 
-    return ns_compilation_unit::make_shared(std::move(dataBytesValue), std::move(codeBytesValue));
+
+    return resultingCompUnit;
 }

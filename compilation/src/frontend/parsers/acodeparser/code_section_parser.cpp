@@ -153,15 +153,22 @@ std::optional<std::string> CodeSectionParser::isFunctionDeclaration(const std::s
 
 void CodeSectionParser::parseFunctionBody(std::fstream &inputStream, Function &rFunc)
 {
-    // Don't declaring labelTabel as member of class because it's local to a function
-    std::unordered_map<std::string, std::size_t> labelTabel;
+    /*
+     * Don't declaring labelTabel as member of class because it's local to a function
+     */
+    SimpleSymbolTable labelTabel;
+    SimpleSymbolTable DUMMY_DATA_TABLE;
 
-    InstructionParser instrParser{ps_logger_};
+    InstructionParser instrParser{ps_logger_, DUMMY_DATA_TABLE, functionTable_, labelTabel};
 
-    // Remember current position of fstream
+    /*
+     *  Remember current position of fstream
+     */
     const auto originalCursor = inputStream.tellg();
 
-    // Do preprocessing of labels
+    /*
+     *  Do preprocessing of labels
+     */
     auto line = std::string{};
     while (std::getline(inputStream, line))
     {
@@ -170,7 +177,7 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream, Function &r
             rFunc.labels_.emplace_back(label.value());
 
             const auto labelIndex = rFunc.labels_.size() - 1;
-            labelTabel.emplace(label.value(), labelIndex);
+            labelTabel.emplace(label.value().name_, labelIndex);
         }
     }
 

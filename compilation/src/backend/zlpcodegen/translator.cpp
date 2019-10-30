@@ -1,17 +1,23 @@
 #include "translator.hpp"
 
 ns_translator::Translator::Translator()
-  : pTransImpl_{std::make_unique<GenericTranslatorImpl>()}
+  : ps_codeTranslator_{ns_code_translator::make_shared()},
+    pTransImpl_{std::make_unique<GenericTranslatorImpl>()}
 {
 
 }
 
 void ns_translator::Translator::setTranslator(UniqueTransImplPtr&& transPtr)
 {
-  pTransImpl_ = std::move(transPtr);
+    pTransImpl_ = std::move(transPtr);
+}
+
+void ns_translator::Translator::setCompilationUnit(ns_compilation_unit::CompilationUnitSPtr pCompilationUnit)
+{
+    ps_compilationUnit_ = pCompilationUnit;
 }
 
 ns_translator::TranslationResult ns_translator::Translator::translate(const CodeSection& codeSec)
 {
-  return pTransImpl_->translate(codeSec);
+  return ps_codeTranslator_->translate(codeSec);
 }

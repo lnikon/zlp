@@ -9,8 +9,8 @@ class GenericTranslatorImpl final : public ns_interface_translator::ITranslator
     TranslationResult translate(const CodeSection& codeSec) override;
 
 protected:
-    TranslationResult translate(const Function& func) override;
-    TranslationResult translate(const InstructionList& instrList) override;
-    TranslationResult translate(const Instruction& instr) override;
+    TranslationResult translate(const Function& func) /*override*/;
+    TranslationResult translate(const InstructionList& instrList) /*override*/;
+    TranslationResult translate(const Instruction& instr) /*override*/;
 };
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "symboltable.hpp"
-#include "translator.hpp"
+#include "translator_defs.hpp"
 
 #include <future>
 
@@ -27,11 +27,32 @@ struct CompilationUnit
     CompilationUnit(ns_translator::byte_vec_cref_t vec_data, ns_translator::byte_vec_cref_t vec_code);
     CompilationUnit(ns_translator::byte_vec_rref_t vec_data, ns_translator::byte_vec_rref_t vec_code) noexcept;
 
-    std::string getName() const;
+    /*
+     * Setter/Getter pair for @name
+     */
+    std::string name() const;
+    void setName(std::string_view name);
 
-    std::string s_name_{};
-    symbol_ns::SymbolTableSPtr ps_symbolTable_{symbol_ns::make_shared_symbol_table()};
+    /*
+     * Getter for symbol table.
+     * Returns shared pointer
+     */
+    symbol_ns::SymbolTableSPtr symbolTable() const;
+
+    /*
+     * Getter for compiled data
+     */
+    ns_translator::byte_vec_t data() const;
+
+    /*
+     * Getter for compiler code
+     */
+    ns_translator::byte_vec_t code() const;
+
 private:
+    std::string s_name_{};
+
+    symbol_ns::SymbolTableSPtr ps_symbolTable_{symbol_ns::make_shared_symbol_table()};
 
     ns_translator::byte_vec_t vec_data_{};
     ns_translator::byte_vec_t vec_code_{};

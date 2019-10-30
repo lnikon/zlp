@@ -8,7 +8,7 @@ ns_compilation_unit::CompilationUnit::CompilationUnit(ns_translator::byte_vec_rr
     : vec_data_{std::move(vec_data)},
       vec_code_{std::move(vec_code)} { }
 
-std::string ns_compilation_unit::CompilationUnit::getName() const
+std::string ns_compilation_unit::CompilationUnit::name() const
 {
     return s_name_;
 }
