@@ -19,8 +19,8 @@ public:
 
     DataSection parse(std::fstream &inputStream);
 
-    void setLineNumber(int lineNumber) { lineNumber_ = lineNumber; }
-    int getLineNumber() const { return lineNumber_; }
+    void setLineNumber(int lineNumber);
+    int getLineNumber() const;
 
 private:
     /*
