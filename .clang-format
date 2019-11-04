@@ -1,7 +1,7 @@
 ---
 Language:        Cpp
 # BasedOnStyle:  LLVM
-AccessModifierOffset: -2
+AccessModifierOffset: 4
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
@@ -37,7 +37,7 @@ BraceWrapping:
   SplitEmptyRecord: true
   SplitEmptyNamespace: true
 BreakBeforeBinaryOperators: None
-BreakBeforeBraces: Attach
+BreakBeforeBraces: Allman
 BreakBeforeInheritanceComma: false
 BreakInheritanceList: BeforeColon
 BreakBeforeTernaryOperators: true
@@ -71,7 +71,7 @@ IncludeCategories:
 IncludeIsMainRegex: '(Test)?$'
 IndentCaseLabels: false
 IndentPPDirectives: None
-IndentWidth:     2
+IndentWidth:     4
 IndentWrappedFunctionNames: false
 JavaScriptQuotes: Leave
 JavaScriptWrapImports: true
@@ -111,7 +111,8 @@ SpacesInContainerLiterals: true
 SpacesInCStyleCastParentheses: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
-Standard:        Cpp17
+PointerAlignment: Left
+Standard: Auto
 StatementMacros: 
   - Q_UNUSED
   - QT_REQUIRE_VERSION

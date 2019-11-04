@@ -1,0 +1,35 @@
+The system is: Windows - 10.0.16299 - AMD64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/HostX64/x64/cl.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+0
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+CMakeCXXCompilerId.cpp
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+
+The CXX compiler identification is MSVC, found in "C:/Users/vbejanya/source/repos/zlp/ide/build-ide-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/CMakeFiles/3.15.4/CompilerIdCXX/CMakeCXXCompilerId.obj"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/HostX64/x64/cl.exe 
+Build flags: /DWIN32;/D_WINDOWS;/W3;/GR;/EHsc
+Id flags: -c 
+
+The output was:
+0
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+CMakeCXXCompilerId.cpp
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+
+The CXX compiler identification is MSVC, found in "C:/Users/vbejanya/source/repos/zlp/ide/build-ide-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/CMakeFiles/3.15.4/CompilerIdCXX/CMakeCXXCompilerId.obj"
+

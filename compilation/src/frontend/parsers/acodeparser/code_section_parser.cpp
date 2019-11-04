@@ -1,7 +1,7 @@
 #include "code_section_parser.hpp"
 #include "instruction_parser.hpp"
-#include "utility.hpp"
 #include "lexer_defs.hpp"
+#include "utility.hpp"
 
 CodeSectionParser::CodeSectionParser(logger::LoggerSPtr pLogger)
     : ps_logger_{pLogger}
@@ -36,7 +36,11 @@ CodeSection CodeSectionParser::parse(std::fstream &inputStream)
 
     if (!isCodeSectionPresent)
     {
-        ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". CODE section should contain at least one function for the main", logger::LogLevel::HIGH);
+        ps_logger_->printMessage("Syntax error on line " +
+                                     std::to_string(lineNumber_) +
+                                     ". CODE section should contain at least "
+                                     "one function for the main",
+                                 logger::LogLevel::HIGH);
         exit(1);
     }
 
@@ -57,11 +61,12 @@ CodeSection CodeSectionParser::parse(std::fstream &inputStream)
 
         std::size_t funcIndex = 0;
 
-        const auto& nameOpt = getFunctionName(line);
-        if(nameOpt.has_value())
+        const auto &nameOpt = getFunctionName(line);
+        if (nameOpt.has_value())
         {
-            const auto& name = nameOpt.value();
-            if (auto it = functionTable_.find(name); it != std::end(functionTable_))
+            const auto &name = nameOpt.value();
+            if (auto it = functionTable_.find(name);
+                it != std::end(functionTable_))
             {
                 funcIndex = it->second;
             }
@@ -77,15 +82,16 @@ CodeSection CodeSectionParser::parse(std::fstream &inputStream)
         }
         else
         {
-            ps_logger_->printMessage("Error occured during function parsing\n", logger::LogLevel::HIGH);
+            ps_logger_->printMessage("Error occured during function parsing\n",
+                                     logger::LogLevel::HIGH);
             exit(1);
         }
 
-        Function& func = codeSec.code_[funcIndex];
+        Function &func = codeSec.code_[funcIndex];
         parseFunctionBody(inputStream, func);
 
         // Insert parsed function into functions list
-//        codeSec.insertFunction(func);
+        //        codeSec.insertFunction(func);
 
         // Go to next line, at it isn't harmful :)
         lineNumber_++;
@@ -94,18 +100,23 @@ CodeSection CodeSectionParser::parse(std::fstream &inputStream)
     return codeSec;
 }
 
-std::optional<std::string> CodeSectionParser::getFunctionName(const std::string &line)
+std::optional<std::string>
+CodeSectionParser::getFunctionName(const std::string &line)
 {
     auto funcName = isFunctionDeclaration(line);
     return funcName;
 }
 
-std::optional<std::string> CodeSectionParser::isFunctionDeclaration(const std::string &line)
+std::optional<std::string>
+CodeSectionParser::isFunctionDeclaration(const std::string &line)
 {
     bool startWithFunctionKeyword = utility::starts_with(line, FUNCTION_KWRD);
     if (!startWithFunctionKeyword)
     {
-        ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". CODE section should start with function declaration", logger::LogLevel::HIGH);
+        ps_logger_->printMessage(
+            "Syntax error on line " + std::to_string(lineNumber_) +
+                ". CODE section should start with function declaration",
+            logger::LogLevel::HIGH);
         return std::nullopt;
     }
 
@@ -118,13 +129,19 @@ std::optional<std::string> CodeSectionParser::isFunctionDeclaration(const std::s
 
     if (tokens.size() > 3)
     {
-        ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Too many tokens in function declaration.\n", logger::LogLevel::HIGH);
+        ps_logger_->printMessage(
+            "Syntax error on line " + std::to_string(lineNumber_) +
+                ". Too many tokens in function declaration.\n",
+            logger::LogLevel::HIGH);
         return std::nullopt;
     }
 
     if (tokens.size() < 2)
     {
-        ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Missing function name", logger::LogLevel::HIGH);
+        ps_logger_->printMessage("Syntax error on line " +
+                                     std::to_string(lineNumber_) +
+                                     ". Missing function name",
+                                 logger::LogLevel::HIGH);
         return std::nullopt;
     }
 
@@ -138,28 +155,34 @@ std::optional<std::string> CodeSectionParser::isFunctionDeclaration(const std::s
 
     if (!utility::checkCorrectKeyword(funcName))
     {
-        ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Missing function name", logger::LogLevel::HIGH);
+        ps_logger_->printMessage("Syntax error on line " +
+                                     std::to_string(lineNumber_) +
+                                     ". Missing function name",
+                                 logger::LogLevel::HIGH);
         return std::nullopt;
     }
 
-//    const bool isFuncDecl = startWithFunctionKeyword && ((tokens.size() == 2) || (tokens.size() == 3));
-//    if (isFuncDecl)
-//    {
-//        functionCount_++;
-//    }
+    //    const bool isFuncDecl = startWithFunctionKeyword && ((tokens.size() ==
+    //    2) || (tokens.size() == 3)); if (isFuncDecl)
+    //    {
+    //        functionCount_++;
+    //    }
 
     return std::make_optional(funcName);
 }
 
-void CodeSectionParser::parseFunctionBody(std::fstream &inputStream, Function &rFunc)
+void CodeSectionParser::parseFunctionBody(std::fstream &inputStream,
+                                          Function &rFunc)
 {
     /*
-     * Don't declaring labelTabel as member of class because it's local to a function
+     * Don't declare labelTabel as member of class because it's local to a
+     * function
      */
     SimpleSymbolTable labelTabel;
     SimpleSymbolTable DUMMY_DATA_TABLE;
 
-    InstructionParser instrParser{ps_logger_, DUMMY_DATA_TABLE, functionTable_, labelTabel};
+    InstructionParser instrParser{ps_logger_, DUMMY_DATA_TABLE, functionTable_,
+                                  labelTabel};
 
     /*
      *  Remember current position of fstream
@@ -195,11 +218,12 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream, Function &r
             continue;
         }
 
-//        if (auto label = isLabel(line); label.has_value())
-//        {
-//            rFunc.labels_.emplace_back(label.value());
-//        }
-        /*else */if (auto instruction = instrParser.parse(line); instruction.has_value())
+        //        if (auto label = isLabel(line); label.has_value())
+        //        {
+        //            rFunc.labels_.emplace_back(label.value());
+        //        }
+        /*else */ if (auto instruction = instrParser.parse(line);
+                      instruction.has_value())
         {
             rFunc.code_.emplace_back(instruction.value());
         }
@@ -209,7 +233,10 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream, Function &r
         }
         else
         {
-            ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Invalid statemant at function definition.\n", logger::LogLevel::HIGH);
+            ps_logger_->printMessage(
+                "Syntax error on line " + std::to_string(lineNumber_) +
+                    ". Invalid statemant at function definition.\n",
+                logger::LogLevel::HIGH);
             exit(1);
         }
     }
@@ -223,7 +250,9 @@ std::optional<Label> CodeSectionParser::isLabel(const std::string &line)
     auto tokens = std::vector<std::string>{};
     utility::tokenize(line, tokens);
 
-    // Label declaration can consist of maximum 2 tokens
+    /*
+     * Label declaration can consist of maximum 2 tokens
+     */
     if (tokens.size() > 2)
     {
         return std::nullopt;
@@ -249,7 +278,10 @@ std::optional<Label> CodeSectionParser::isLabel(const std::string &line)
 
         if (!utility::checkCorrectKeyword(name))
         {
-            ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Invalid identifier name for label", logger::LogLevel::HIGH);
+            ps_logger_->printMessage("Syntax error on line " +
+                                         std::to_string(lineNumber_) +
+                                         ". Invalid identifier name for label",
+                                     logger::LogLevel::HIGH);
             exit(1);
         }
     }

@@ -1,0 +1,74 @@
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/HostX64/x64/cl.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+2
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+CMakeCXXCompilerId.cpp
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCXXCompilerId.exe 
+CMakeCXXCompilerId.obj 
+LINK : fatal error LNK1104: cannot open file 'LIBCMT.lib'
+
+
+Determining if the CXX compiler works failed with the following output:
+Change Dir: C:/Users/vbejanya/source/repos/zlp/ide/build-ide-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe cmTC_beaf3/fast && C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f CMakeFiles\cmTC_beaf3.dir\build.make CMakeFiles/cmTC_beaf3.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/vbejanya/source/repos/zlp/ide/build-ide-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_beaf3.dir/testCXXCompiler.cxx.obj
+C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\HostX64\x64\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Zi /Ob0 /Od /RTC1   /FoCMakeFiles\cmTC_beaf3.dir\testCXXCompiler.cxx.obj /FdCMakeFiles\cmTC_beaf3.dir/ /FS -c C:\Users\vbejanya\source\repos\zlp\ide\build-ide-Desktop_Qt_5_13_1_MinGW_64_bit-Debug\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+testCXXCompiler.cxx
+Linking CXX executable cmTC_beaf3.exe
+"C:\Program Files\cmake-3.15.4-win64-x64\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_beaf3.dir\link.txt --verbose=1
+"C:\Program Files\cmake-3.15.4-win64-x64\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_beaf3.dir --rc=rc --mt=CMAKE_MT-NOTFOUND --manifests  -- C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\cmTC_beaf3.dir\objects1.rsp  /out:cmTC_beaf3.exe /implib:cmTC_beaf3.lib /pdb:C:\Users\vbejanya\source\repos\zlp\ide\build-ide-Desktop_Qt_5_13_1_MinGW_64_bit-Debug\CMakeFiles\CMakeTmp\cmTC_beaf3.pdb /version:0.0  /machine:x64  /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
+RC Pass 1: command "rc /fo CMakeFiles\cmTC_beaf3.dir/manifest.res CMakeFiles\cmTC_beaf3.dir/manifest.rc" failed (exit code 0) with the following output:
+The system cannot find the file specifiedmingw32-make.exe[1]: *** [CMakeFiles\cmTC_beaf3.dir\build.make:87: cmTC_beaf3.exe] Error -1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/vbejanya/source/repos/zlp/ide/build-ide-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/CMakeFiles/CMakeTmp'
+mingw32-make.exe: *** [Makefile:120: cmTC_beaf3/fast] Error 2
+
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/HostX64/x64/cl.exe 
+Build flags: /DWIN32;/D_WINDOWS;/W3;/GR;/EHsc
+Id flags:  
+
+The output was:
+2
+Microsoft (R) C/C++ Optimizing Compiler Version 19.23.28106.4 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+CMakeCXXCompilerId.cpp
+Microsoft (R) Incremental Linker Version 14.23.28106.4
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCXXCompilerId.exe 
+CMakeCXXCompilerId.obj 
+LINK : fatal error LNK1104: cannot open file 'LIBCMT.lib'
+
+
+Determining if the CXX compiler works failed with the following output:
+Change Dir: C:/Users/vbejanya/source/repos/zlp/ide/build-ide-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe cmTC_1a6e9/fast && C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f CMakeFiles\cmTC_1a6e9.dir\build.make CMakeFiles/cmTC_1a6e9.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/vbejanya/source/repos/zlp/ide/build-ide-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1a6e9.dir/testCXXCompiler.cxx.obj
+C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\HostX64\x64\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Zi /Ob0 /Od /RTC1   /FoCMakeFiles\cmTC_1a6e9.dir\testCXXCompiler.cxx.obj /FdCMakeFiles\cmTC_1a6e9.dir/ /FS -c C:\Users\vbejanya\source\repos\zlp\ide\build-ide-Desktop_Qt_5_13_1_MinGW_64_bit-Debug\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+testCXXCompiler.cxx
+Linking CXX executable cmTC_1a6e9.exe
+"C:\Program Files\cmake-3.15.4-win64-x64\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_1a6e9.dir\link.txt --verbose=1
+"C:\Program Files\cmake-3.15.4-win64-x64\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_1a6e9.dir --rc=rc --mt=CMAKE_MT-NOTFOUND --manifests  -- C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1423~1.281\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\cmTC_1a6e9.dir\objects1.rsp  /out:cmTC_1a6e9.exe /implib:cmTC_1a6e9.lib /pdb:C:\Users\vbejanya\source\repos\zlp\ide\build-ide-Desktop_Qt_5_13_1_MinGW_64_bit-Debug\CMakeFiles\CMakeTmp\cmTC_1a6e9.pdb /version:0.0  /machine:x64  /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
+RC Pass 1: command "rc /fo CMakeFiles\cmTC_1a6e9.dir/manifest.res CMakeFiles\cmTC_1a6e9.dir/manifest.rc" failed (exit code 0) with the following output:
+The system cannot find the file specifiedmingw32-make.exe[1]: *** [CMakeFiles\cmTC_1a6e9.dir\build.make:87: cmTC_1a6e9.exe] Error -1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/vbejanya/source/repos/zlp/ide/build-ide-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/CMakeFiles/CMakeTmp'
+mingw32-make.exe: *** [Makefile:120: cmTC_1a6e9/fast] Error 2
+
+
+
