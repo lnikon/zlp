@@ -35,6 +35,9 @@ HEADERS += \
 
 INCLUDEPATH += $$PWD/../../runtime/src/vm
 
+RESOURCES += \
+    icons.qrc
+
 FORMS += \
         mainwindow.ui \
         sourcetextedit.ui
@@ -44,5 +47,10 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES += \
-    icons.qrc
+unix:!macx|win32: LIBS += -L$$PWD/../../out/build/x64-Debug/compilation/src/backend/zlpcodegen/ -lzlpcodegen
+
+INCLUDEPATH += $$PWD/../../compilation/src/backend/zlpcodegen
+DEPENDPATH += $$PWD/../../compilation/src/backend/zlpcodegen
+
+win32:!win32-g++: PRE_TARGETDEPS += $$PWD/../../out/build/x64-Debug/compilation/src/backend/zlpcodegen/zlpcodegen.lib
+else:unix:!macx|win32-g++: PRE_TARGETDEPS += $$PWD/../../out/build/x64-Debug/compilation/src/backend/zlpcodegen/libzlpcodegen.a

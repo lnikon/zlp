@@ -2,28 +2,20 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QTabWidget>
 
-namespace Ui {
-class MainWindow;
-}
+QT_BEGIN_NAMESPACE
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private:
-    Ui::MainWindow* ui;
-    QTabWidget*     mainTabWidget_{Q_NULLPTR};
-
-    void setupMainToolbar();
-
-    void openSourceFile();
-    void compileSourceFile();
+    Ui::MainWindow *ui;
 };
-
 #endif // MAINWINDOW_H

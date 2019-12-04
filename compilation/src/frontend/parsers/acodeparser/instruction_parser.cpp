@@ -1,11 +1,14 @@
 #include "instruction_parser.hpp"
-#include "utility.hpp"
 #include "logger.hpp"
+#include "utility.hpp"
 
-InstructionParser::InstructionParser(logger::LoggerSPtr pLogger, SimpleSymbolTable &varSymTbl, SimpleSymbolTable &funcSymTbl, SimpleSymbolTable &lblSymTbl)
-    : ps_logger_{pLogger}
+InstructionParser::InstructionParser(logger::LoggerSPtr pLogger,
+                                     SimpleSymbolTable& varSymTbl,
+                                     SimpleSymbolTable& funcSymTbl,
+                                     SimpleSymbolTable& lblSymTbl)
+    : ps_logger_{pLogger}, varSymTbl_{varSymTbl}, funcSymTbl_{funcSymTbl},
+      lblSymTbl_{funcSymTbl}
 {
-
 }
 
 std::optional<Instruction> InstructionParser::parse(std::string line)
@@ -23,12 +26,17 @@ std::optional<Instruction> InstructionParser::parse(std::string line)
     return result;
 }
 
-std::optional<Instruction> InstructionParser::isInstruction(const std::string &line)
+std::optional<Instruction>
+InstructionParser::isInstruction(const std::string& line)
 {
-    /* Instruction parsing starts here */
+    /*
+     * Instruction parsing starts here
+     */
     bool isInstr = false;
 
-    // Use index for token lookahead
+    /*
+     * Use index for token lookahead
+     */
     std::size_t nextToken = 0;
 
     StringVector tokens;
@@ -58,7 +66,8 @@ std::optional<Instruction> InstructionParser::isInstruction(const std::string &l
     std::string opSize = tokens[nextToken];
 
     // Default extension should be DoubleWord
-    auto ext = std::optional<Extensions::Extension>(Extensions::Extension::EXT_DWORD);
+    auto ext =
+        std::optional<Extensions::Extension>(Extensions::Extension::EXT_DWORD);
 
     // Unpack result
     // If extensions is present, increment lookahead
@@ -74,10 +83,13 @@ std::optional<Instruction> InstructionParser::isInstruction(const std::string &l
     }
     else
     {
-        ext = std::optional<Extensions::Extension>(Extensions::Extension::EXT_DWORD);
+        ext = std::optional<Extensions::Extension>(
+            Extensions::Extension::EXT_DWORD);
     }
 
-    // Parse argument list
+    /*
+     * Parse argument list
+     */
     for (std::size_t argIdx = 0; argIdx < MAX_ARG_CNT; ++argIdx)
     {
         if (nextToken == tokens.size())
@@ -86,9 +98,9 @@ std::optional<Instruction> InstructionParser::isInstruction(const std::string &l
         }
 
         const auto arg = tokens[nextToken];
-        if (auto operand = isOperand(arg, *ext); operand.has_value())
+        if (auto operand = isOperand(arg, ext.value()); operand.has_value())
         {
-            instrInfo.oplst_[argIdx] = *operand;
+            instrInfo.oplst_[argIdx] = operand.value();
             instrInfo.opcnt_++;
             ++nextToken;
         }
@@ -100,23 +112,23 @@ std::optional<Instruction> InstructionParser::isInstruction(const std::string &l
     auto itInstrRange = env_.instructionRange(instrName);
 
     for (auto itInstrRangeBegin = itInstrRange.first;
-         itInstrRangeBegin != itInstrRange.second;
-         ++itInstrRangeBegin)
+         itInstrRangeBegin != itInstrRange.second; ++itInstrRangeBegin)
     {
         // For now, skip matching by conditional code
 
         // Match by extension
         // If internalRepresentation doesn't support extension
         // and extension is given in a source then skip
-//        const bool isDontCare = itInstrRangeBegin->second.mext_ == Extensions::MatchExtension::ME_DONT_CARE;
-//        const bool isExtNotMatch = itInstrRangeBegin->second.ext_ != instrInfo.ext_;
-//        if (isExtNotMatch)
-//        {
-//            if (!isDontCare)
-//            {
-//                continue;
-//            }
-//        }
+        //        const bool isDontCare = itInstrRangeBegin->second.mext_ ==
+        //        Extensions::MatchExtension::ME_DONT_CARE; const bool
+        //        isExtNotMatch = itInstrRangeBegin->second.ext_ !=
+        //        instrInfo.ext_; if (isExtNotMatch)
+        //        {
+        //            if (!isDontCare)
+        //            {
+        //                continue;
+        //            }
+        //        }
 
         // Match by operand count
         if (itInstrRangeBegin->second.opcnt_ != instrInfo.opcnt_)
@@ -131,9 +143,10 @@ std::optional<Instruction> InstructionParser::isInstruction(const std::string &l
             // Really, fuckin' really, a piece of SHIT!
             if (itInstrRangeBegin->second.oplst_[idx] != instrInfo.oplst_[idx])
             {
-                if (itInstrRangeBegin->second.oplst_[idx].type_ == OperandType::OT_REG_ARG
-                        && instrInfo.oplst_[idx].type_ != OperandType::OT_REG
-                        && instrInfo.oplst_[idx].type_ != OperandType::OT_ARG)
+                if (itInstrRangeBegin->second.oplst_[idx].type_ ==
+                        OperandType::OT_REG_ARG &&
+                    instrInfo.oplst_[idx].type_ != OperandType::OT_REG &&
+                    instrInfo.oplst_[idx].type_ != OperandType::OT_ARG)
                 {
                     opListMatch = false;
                     break;
@@ -184,22 +197,26 @@ std::optional<Instruction> InstructionParser::isInstruction(const std::string &l
     return instr;
 }
 
-std::optional<InstructionType> InstructionParser::isInstructionType(const std::string &token)
+std::optional<InstructionType>
+InstructionParser::isInstructionType(const std::string& token)
 {
     return std::nullopt;
 }
 
-std::optional<Extensions::Extension> InstructionParser::isExtension(const std::string &token)
+std::optional<Extensions::Extension>
+InstructionParser::isExtension(const std::string& token)
 {
     return Extensions::extension(token);
 }
 
-std::optional<OperandList> InstructionParser::isOperandList(const std::string &token)
+std::optional<OperandList>
+InstructionParser::isOperandList(const std::string& token)
 {
     return std::nullopt;
 }
 
-std::optional<Operand> InstructionParser::isOperand(const std::string &token, Extensions::Extension ext)
+std::optional<Operand> InstructionParser::isOperand(const std::string& token,
+                                                    Extensions::Extension ext)
 {
     auto result = Operand{};
 
@@ -210,29 +227,41 @@ std::optional<Operand> InstructionParser::isOperand(const std::string &token, Ex
         return std::nullopt;
     }
 
-    // AR or GR
-    if (token[0] == 'A' || token[0] == 'R')
+    if (token[0] == 'A' || /* Argument is Address Register */
+        token[0] == 'R')   /* or Register */
     {
-        // Check index
+        /*
+         * Check index
+         */
         bool isNumber = utility::is_number(token.substr(1, token.size() - 1));
         if (!isNumber)
         {
-            ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Invalid index for Address\\Global Register\n", logger::LogLevel::HIGH);
+            ps_logger_->printMessage(
+                "Syntax error on line " + std::to_string(lineNumber_) +
+                    ". Invalid index for Address\\Global Register\n",
+                logger::LogLevel::HIGH);
             exit(1);
         }
 
         if (token[0] == 'A')
         {
             result.type_ = OperandType::OT_ARG;
-            result.index_ = utility::parse_int(token.substr(1, token.size() - 1));
+            result.index_ =
+                utility::parse_int(token.substr(1, token.size() - 1));
         }
         else if (token[0] == 'R')
         {
             result.type_ = OperandType::OT_REG;
-            result.index_ = utility::parse_int(token.substr(1, token.size() - 1));
+            result.index_ =
+                utility::parse_int(token.substr(1, token.size() - 1));
         }
     }
-    else
+    else if (auto lblIt = lblSymTbl_.find(token); lblIt != std::end(lblSymTbl_)) /* Argument is Label */
+    {
+        result.type_ = OperandType::OT_LBL;
+        result.index_ = lblIt->second;
+    }
+    else /* Argument is Immediate Value */
     {
         if (auto imv = handleIMV(token, ext); imv.has_value())
         {
@@ -244,7 +273,9 @@ std::optional<Operand> InstructionParser::isOperand(const std::string &token, Ex
     return std::make_optional(result);
 }
 
-std::optional<ImmediateValue> InstructionParser::handleIMV(const std::string &token, Extensions::Extension ext)
+std::optional<ImmediateValue>
+InstructionParser::handleIMV(const std::string& token,
+                             Extensions::Extension ext)
 {
     auto result = std::optional<ImmediateValue>{std::nullopt};
 
@@ -252,7 +283,8 @@ std::optional<ImmediateValue> InstructionParser::handleIMV(const std::string &to
 
     // TODO: Handle numeric sign for immediate values
 
-    if (ext == Extensions::Extension::EXT_BYTE || ext == Extensions::Extension::EXT_CHAR)
+    if (ext == Extensions::Extension::EXT_BYTE ||
+        ext == Extensions::Extension::EXT_CHAR)
     {
         result->type_ = ImmediateValueType::IMV_NUM8;
         result->byte_t_ = value;
