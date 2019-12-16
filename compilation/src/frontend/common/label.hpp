@@ -6,6 +6,7 @@
 struct Label
 {
   std::string       name_{};
+  std::size_t       index_{};
   std::size_t       instrIndex_{}; 
 };
 using LabelList = std::vector<Label>;

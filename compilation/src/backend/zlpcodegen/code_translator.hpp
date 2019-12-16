@@ -12,12 +12,20 @@ struct CodeTranslator final
 {
     using TranslationResult = ns_translator::TranslationResult;
 
+    CodeTranslator() = default;
+
+    CodeTranslator(const CodeTranslator&) = delete;
+    CodeTranslator& operator=(const CodeTranslator&) = delete;
+
+    CodeTranslator(CodeTranslator&&) noexcept = delete;
+    CodeTranslator& operator=(CodeTranslator&&) noexcept = delete;
+
     TranslationResult translate(const CodeSection& crCodeSec);
 
     /*
      * Setter for compilation unit
      */
-    void compilationUnit(ns_compilation_unit::CompilationUnitSPtr pCompUnit);
+    void setCompilationUnit(ns_compilation_unit::CompilationUnitSPtr pCompUnit);
 
     /*
      * Private data

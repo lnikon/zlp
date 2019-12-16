@@ -9,7 +9,6 @@
 
 struct Parser
 {
-
   explicit Parser(logger::LoggerSPtr pLogger);
   ~Parser() = default;
 
