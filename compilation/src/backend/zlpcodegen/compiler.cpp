@@ -36,6 +36,11 @@ ns_compilation_unit::CompilationUnitSPtr Compiler::compile()
     auto resultingCompUnit = ns_compilation_unit::make_shared();
 
     /*
+     * Update translator to work with correct compilation unit
+     */
+    translator_->setCompilationUnit(resultingCompUnit);
+
+    /*
      * Compile data section and setup symbol table for compilation unit
      */
     auto dataBytesOpt = std::make_optional(ns_translator::byte_vec_t{});

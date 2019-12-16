@@ -1,8 +1,26 @@
-FROM alpine:latest
+FROM gcc:latest as build
 
-RUN apk add --no-cache cmake gcc make
+RUN apt-get update && \
+    apt-get install -y \
+      build-essential \
+      cmake \
 
-WORKDIR /app
+# ADD ./compilation /app
+# ADD ./apps /app
 
-COPY . /app
+# WORKDIR /app/build
+
+# RUN cmake ..
+# RUN cmake --build .
+
+# FROM ubuntu:latest
+
+# RUN groupadd -r sample && useradd -r -g sample sample
+# USER sample
+
+# WORKDIR /app
+
+# COPY --from=build /app/build/apps/main_driver/src/main_driver .
+
+# ENTRYPOINT ["./main_driver"]
 

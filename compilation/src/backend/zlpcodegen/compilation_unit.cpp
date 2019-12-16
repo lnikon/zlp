@@ -12,3 +12,8 @@ std::string ns_compilation_unit::CompilationUnit::name() const
 {
     return s_name_;
 }
+
+symbol_ns::SymbolTableSPtr ns_compilation_unit::CompilationUnit::symbolTable() const
+{
+  return ps_symbolTable_;
+}

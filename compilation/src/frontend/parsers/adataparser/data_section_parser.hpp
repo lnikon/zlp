@@ -31,9 +31,13 @@ private:
     /*
      * Symbol table for data section
      */
-    SimpleSymbolTable dataTable_{};
 
     int lineNumber_{0};
+
+    /*
+     * Mapping from variable name to its index
+     */
+    SimpleSymbolTable nameToIndex_{};
 
     /*
      * Data section parsing routines

@@ -14,8 +14,10 @@ Func f_age:
 EndF
 
 Func f_sex:
+  lbl1:
   MOVE B R2, R6
   MOVE_NEQ W R5, R6
+  lbl2:
   MOVE QW R1, R2
   MOVE_EQ R3, R4
 EndF

@@ -36,6 +36,7 @@ struct Translator final
      * Translates code section into byte_tcode
      */
     TranslationResult translate(const CodeSection& codeSec);
+    TranslationResult translate(const DataSection& codeSec);
 
 private:
     /*

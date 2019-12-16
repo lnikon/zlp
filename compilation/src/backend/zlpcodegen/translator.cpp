@@ -15,6 +15,8 @@ void ns_translator::Translator::setTranslator(UniqueTransImplPtr&& transPtr)
 void ns_translator::Translator::setCompilationUnit(ns_compilation_unit::CompilationUnitSPtr pCompilationUnit)
 {
     ps_compilationUnit_ = pCompilationUnit;
+
+    ps_codeTranslator_->setCompilationUnit(pCompilationUnit);
 }
 
 ns_translator::TranslationResult ns_translator::Translator::translate(const CodeSection& codeSec)

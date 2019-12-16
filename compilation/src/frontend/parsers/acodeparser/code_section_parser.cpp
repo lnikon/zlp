@@ -195,11 +195,17 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream,
     auto line = std::string{};
     while (std::getline(inputStream, line))
     {
+        if (endOfFunctionDecl(line))
+        {
+            break;
+        }
+        
         if (auto label = isLabel(line); label.has_value())
         {
             rFunc.labels_.emplace_back(label.value());
-
             const auto labelIndex = rFunc.labels_.size() - 1;
+
+            rFunc.labels_.back().index_ = labelIndex;
             labelTabel.emplace(label.value().name_, labelIndex);
         }
     }
@@ -218,12 +224,8 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream,
             continue;
         }
 
-        //        if (auto label = isLabel(line); label.has_value())
-        //        {
-        //            rFunc.labels_.emplace_back(label.value());
-        //        }
-        /*else */ if (auto instruction = instrParser.parse(line);
-                      instruction.has_value())
+        if (auto instruction = instrParser.parse(line);
+                                instruction.has_value())
         {
             rFunc.code_.emplace_back(instruction.value());
         }

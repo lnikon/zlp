@@ -127,5 +127,4 @@ constexpr inline auto make_shared_symbol_table(Args... args)
     return std::make_shared<SymbolTable>(std::forward<Args>(args)...);
 }
 
-
 } // namespace symbol_ns

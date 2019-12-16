@@ -1,8 +1,8 @@
 #include "code_translator.hpp"
 
-void ns_code_translator::CodeTranslator::compilationUnit(ns_compilation_unit::CompilationUnitSPtr pCompUnit)
+void ns_code_translator::CodeTranslator::setCompilationUnit(ns_compilation_unit::CompilationUnitSPtr pCompUnit)
 {
-    ps_compUnit_ = pCompUnit;
+  ps_compUnit_ = pCompUnit;
 }
 
 ns_translator::TranslationResult ns_code_translator::CodeTranslator::translate(const CodeSection& crCodeSec)
