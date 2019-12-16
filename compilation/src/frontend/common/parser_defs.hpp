@@ -16,6 +16,7 @@
 #include "function.hpp"
 #include "array.hpp"
 #include "variable.hpp"
+#include "generic_value.h"
 
 using SimpleSymbolTable = std::unordered_map<std::string, std::size_t>;
 
@@ -27,6 +28,13 @@ struct StackSection
 /*
  * TODO: Pack into VariableEnvirnoment
  */
+
+struct DataSectionItem
+{
+    std::string name_{};
+    GenericValue value_{};
+};
+
 struct DataSection
 {
     DataSection() = default;
@@ -37,75 +45,23 @@ struct DataSection
     DataSection(DataSection&&) noexcept = default;
     DataSection& operator=(DataSection&&) noexcept = default;
 
-    void insertVariable(const std::string& name, const Variable& var)
+    bool put(const DataSectionItem& item)
     {
-        variableMap_.emplace(name, var);
+        items_.emplace_back(item);
+        itemsMap_[item.name_] = items_.size() - 1;
     }
 
-    std::optional<Variable> getVariable(const std::string& name)
+    auto find(const std::string& name) const
     {
-        auto it = variableMap_.find(name);
-        if(it != std::end(variableMap_))
-        {
-            return it->second;
-        }
+        auto it = itemsMap_.find(name);
+        auto found = (it != itemsMap_.end());
 
-        return std::nullopt;
-    }
-
-    bool variableExists(const std::string& name)
-    {
-        return variableMap_.find(name) != std::end(variableMap_);
-    }
-
-    void insertArray(const std::string& name, const Array& var)
-    {
-        arrayMap_.emplace(name, var);
-    }
-
-    std::optional<Array> getArray(const std::string& name)
-    {
-        auto it = arrayMap_.find(name);
-        if(it != std::end(arrayMap_))
-        {
-            return it->second;
-        }
-
-        return std::nullopt;
-    }
-
-    bool arrayExists(const std::string& name)
-    {
-        return arrayMap_.find(name) != std::end(arrayMap_);
-    }
-
-    std::vector<Variable> getVariablesVector() const
-    {
-        std::vector<Variable> vars;
-
-        for(const auto& var : variableMap_)
-        {
-            vars.push_back(var.second);
-        }
-
-        return vars;
-    }
-
-    std::vector<Array> getArraysVector() const
-    {
-        std::vector<Array> arrs;
-
-        for(const auto& arr : arrayMap_)
-        {
-            arrs.push_back(arr.second);
-        }
-
-        return arrs;
+        return std::make_pair(found, it);
     }
 
 private:
-    std::unordered_map<std::string, Variable>   variableMap_;
-    std::unordered_map<std::string, Array>      arrayMap_;
+    std::vector<DataSectionItem> items_;
+    std::unordered_map<std::string, std::size_t> itemsMap_;
 };
 
 /*

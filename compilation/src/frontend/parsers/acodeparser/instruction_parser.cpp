@@ -7,7 +7,7 @@ InstructionParser::InstructionParser(logger::LoggerSPtr pLogger,
                                      SimpleSymbolTable& funcSymTbl,
                                      SimpleSymbolTable& lblSymTbl)
     : ps_logger_{pLogger}, varSymTbl_{varSymTbl}, funcSymTbl_{funcSymTbl},
-      lblSymTbl_{funcSymTbl}
+      lblSymTbl_{lblSymTbl}
 {
 }
 

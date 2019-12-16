@@ -12,6 +12,9 @@ struct CodeTranslator final
 {
     using TranslationResult = ns_translator::TranslationResult;
 
+    /*
+     * Translator for code section
+     */
     TranslationResult translate(const CodeSection& crCodeSec);
 
     /*
