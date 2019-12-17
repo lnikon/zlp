@@ -1,4 +1,5 @@
 build
+term_build
 .cmake
 .vs
 .vscode

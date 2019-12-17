@@ -84,16 +84,10 @@ int DataSectionParser::getLineNumber() const { return lineNumber_; }
 
 void DataSectionParser::parseVariable(DataSection &rDataSec, std::string line)
 {
-    Variable variable;
+  ValueType type = getSpecifiedType(line);
 
-  // Get variable type
-  variable.type_ = getSpecifiedType(line);
+  std::string name = getVariableName(line);
 
-  // Get variable name
-  // TODO: Make variables and arrays use same functions for pasing
-  variable.name_ = getVariableName(line);
-
-  // If variable used as 'string' then burn out the user.
   const bool isVariableUsedAsString = isStringDeclaration(line);
   if (isVariableUsedAsString)
   {
@@ -103,7 +97,7 @@ void DataSectionParser::parseVariable(DataSection &rDataSec, std::string line)
 
   // Depending on the type of the variable
   // one of branches should be active
-  const auto typeStr = utility::returnStringForType(variable.type_);
+  const auto typeStr = utility::returnStringForType(type);
 
   // This flag is for syntactical checks
   bool isAssignSignPresent{false};
@@ -114,11 +108,13 @@ void DataSectionParser::parseVariable(DataSection &rDataSec, std::string line)
 
   // If the variable type is CHAR,
   // then parse its value as char
-  char charValueFromLexer;
+
+  GenericValue value(type);
   if (!typeStr.compare("CHAR"))
   {
+    char charValueFromLexer;
     std::tie(isAssignSignPresent, charValueFromLexer) = getCharValueForLexer(line);
-    variable.charValue_ = (char)charValueFromLexer;
+    value = std::move(charValueFromLexer);
   }
   else
   {
@@ -130,34 +126,61 @@ void DataSectionParser::parseVariable(DataSection &rDataSec, std::string line)
       exit(1);
     }
 
-    variable.valueFromLexer_ = valueFromLexer[0];
+    switch (value.type())
+    {
+    case Extensions::Extension::EXT_BYTE:
+    {
+        BYTE byte = utility::parserNumber<uint8_t, 0>(' ', &valueFromLexer[0]);
+        value = std::move(byte);
+        break;
+    }
+    case Extensions::Extension::EXT_WORD:
+    {
+        WORD byte = utility::parserNumber<uint16_t, 0>(' ', &valueFromLexer[0]);
+        value = std::move(byte);
+        break;
+    }
+    case Extensions::Extension::EXT_DWORD:
+    {
+        DWORD byte = utility::parserNumber<uint32_t, 0>(' ', &valueFromLexer[0]);
+        value = std::move(byte);
+        break;
+    }
+    case Extensions::Extension::EXT_QWORD:
+    {
+        QWORD byte = utility::parserNumber<uint64_t, 0>(' ', &valueFromLexer[0]);
+        value = std::move(byte);
+        break;
+    }
+    case Extensions::Extension::EXT_CHAR:
+    {
+      std::string str = valueFromLexer[0];
+      value = std::move(str);
+      break;
+    }
+    default:
+        break;
+    }
   }
 
-  rDataSec.insertVariable(variable.name_, variable);
-
-  debug::print(variable, ps_logger_);
+  rDataSec.put(DataSectionItem{name, value});
 }
 
 void DataSectionParser::parseArray(DataSection &rDataSec, std::string line)
 {
-  Array array;
+  DataSectionItem item;
 
   // Parse array type
-  array.type_ = getSpecifiedType(line);
+  auto type = getSpecifiedType(line);
+  GenericValue value(type);
 
-  // Parse array name
   // TODO: Check for name redifinition
-  array.name_ = getArrayName(line);
+  auto name = getArrayName(line);
+  item.name_ = name;
 
-  // Parse array size
   const auto [isSizeSpecified, size] = getArraySize(line);
-  array.size_ = size;
-  array.isSizeSpecified_ = isSizeSpecified;
 
-  // Parse array value
-  // If the array type is CHAR[] then interpret is as a 'string',
-  // otherwise as a regular array
-  const auto typeStr = utility::returnStringForType(array.type_);
+  const auto typeStr = utility::returnStringForType(type);
   bool isAssignSignPresent{false};
   std::vector<std::string> valueFromLexer{};
   if (!typeStr.compare("CHAR"))
@@ -169,37 +192,78 @@ void DataSectionParser::parseArray(DataSection &rDataSec, std::string line)
     std::tie(isAssignSignPresent, valueFromLexer) = getArrayValueForLexer(line);
   }
 
-  // Set array values
-  array.valueFromLexer_ = valueFromLexer;
-  array.valueSizeFromLexer_ = array.valueFromLexer_.size();
-  array.isInitialized_ = array.valueSizeFromLexer_ > 0;
-
-  /*
-   * Necessary syntactical checks
-   */
-
-  // If size and value were specified but assignment
-  // sign is missing, then line is ill formed
-  if (array.isSizeSpecified_ && !isAssignSignPresent)
+  if (isSizeSpecified && !isAssignSignPresent)
   {
-    if (array.valueSizeFromLexer_ > 0)
+    if (valueFromLexer.size() > 0)
     {
       ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Missing assignment sign", logger::LogLevel::HIGH);
       exit(1);
     }
   }
 
-  // If size wasn't specified and initialization list is empty
-  // then line is ill formed
-  if (!array.isSizeSpecified_ && array.valueFromLexer_.empty())
+  if (isSizeSpecified && valueFromLexer.empty())
   {
     ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Neither array size nor initialization list specified. GO TO HELL!", logger::LogLevel::HIGH);
     exit(1);
   }
 
-  // Add array into DataSection
-  rDataSec.insertArray(array.name_, array);
-  debug::print(array, ps_logger_);
+  switch (value.type())
+  {
+  case Extensions::Extension::EXT_BYTE:
+  {
+      BYTE_ARRAY values;
+      for (auto value : valueFromLexer)
+      {
+
+          values.push_back(utility::parserNumber<uint8_t, 0>(' ', &value));
+      }
+      value = std::move(values);
+      break;
+  }
+  case Extensions::Extension::EXT_WORD:
+  {
+      WORD_ARRAY values;
+      for (auto value : valueFromLexer)
+      {
+
+          values.push_back(utility::parserNumber<uint16_t, 0>(' ', &value));
+      }
+      value = std::move(values);
+      break;
+  }
+  case Extensions::Extension::EXT_DWORD:
+  {
+      DWORD_ARRAY values;
+      for (auto value : valueFromLexer)
+      {
+
+          values.push_back(utility::parserNumber<uint32_t, 0>(' ', &value));
+      }
+      value = std::move(values);
+      break;
+  }
+  case Extensions::Extension::EXT_QWORD:
+  {
+      QWORD_ARRAY values;
+      for (auto value : valueFromLexer)
+      {
+
+          values.push_back(utility::parserNumber<uint64_t, 0>(' ', &value));
+      }
+      value = std::move(values);
+      break;
+  }
+  case Extensions::Extension::EXT_CHAR:
+  {
+    std::string str = valueFromLexer[0];
+    value = std::move(str);
+    break;
+  }
+  default:
+      break;
+  }
+
+  item.value_ = std::move(value);
 }
 
 bool DataSectionParser::isArrayDeclaration(const std::string &line) const
@@ -309,7 +373,7 @@ std::pair<bool, std::vector<std::string>> DataSectionParser::getArrayValueForLex
   }
 
   const std::size_t commaCount = std::count(valueStr.begin(), valueStr.end(), ',');
-  ;
+
   if (values.size() - 1 != commaCount)
   {
     ps_logger_->printMessage("Syntax error on line " + std::to_string(lineNumber_) + ". Values should be separated by \',\'", logger::LogLevel::HIGH);

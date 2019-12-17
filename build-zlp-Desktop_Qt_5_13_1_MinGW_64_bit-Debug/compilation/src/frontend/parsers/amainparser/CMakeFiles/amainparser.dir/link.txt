@@ -1,0 +1,2 @@
+C:\Qt\Qt5.13.1\Tools\mingw730_64\bin\ar.exe qc libamainparser.a  CMakeFiles/amainparser.dir/main_section_parser.cpp.obj
+C:\Qt\Qt5.13.1\Tools\mingw730_64\bin\ranlib.exe libamainparser.a

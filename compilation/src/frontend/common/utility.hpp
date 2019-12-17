@@ -48,4 +48,74 @@ bool parse_uint(const std::string& str, std::size_t from);
 ValueType returnTypeForString(const std::string &type);
 
 std::string returnStringForType(const ValueType type);
+
+/*
+ * Number parsing utilities
+ */
+
+template <typename ValueType>
+struct Signess {};
+
+template <>
+struct Signess<uint8_t>
+{
+    using signed_type = int8_t;
+    using unsigned_type = uint8_t;
+};
+
+template <>
+struct Signess<uint16_t>
+{
+    using signed_type = uint16_t;
+    using unsigned_type = uint16_t;
+};
+
+template <>
+struct Signess<uint32_t>
+{
+    using signed_type = uint32_t;
+    using unsigned_type = uint32_t;
+};
+
+template <>
+struct Signess<uint64_t>
+{
+    using signed_type = uint64_t;
+    using unsigned_type = uint64_t;
+};
+
+template <>
+struct Signess<int8_t>
+{
+    using signed_type = int8_t;
+    using unsigned_type = uint8_t;
+};
+
+template <>
+struct Signess<int16_t>
+{
+    using signed_type = uint16_t;
+    using unsigned_type = uint16_t;
+};
+
+template <>
+struct Signess<int32_t>
+{
+    using signed_type = uint32_t;
+    using unsigned_type = uint32_t;
+};
+
+template <>
+struct Signess<int64_t>
+{
+    using signed_type = uint64_t;
+    using unsigned_type = uint64_t;
+};
+
+template <typename ValueType, int Radix>
+ValueType parserNumber(const char delim = 0, std::string* str = nullptr);
+
+template <typename ValueType>
+ValueType parserNumberHelper(const char delim, std::string* str, int radix);
+
 } 

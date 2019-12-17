@@ -1,0 +1,2 @@
+C:\Qt\Qt5.13.1\Tools\mingw730_64\bin\ar.exe qc libadataparser.a  CMakeFiles/adataparser.dir/data_section_parser.cpp.obj CMakeFiles/adataparser.dir/data_section_parser_utilities.cpp.obj
+C:\Qt\Qt5.13.1\Tools\mingw730_64\bin\ranlib.exe libadataparser.a

@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="zpl"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\compilation\;CMake Files\compilation\src\;CMake Files\compilation\src\backend\;CMake Files\compilation\src\backend\zlpcodegen\;CMake Files\compilation\src\frontend\;CMake Files\compilation\src\frontend\parsers\;CMake Files\compilation\src\frontend\parsers\astackparser\;CMake Files\compilation\src\frontend\parsers\adataparser\;CMake Files\compilation\src\frontend\parsers\acodeparser\;CMake Files\compilation\src\frontend\parsers\amainparser\;CMake Files\compilation\src\frontend\azlpparser\;CMake Files\compilation\src\frontend\common\;CMake Files\apps\;CMake Files\apps\main_driver\;CMake Files\apps\main_driver\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="zlpcodegen">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/backend/zlpcodegen/libzlpcodegen.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/backend/zlpcodegen"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/azlpparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/amainparser"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/backend/zlpcodegen/Makefile&quot;  VERBOSE=1 zlpcodegen"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/backend/zlpcodegen/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/backend/zlpcodegen/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/backend/zlpcodegen/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="zlpcodegen/fast">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/backend/zlpcodegen/libzlpcodegen.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/backend/zlpcodegen"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/azlpparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/amainparser"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/backend/zlpcodegen/Makefile&quot;  VERBOSE=1 zlpcodegen/fast"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/backend/zlpcodegen/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/backend/zlpcodegen/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/backend/zlpcodegen/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="astackparser">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/astackparser/libastackparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/astackparser"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/astackparser/Makefile&quot;  VERBOSE=1 astackparser"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/astackparser/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/astackparser/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/astackparser/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="astackparser/fast">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/astackparser/libastackparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/astackparser"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/astackparser/Makefile&quot;  VERBOSE=1 astackparser/fast"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/astackparser/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/astackparser/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/astackparser/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="adataparser">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/adataparser/libadataparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/adataparser"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/adataparser/Makefile&quot;  VERBOSE=1 adataparser"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/adataparser/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/adataparser/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/adataparser/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="adataparser/fast">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/adataparser/libadataparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/adataparser"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/adataparser/Makefile&quot;  VERBOSE=1 adataparser/fast"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/adataparser/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/adataparser/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/adataparser/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="acodeparser">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/acodeparser/libacodeparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/acodeparser"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/acodeparser/Makefile&quot;  VERBOSE=1 acodeparser"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/acodeparser/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/acodeparser/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/acodeparser/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="acodeparser/fast">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/acodeparser/libacodeparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/acodeparser"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/acodeparser/Makefile&quot;  VERBOSE=1 acodeparser/fast"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/acodeparser/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/acodeparser/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/acodeparser/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="amainparser">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/amainparser/libamainparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/amainparser"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/amainparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/amainparser/Makefile&quot;  VERBOSE=1 amainparser"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/amainparser/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/amainparser/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/amainparser/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="amainparser/fast">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/amainparser/libamainparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/amainparser"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/amainparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/amainparser/Makefile&quot;  VERBOSE=1 amainparser/fast"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/amainparser/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/amainparser/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/parsers/amainparser/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="azlpparser">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/azlpparser/libazlpparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/azlpparser"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/azlpparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/amainparser"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/azlpparser/Makefile&quot;  VERBOSE=1 azlpparser"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/azlpparser/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/azlpparser/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/azlpparser/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="azlpparser/fast">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/azlpparser/libazlpparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/azlpparser"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/azlpparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/amainparser"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/azlpparser/Makefile&quot;  VERBOSE=1 azlpparser/fast"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/azlpparser/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/azlpparser/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/azlpparser/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="common">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/common/libcommon.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/common"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/common/Makefile&quot;  VERBOSE=1 common"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/common/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/common/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/common/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="common/fast">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/common/libcommon.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/common"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/common/Makefile&quot;  VERBOSE=1 common/fast"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/common/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/common/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/compilation/src/frontend/common/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main_driver">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/apps/main_driver/src/main_driver.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/apps/main_driver/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/apps/main_driver/include"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/amainparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/azlpparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/apps/main_driver/src/Makefile&quot;  VERBOSE=1 main_driver"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/apps/main_driver/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/apps/main_driver/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/apps/main_driver/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main_driver/fast">
+				<Option output="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/apps/main_driver/src/main_driver.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/apps/main_driver/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/apps/main_driver/include"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/runtime/src/vm"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/amainparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/azlpparser"/>
+					<Add directory="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/apps/main_driver/src/Makefile&quot;  VERBOSE=1 main_driver/fast"/>
+					<CompileFile command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/apps/main_driver/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/apps/main_driver/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Qt5.13.1/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/vbejanya/source/repos/zlp/build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/apps/main_driver/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/apps/main_driver/src/main.cpp">
+			<Option target="main_driver"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/chain_model_defs.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/code_generator.cpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/code_generator.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/code_translator.cpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/code_translator.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/compilation_pipeline.cpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/compilation_pipeline.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/compilation_pipeline_controller.cpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/compilation_pipeline_controller.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/compilation_unit.cpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/compilation_unit.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/compiler.cpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/compiler.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/generic_binary_writer.cpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/generic_binary_writer.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/generic_translator_impl.cpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/generic_translator_impl.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/interface_binary_writer.cpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/interface_binary_writer.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/interface_translator.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/symboltable.cpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/symboltable.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/translator.cpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/translator.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/translator_defs.hpp">
+			<Option target="zlpcodegen"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/azlpparser/lexer.cpp">
+			<Option target="azlpparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/azlpparser/lexer.hpp">
+			<Option target="azlpparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/azlpparser/parser.cpp">
+			<Option target="azlpparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/azlpparser/parser.hpp">
+			<Option target="azlpparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/array.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/common.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/debug.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/defs.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/extension_defs.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/function.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/generic_value.cpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/generic_value.h">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/immediate_value.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/instruction.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/instruction_envirnoment.cpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/instruction_envirnoment.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/label.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/lexer_defs.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/logger.cpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/logger.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/operand.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/parser_defs.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/type_defs.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/utility.cpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/utility.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/variable.cpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/variable.hpp">
+			<Option target="common"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser/code_section_parser.cpp">
+			<Option target="acodeparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser/code_section_parser.hpp">
+			<Option target="acodeparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser/instruction_parser.cpp">
+			<Option target="acodeparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser/instruction_parser.hpp">
+			<Option target="acodeparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser/data_section_parser.cpp">
+			<Option target="adataparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser/data_section_parser.hpp">
+			<Option target="adataparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser/data_section_parser_utilities.cpp">
+			<Option target="adataparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser/data_section_parser_utilities.hpp">
+			<Option target="adataparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/amainparser/main_section_parser.cpp">
+			<Option target="amainparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/amainparser/main_section_parser.hpp">
+			<Option target="amainparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser/stack_section_parser.cpp">
+			<Option target="astackparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser/stack_section_parser.hpp">
+			<Option target="astackparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser/stack_section_parser_utilities.cpp">
+			<Option target="astackparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser/stack_section_parser_utilities.hpp">
+			<Option target="astackparser"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\compilation\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\compilation\src\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\compilation\src\backend\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/backend/zlpcodegen/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\compilation\src\backend\zlpcodegen\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\compilation\src\frontend\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\compilation\src\frontend\parsers\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/astackparser/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\compilation\src\frontend\parsers\astackparser\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/adataparser/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\compilation\src\frontend\parsers\adataparser\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/acodeparser/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\compilation\src\frontend\parsers\acodeparser\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/parsers/amainparser/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\compilation\src\frontend\parsers\amainparser\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/azlpparser/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\compilation\src\frontend\azlpparser\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/compilation/src/frontend/common/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\compilation\src\frontend\common\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/apps/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\apps\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/apps/main_driver/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\apps\main_driver\"/>
+		</Unit>
+		<Unit filename="C:/Users/vbejanya/source/repos/zlp/apps/main_driver/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\apps\main_driver\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

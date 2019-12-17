@@ -1,0 +1,2 @@
+C:\Qt\Qt5.13.1\Tools\mingw730_64\bin\ar.exe qc libcommon.a  CMakeFiles/common.dir/generic_value.cpp.obj CMakeFiles/common.dir/instruction_envirnoment.cpp.obj CMakeFiles/common.dir/logger.cpp.obj CMakeFiles/common.dir/utility.cpp.obj CMakeFiles/common.dir/variable.cpp.obj
+C:\Qt\Qt5.13.1\Tools\mingw730_64\bin\ranlib.exe libcommon.a
