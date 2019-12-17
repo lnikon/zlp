@@ -1,2 +1,0 @@
-C:\Qt\Qt5.13.1\Tools\mingw730_64\bin\ar.exe qc libacodeparser.a  CMakeFiles/acodeparser.dir/code_section_parser.cpp.obj CMakeFiles/acodeparser.dir/instruction_parser.cpp.obj
-C:\Qt\Qt5.13.1\Tools\mingw730_64\bin\ranlib.exe libacodeparser.a

@@ -1,2 +1,0 @@
-C:\Qt\Qt5.13.1\Tools\mingw730_64\bin\ar.exe qc libazlpparser.a  CMakeFiles/azlpparser.dir/lexer.cpp.obj CMakeFiles/azlpparser.dir/parser.cpp.obj
-C:\Qt\Qt5.13.1\Tools\mingw730_64\bin\ranlib.exe libazlpparser.a
