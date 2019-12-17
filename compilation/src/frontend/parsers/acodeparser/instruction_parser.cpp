@@ -194,7 +194,7 @@ InstructionParser::isInstruction(const std::string& line)
     }
 
     isInstr = true;
-    return instr;
+    return std::make_optional(instr);
 }
 
 std::optional<InstructionType>
@@ -206,7 +206,13 @@ InstructionParser::isInstructionType(const std::string& token)
 std::optional<Extensions::Extension>
 InstructionParser::isExtension(const std::string& token)
 {
-    return Extensions::extension(token);
+    auto ext = Extensions::extension(token);
+    if (ext == Extensions::Extension::EXT_NULL)
+    {
+        return std::nullopt;
+    }
+
+    return ext;
 }
 
 std::optional<OperandList>

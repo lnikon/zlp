@@ -199,7 +199,7 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream,
         {
             break;
         }
-        
+
         if (auto label = isLabel(line); label.has_value())
         {
             rFunc.labels_.emplace_back(label.value());
@@ -224,7 +224,11 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream,
             continue;
         }
 
-        if (auto instruction = instrParser.parse(line);
+        if (auto label = isLabel(line); label.has_value())
+        {
+            continue;
+        }
+        else if (auto instruction = instrParser.parse(line);
                                 instruction.has_value())
         {
             rFunc.code_.emplace_back(instruction.value());

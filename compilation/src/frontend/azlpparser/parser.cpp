@@ -27,10 +27,13 @@ void Parser::parse(const std::string &inputFilename)
   }
 
   StackSection stackSec = pLexer_->parseStackSection(inputStream);
-  const bool isStackSectionOk = StackSectionParserUtilities::checkStackSection(stackSec, ps_logger_);
+  const bool isStackSectionOk
+          = StackSectionParserUtilities::checkStackSection(stackSec, ps_logger_);
   if (!isStackSectionOk)
   {
-    ps_logger_->printMessage("StackSection is incorrect. Please review your code", logger::LogLevel::HIGH);
+    ps_logger_->
+            printMessage("StackSection is incorrect. Please review your code",
+                         logger::LogLevel::HIGH);
     exit(1);
   }
   stackSec_ = stackSec;
@@ -46,10 +49,14 @@ void Parser::parse(const std::string &inputFilename)
   }
 
   DataSection dataSec = pLexer_->parseDataSection(inputStream);
-  const bool isDataSectionOk = DataSectionParserUtilities::checkDataSection(dataSec, ps_logger_);
+  const bool isDataSectionOk =
+          DataSectionParserUtilities::checkDataSection(dataSec, ps_logger_);
   if (!isDataSectionOk)
   {
-    ps_logger_->printMessage("DataSection is incorrect. Please, review your code or &*() yourself", logger::LogLevel::HIGH);
+    ps_logger_->
+            printMessage("DataSection is incorrect. Please, "
+                         "review your code or &*() yourself",
+                         logger::LogLevel::HIGH);
     exit(1);
   }
   dataSec_ = dataSec;
