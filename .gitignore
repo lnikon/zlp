@@ -1,5 +1,7 @@
 build
 build-zlp-Desktop_Qt_5_13_1_MinGW_64_bit-Debug/
+ide
+ide_deprecated
 term_build
 .cmake
 .vs
@@ -7,6 +9,8 @@ term_build
 icons
 CMakeLists.txt.user
 CMakeLists.txt.user.396369f
+CMakeLists.txt.user.4.10-pre1
+CMakeSettings.json
 *.autosave
 GPATH
 GRTAGS
