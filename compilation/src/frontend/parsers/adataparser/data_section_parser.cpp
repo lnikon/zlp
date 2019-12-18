@@ -5,6 +5,7 @@
 #include "logger.hpp"
 #include "utility.hpp"
 #include "debug.hpp"
+#include "generic_value.h"
 
 DataSectionParser::DataSectionParser(logger::LoggerSPtr pLogger)
     : ps_logger_{pLogger}

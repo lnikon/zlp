@@ -112,10 +112,36 @@ struct Signess<int64_t>
     using unsigned_type = uint64_t;
 };
 
-template <typename ValueType, int Radix>
-ValueType parserNumber(const char delim = 0, std::string* str = nullptr);
-
 template <typename ValueType>
-ValueType parserNumberHelper(const char delim, std::string* str, int radix);
+ValueType parserNumberHelper(const char, std::string* str, int radix)
+{
+    ValueType number = ValueType();
 
-} 
+    char* lastPos = nullptr;
+    if (std::is_signed<ValueType>::value)
+    {
+        int64_t signedNum = std::strtoll(str->c_str(), &lastPos, radix);
+        number = static_cast<ValueType>(signedNum);
+    }
+    else
+    {
+        uint64_t unsignedNum = std::strtoull(str->c_str(), &lastPos, radix);
+        number = static_cast<ValueType>(unsignedNum);
+    }
+
+    return number;
+}
+
+template <typename ValueType, int Radix>
+ValueType parserNumber(const char delim = 0, std::string* str = nullptr)
+{
+    if ((*str)[0] == '-')
+    {
+        return parserNumberHelper<typename Signess<ValueType>::signed_type>(delim, str, Radix);
+    }
+    else
+    {
+        return parserNumberHelper<typename Signess<ValueType>::unsigned_type>(delim, str, Radix);
+    }
+}
+}

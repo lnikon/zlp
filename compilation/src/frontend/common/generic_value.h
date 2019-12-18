@@ -4,6 +4,8 @@
 #include "extension_defs.hpp"
 #include "type_defs.hpp"
 
+#include <cassert>
+
 using namespace Extensions;
 
 class GenericValue
@@ -24,7 +26,7 @@ public:
     GenericValue(QWORD_ARRAY qwords);
 
     GenericValue(std::string str);
-    GenericValue(std::string arr, std::size_t nSize);
+    GenericValue(const char* cstr, std::size_t size);
 
     GenericValue(const GenericValue& o);
     GenericValue(GenericValue&& o) noexcept;
@@ -34,27 +36,26 @@ public:
     GenericValue& operator=(const GenericValue&);
     GenericValue& operator=(GenericValue&&) noexcept;
 
-    inline Extension type() const noexcept;
-    inline std::size_t count() const noexcept; // returns number of contained elements
-    inline std::size_t size() const noexcept;	// returns total size of allocated memory
-    inline std::size_t unitSize() const noexcept;	// returns size of single element (size of type)
+    Extension type() const noexcept;
+    std::size_t count() const noexcept; // returns number of contained elements
+    std::size_t size() const noexcept;	// returns total size of allocated memory
+    std::size_t unitSize() const noexcept;	// returns size of single element (size of type)
 
-    inline bool null() const noexcept;
-    inline bool valid() const noexcept;
-    inline bool string() const noexcept;
+    bool null() const noexcept;
+    bool valid() const noexcept;
+    bool string() const noexcept;
 
-    inline operator BYTE const&() const noexcept;
-    inline operator WORD const&() const noexcept;
-    inline operator DWORD const&() const noexcept;
-    inline operator QWORD const&() const noexcept;
-    inline operator CHAR const&() const noexcept;
-//    inline operator () const noexcept;
-    inline operator bool() const noexcept;
-
-    inline operator void const*() const noexcept;
+    operator BYTE const&() const noexcept;
+    operator WORD const&() const noexcept;
+    operator DWORD const&() const noexcept;
+    operator QWORD const&() const noexcept;
+    operator CHAR const&() const noexcept;
+    operator bool() const noexcept;
+    operator const char*() const noexcept;
+    operator void const*() const noexcept;
 
     template <typename DataType>
-    inline DataType const& operator[](t_index idx) const noexcept;
+    inline DataType const& operator[](std::size_t) const noexcept;
 
 private:
     union GenericData
@@ -77,6 +78,86 @@ private:
     std::size_t count_;
     GenericData data_;
 };
-};
+
+template<typename DataType>
+inline const DataType& GenericValue::operator[](std::size_t idx) const noexcept
+{
+    return DataType();
+}
+
+template<>
+inline const uint8_t& GenericValue::operator[]<uint8_t>(std::size_t idx) const noexcept
+{
+    assert(type_ == Extension::EXT_BYTE && count_ > 1);
+    return data_.pb[idx];
+}
+
+template<>
+inline const uint16_t& GenericValue::operator[]<uint16_t>(std::size_t idx) const noexcept
+{
+    assert(type_ == Extension::EXT_WORD && count_ > 1);
+    return data_.pw[idx];
+}
+
+template<>
+inline const uint32_t& GenericValue::operator[]<uint32_t>(std::size_t idx) const noexcept
+{
+    assert(type_ == Extension::EXT_DWORD && count_ > 1);
+    return data_.pdw[idx];
+}
+
+template<>
+inline const uint64_t& GenericValue::operator[]<uint64_t>(std::size_t idx) const noexcept
+{
+    assert(type_ == Extension::EXT_QWORD && count_ > 1);
+    return data_.pqw[idx];
+}
+
+template <>
+inline const char& GenericValue::operator[]<char>(std::size_t idx) const noexcept
+{
+    assert(type_ == Extension::EXT_CHAR && count_ > 1);
+    return data_.psz[idx];
+}
+
+using namespace Extensions;
+
+template <typename DataType>
+inline Extension valueType()
+{
+    return Extension::EXT_NULL;
+}
+
+template <>
+inline Extension valueType<uint8_t>()
+{
+    return Extension::EXT_BYTE;
+}
+
+template <>
+inline Extension valueType<uint16_t>()
+{
+    return Extension::EXT_WORD;
+}
+
+template <>
+inline Extension valueType<uint32_t>()
+{
+    return Extension::EXT_DWORD;
+}
+
+template <>
+inline Extension valueType<uint64_t>()
+{
+    return Extension::EXT_QWORD;
+}
+
+template <>
+inline Extension valueType<char>()
+{
+    return Extension::EXT_CHAR;
+}
+
+uint8_t valueTypeSize(Extension e);
 
 #endif // GENERIGenericValue_H

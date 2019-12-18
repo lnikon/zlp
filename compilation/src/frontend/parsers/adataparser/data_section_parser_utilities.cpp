@@ -6,7 +6,7 @@ bool DataSectionParserUtilities::checkDataSection(const DataSection& dataSec, lo
 {
   bool isAllOk = true;
 
-  const bool isStaticTypeCheckOk = staticTypeCheck(dataSec, pLogger); 
+  const bool isStaticTypeCheckOk = staticTypeCheck(dataSec, pLogger);
   isAllOk = isStaticTypeCheckOk;
 
   return isAllOk;
@@ -16,7 +16,7 @@ bool DataSectionParserUtilities::staticTypeCheck(const DataSection& dataSec, log
 {
   bool isStaticTypeCheckOk = true;
 
-  auto vars = dataSec.getVariablesVector();
+  auto vars = std::vector<Variable>{};
   for(const auto& var : vars)
   {
     const bool isVarTypeSupported = isExpressionTypeSupported(var.type_, pLogger);

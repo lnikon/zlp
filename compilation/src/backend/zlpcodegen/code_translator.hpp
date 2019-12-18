@@ -12,11 +12,11 @@ struct CodeTranslator final
 {
     using TranslationResult = ns_translator::TranslationResult;
 
-<<<<<<< HEAD
+
     /*
      * Translator for code section
      */
-=======
+
     CodeTranslator() = default;
 
     CodeTranslator(const CodeTranslator&) = delete;
@@ -25,7 +25,7 @@ struct CodeTranslator final
     CodeTranslator(CodeTranslator&&) noexcept = delete;
     CodeTranslator& operator=(CodeTranslator&&) noexcept = delete;
 
->>>>>>> 77b1e954693f5f816f54ca57563049e9cf9d4f04
+
     TranslationResult translate(const CodeSection& crCodeSec);
 
     /*
