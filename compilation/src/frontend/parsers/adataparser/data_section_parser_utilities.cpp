@@ -14,7 +14,8 @@ bool DataSectionParserUtilities::checkDataSection(const DataSection& dataSec, lo
 
 bool DataSectionParserUtilities::staticTypeCheck(const DataSection& dataSec, logger::LoggerSPtr pLogger)
 {
-  bool isStaticTypeCheckOk = true;
+    return true;
+    bool isStaticTypeCheckOk = true;
 
   auto vars = std::vector<Variable>{};
   for(const auto& var : vars)

@@ -36,7 +36,7 @@ enum class InstructionType : std::uint8_t
   IT_CMP,
   IT_IN,
   IT_OUT,
-  IT_AND, 
+  IT_AND,
   IT_OR,
   IT_XOR,
   IT_NAND,
@@ -67,6 +67,19 @@ enum class ConditionalCode
 {
     CC_NULL,
     CC_EQUAL,
+    CC_NOT_EQUAL,
+    CC_ABOVE,
+    CC_ABOVE_EQUAL,
+    CC_BELOW,
+    CC_BELOW_EQUAL,
+    CC_GREAT,
+    CC_GREAT_EQUAL,
+    CC_LOW,
+    CC_LOW_EQUAL,
+    CC_OVERFLOW,
+    CC_NOT_OVERFLOW,
+    CC_SIGNED,
+    CC_NOT_SIGNED
 };
 
 /* Instruction structure description
@@ -74,10 +87,10 @@ enum class ConditionalCode
   the point is, instruction with same type can have many different internal representations,
   for example the operand of @assign can be either @AddressRegister or @Register and depending on that
   different internal representations will be created.
-  
+
   Instruction can have extension, which specified how operands will be treated.
 
-  It has an @ConditionCode. It also changes the internal representation. 
+  It has an @ConditionCode. It also changes the internal representation.
   Instructions with same types but different @ConditionCode's are not the same.
 
   Also, it can have @OperandList.

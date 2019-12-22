@@ -68,6 +68,10 @@ GenericValue::GenericValue(Extension ext, std::size_t count, const void* pData)
         {
             data_.qw = *((const uint64_t*)pData);
         }
+        else if (type_ == Extension::EXT_CHAR)
+        {
+            data_.ch = *((const char*)pData);
+        }
         else
         {
             throw std::terminate;
@@ -286,6 +290,10 @@ std::size_t GenericValue::unitSize() const noexcept
     else if(type_ == Extension::EXT_QWORD)
     {
         unitsz = sizeof(uint64_t);
+    }
+    else if(type_ == Extension::EXT_CHAR)
+    {
+        unitsz = sizeof(char);
     }
 
     return unitsz;

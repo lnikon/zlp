@@ -47,8 +47,6 @@ private:
     ns_compilation_unit::SPtrCompilationUnitPromiseVec ps_vec_compUnitsPromises_;
     ns_compilation_unit::SPtrCompilationUnitFutureVec  ps_vec_compUnitsFutures_;
 
-    std::vector<std::thread>  vec_pipelines_{};
-
     std::vector<std::string>  svec_inputFilenames_{};
 
     logger::PrinterSPtr ps_printer_{nullptr};

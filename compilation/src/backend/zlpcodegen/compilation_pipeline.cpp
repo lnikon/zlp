@@ -4,7 +4,6 @@
 
 CompilationPipeline::CompilationPipeline(const std::string &filename, logger::PrinterSPtr pPrinter)
     : pu_compiler_{std::make_unique<Compiler>()},
-      pu_bin_writer_{std::make_unique<GenericBinaryWriter>(filename)},
       s_filename_{filename},
       ps_logger_{std::make_shared<logger::Logger>(pPrinter, filename)}
 {

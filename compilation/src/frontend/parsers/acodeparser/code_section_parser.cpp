@@ -88,6 +88,7 @@ CodeSection CodeSectionParser::parse(std::fstream &inputStream)
         }
 
         Function &func = codeSec.code_[funcIndex];
+        func.startLine_ = lineNumber_;
         parseFunctionBody(inputStream, func);
 
         // Insert parsed function into functions list
@@ -162,12 +163,6 @@ CodeSectionParser::isFunctionDeclaration(const std::string &line)
         return std::nullopt;
     }
 
-    //    const bool isFuncDecl = startWithFunctionKeyword && ((tokens.size() ==
-    //    2) || (tokens.size() == 3)); if (isFuncDecl)
-    //    {
-    //        functionCount_++;
-    //    }
-
     return std::make_optional(funcName);
 }
 
@@ -212,6 +207,8 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream,
 
     line.clear();
     inputStream.seekg(originalCursor);
+
+    std::size_t fnSizeInLines = 0;
     while (std::getline(inputStream, line))
     {
         lineNumber_++;
@@ -232,6 +229,7 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream,
                                 instruction.has_value())
         {
             rFunc.code_.emplace_back(instruction.value());
+            fnSizeInLines++;
         }
         else if (endOfFunctionDecl(line))
         {
@@ -246,12 +244,13 @@ void CodeSectionParser::parseFunctionBody(std::fstream &inputStream,
             exit(1);
         }
     }
+
+    rFunc.sizeLines_ = fnSizeInLines;
 }
 
 std::optional<Label> CodeSectionParser::isLabel(const std::string &line)
 {
     auto label = Label{};
-    auto isLabelParam = false;
 
     auto tokens = std::vector<std::string>{};
     utility::tokenize(line, tokens);
@@ -294,7 +293,7 @@ std::optional<Label> CodeSectionParser::isLabel(const std::string &line)
 
     label.name_ = name;
 
-    return label;
+    return std::make_optional(label);
 }
 
 bool CodeSectionParser::endOfFunctionDecl(const std::string &line)

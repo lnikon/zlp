@@ -18,6 +18,9 @@ struct Function
     InstructionList	code_{};
     LabelList		labels_{};
 
+    std::size_t     startLine_{};
+    std::size_t     sizeLines_{};
+
     bool			isForwardDeclared{false};
 };
 using function_vec_t = std::vector<Function>;

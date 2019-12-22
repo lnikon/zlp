@@ -3,8 +3,9 @@
 
 # Some variable for fun and profit :)))))
 .DATA:
-  WORD age = 12;
   CHAR sex = 'f';
+  WORD age = 12;
+  DWORD salary = 2000;
 
 # All the silly work goes here
 .CODE:

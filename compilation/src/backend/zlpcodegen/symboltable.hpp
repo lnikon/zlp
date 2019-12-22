@@ -6,6 +6,8 @@
 #include <functional>
 #include <memory>
 
+#include "extension_defs.hpp"
+
 namespace symbol_ns {
 
 enum class symbol_type_t : uint8_t
@@ -15,6 +17,8 @@ enum class symbol_type_t : uint8_t
     ST_CODE,
     ST_ENUM_END
 };
+
+using symbol_value_type_t = Extensions::Extension;
 
 struct Symbol
 {
@@ -35,6 +39,7 @@ struct Symbol
     Symbol& operator=(Symbol&&) noexcept = default;
 
     symbol_type_t       type_{symbol_type_t::ST_UNKOWN};
+    symbol_value_type_t valueType_{symbol_value_type_t::EXT_NULL};
     symbol_name_t       name_{};
     symbol_address_t    address_{};
     symbol_size_t       size_{};
@@ -86,6 +91,16 @@ struct SymbolTable
      * Put rvalue symbol into table
      */
     std::optional<symbol_index_t>   put(symbol_rref_t symbol);
+
+    /*
+     * Return symbols count
+     */
+    std::size_t count() const noexcept;
+
+    /*
+     * Return Last symbol index
+     */
+    std::size_t last() const noexcept;
 
 private:
     /*

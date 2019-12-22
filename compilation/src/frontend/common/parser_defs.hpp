@@ -49,6 +49,8 @@ struct DataSection
     {
         items_.emplace_back(item);
         itemsMap_[item.name_] = items_.size() - 1;
+
+        return true;
     }
 
     auto find(const std::string& name) const
@@ -57,6 +59,26 @@ struct DataSection
         auto found = (it != itemsMap_.end());
 
         return std::make_pair(found, it);
+    }
+
+    auto begin()
+    {
+        return std::begin(items_);
+    }
+
+    auto end()
+    {
+        return std::end(items_);
+    }
+
+    auto begin() const
+    {
+        return std::cbegin(items_);
+    }
+
+    auto end() const
+    {
+        return std::cend(items_);
     }
 
 private:
@@ -78,6 +100,7 @@ struct CodeSection
     CodeSection& operator=(CodeSection&&) noexcept = default;
 
     function_vec_t code_{};
+    std::size_t entryPointIndex_{std::numeric_limits<uint32_t>::max()};
 
     void insertFunction(const Function& function)
     {
@@ -109,6 +132,26 @@ struct CodeSection
     bool functionExists(const Function& fn)
     {
         return functionExists(fn.name_);
+    }
+
+    auto begin()
+    {
+        return std::begin(code_);
+    }
+
+    auto end()
+    {
+        return std::end(code_);
+    }
+
+    auto cbegin()
+    {
+        return std::cbegin(code_);
+    }
+
+    auto cend()
+    {
+        return std::cend(code_);
     }
 };
 

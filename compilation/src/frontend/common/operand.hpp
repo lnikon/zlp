@@ -15,7 +15,8 @@ enum class OperandType
     OT_IMV,         // Immediate value, used only with 'assign' command
     OT_REG_ARG,     // REG or ARG(for example AN/RN)
     OT_FUN,         // Function index in symbol table
-    OT_LBL,         // Label index in symbol table
+    OT_LBL,         // Label index in symbol table,
+    OT_VAR,         // Variable in variable index table(from DataSection)
 };
 
 /* Instruction can have at most 3 arguments */

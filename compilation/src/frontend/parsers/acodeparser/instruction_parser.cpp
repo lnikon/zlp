@@ -267,6 +267,16 @@ std::optional<Operand> InstructionParser::isOperand(const std::string& token,
         result.type_ = OperandType::OT_LBL;
         result.index_ = lblIt->second;
     }
+    else if (auto funcIt = funcSymTbl_.find(token); funcIt != std::end(funcSymTbl_))
+    {
+        result.type_ = OperandType::OT_FUN;
+        result.index_ = funcIt->second;
+    }
+    else if (auto varIt = varSymTbl_.find(token); varIt != std::end(varSymTbl_))
+    {
+        result.type_ = OperandType::OT_VAR;
+        result.index_ = varIt->second;
+    }
     else /* Argument is Immediate Value */
     {
         if (auto imv = handleIMV(token, ext); imv.has_value())
@@ -283,7 +293,8 @@ std::optional<ImmediateValue>
 InstructionParser::handleIMV(const std::string& token,
                              Extensions::Extension ext)
 {
-    auto result = std::optional<ImmediateValue>{std::nullopt};
+//    auto result = std::optional<ImmediateValue>{std::nullopt};
+    auto result = ImmediateValue{};
 
     long long value = utility::parse_int(token);
 
@@ -292,24 +303,28 @@ InstructionParser::handleIMV(const std::string& token,
     if (ext == Extensions::Extension::EXT_BYTE ||
         ext == Extensions::Extension::EXT_CHAR)
     {
-        result->type_ = ImmediateValueType::IMV_NUM8;
-        result->byte_t_ = value;
+        result.type_ = ImmediateValueType::IMV_NUM8;
+        result.byte_t_ = value;
     }
     else if (ext == Extensions::Extension::EXT_WORD)
     {
-        result->type_ = ImmediateValueType::IMV_NUM16;
-        result->word_ = value;
+        result.type_ = ImmediateValueType::IMV_NUM16;
+        result.word_ = value;
     }
     else if (ext == Extensions::Extension::EXT_DWORD)
     {
-        result->type_ = ImmediateValueType::IMV_NUM32;
-        result->dword_ = value;
+        result.type_ = ImmediateValueType::IMV_NUM32;
+        result.dword_ = value;
     }
     else if (ext == Extensions::Extension::EXT_QWORD)
     {
-        result->type_ = ImmediateValueType::IMV_NUM64;
-        result->qword_ = value;
+        result.type_ = ImmediateValueType::IMV_NUM64;
+        result.qword_ = value;
+    }
+    else
+    {
+        return std::nullopt;
     }
 
-    return result;
+    return std::make_optional(result);
 }

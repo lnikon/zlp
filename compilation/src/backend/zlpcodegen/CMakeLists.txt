@@ -29,7 +29,7 @@ add_library(zlpcodegen STATIC ${ZLPCODEGEN_CPP} ${ZLPCODEGEN_HPP})
 ## pthread support
 find_package (Threads)
 target_link_libraries(zlpcodegen PUBLIC ${CMAKE_THREAD_LIBS_INIT})
-## END pthread support
+## END pthread suppors
 
 target_include_directories(zlpcodegen PUBLIC ${ZLPCODEGEN_INC} ${AZLPPARSER_INC} ${COMMON_INC} ${VM_INC})
 

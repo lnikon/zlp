@@ -8,6 +8,9 @@
 
 namespace ns_code_translator {
 
+constexpr const std::size_t cmdMinLen = 2;
+constexpr const std::size_t cmdMaxLen = 12;
+
 struct CodeTranslator final
 {
     using TranslationResult = ns_translator::TranslationResult;
@@ -17,7 +20,9 @@ struct CodeTranslator final
      * Translator for code section
      */
 
-    CodeTranslator() = default;
+    CodeTranslator(SimpleSymbolTable& symblTbl,
+                   std::vector<std::size_t>& varToSymblIndex,
+                   std::vector<std::size_t>& funcToSymblIndex);
 
     CodeTranslator(const CodeTranslator&) = delete;
     CodeTranslator& operator=(const CodeTranslator&) = delete;
@@ -25,8 +30,7 @@ struct CodeTranslator final
     CodeTranslator(CodeTranslator&&) noexcept = delete;
     CodeTranslator& operator=(CodeTranslator&&) noexcept = delete;
 
-
-    TranslationResult translate(const CodeSection& crCodeSec);
+    void translate(const CodeSection& crCodeSec, const DataSection& crDataSec);
 
     /*
      * Setter for compilation unit
@@ -38,14 +42,17 @@ struct CodeTranslator final
      */
 private:
     ns_compilation_unit::CompilationUnitSPtr ps_compUnit_{nullptr};
+    SimpleSymbolTable& symblTbl_;
+    std::vector<std::size_t>& varToSymblIndex_;
+    std::vector<std::size_t>& funcToSymblIndex_;
 
     /*
      * Private methods
      */
 private:
-    TranslationResult translate(const Function& func);
-    TranslationResult translate(const InstructionList& instrList);
-    TranslationResult translate(const Instruction& instr);
+    std::size_t translate(const Function& func, const DataSection& crDataSec, std::size_t& rCodeSecOffset);
+    TranslationResult translate(const InstructionList& instrList, const DataSection& crDataSec);
+    TranslationResult translate(const Instruction& instr, const DataSection& crDataSec);
 };
 
 using CodeTranslatorUPtr = std::unique_ptr<CodeTranslator>;

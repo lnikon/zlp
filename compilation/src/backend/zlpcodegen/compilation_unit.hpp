@@ -8,6 +8,34 @@
 namespace ns_compilation_unit
 {
 
+struct CompilationUnitInfo
+{
+    CompilationUnitInfo() = default;
+
+    CompilationUnitInfo(const CompilationUnitInfo&) = default;
+    CompilationUnitInfo& operator=(const CompilationUnitInfo&) = default;
+
+    CompilationUnitInfo(CompilationUnitInfo&&) noexcept = default;
+    CompilationUnitInfo& operator=(CompilationUnitInfo&&) noexcept = default;
+
+    std::string unitName_{};
+    std::size_t entryPointIndex_{std::numeric_limits<uint32_t>::max()};
+    std::size_t stackSize_{};
+};
+
+struct RelocationInfo
+{
+    RelocationInfo() = default;
+
+    RelocationInfo(const RelocationInfo&) = default;
+    RelocationInfo& operator=(const RelocationInfo&) = default;
+
+    RelocationInfo(RelocationInfo&&) noexcept = default;
+    RelocationInfo& operator=(RelocationInfo&&) noexcept = default;
+
+    std::vector<std::size_t> relocations_{};
+};
+
 /*
  * Represents a code generation result of a single compilation pipeline.
  * Should be considered as a input to linker along with other
@@ -28,34 +56,19 @@ struct CompilationUnit
     CompilationUnit(ns_translator::byte_vec_rref_t vec_data, ns_translator::byte_vec_rref_t vec_code) noexcept;
 
     /*
-     * Setter/Getter pair for @name
-     */
-    std::string name() const;
-    void setName(std::string_view name);
-
-    /*
      * Getter for symbol table.
      * Returns shared pointer
      */
     symbol_ns::SymbolTableSPtr symbolTable() const;
 
-    /*
-     * Getter for compiled data
-     */
-    ns_translator::byte_vec_t data() const;
-
-    /*
-     * Getter for compiler code
-     */
-    ns_translator::byte_vec_t code() const;
-
-private:
-    std::string s_name_{};
-
-    symbol_ns::SymbolTableSPtr ps_symbolTable_{symbol_ns::make_shared_symbol_table()};
-
     ns_translator::byte_vec_t vec_data_{};
     ns_translator::byte_vec_t vec_code_{};
+    CompilationUnitInfo info_{};
+    RelocationInfo reloc_{};
+
+private:
+    symbol_ns::SymbolTableSPtr ps_symbolTable_{symbol_ns::make_shared_symbol_table()};
+
 };
 
 using CompilationUnitUPtr    = std::unique_ptr<CompilationUnit>;

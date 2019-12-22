@@ -57,7 +57,7 @@ void Parser::parse(const std::string &inputFilename)
             printMessage("DataSection is incorrect. Please, "
                          "review your code or &*() yourself",
                          logger::LogLevel::HIGH);
-    exit(1);
+//    exit(1);
   }
   dataSec_ = dataSec;
 

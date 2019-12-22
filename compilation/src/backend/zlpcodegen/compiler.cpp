@@ -33,36 +33,22 @@ ns_compilation_unit::CompilationUnitSPtr Compiler::compile()
      * Create compilation unit which
      * will be filled by translator and returned
      */
-    auto resultingCompUnit = ns_compilation_unit::make_shared();
+    auto compUnit = ns_compilation_unit::make_shared();
 
     /*
      * Update translator to work with correct compilation unit
      */
-    translator_->setCompilationUnit(resultingCompUnit);
+    translator_->setCompilationUnit(compUnit);
 
     /*
      * Compile data section and setup symbol table for compilation unit
      */
-    auto dataBytesOpt = std::make_optional(ns_translator::byte_vec_t{});
-    if (!dataBytesOpt.has_value())
-    {
-        Logger::printMessage("Error during compilation of data section", LogLevel::HIGH);
-        return nullptr;
-    }
+    translator_->translate(dataSec_);
 
     /*
      * Compile code section and setup symbol table for compilation unit
      */
-    auto codeBytesOpt = translator_->translate(codeSec_);
-    if (!codeBytesOpt.has_value())
-    {
-        Logger::printMessage("Error during compilation of code section", LogLevel::HIGH);
-        return nullptr;
-    }
+    translator_->translate(codeSec_, dataSec_);
 
-    auto codeBytesValue = codeBytesOpt.value();
-    auto dataBytesValue = dataBytesOpt.value();
-
-
-    return resultingCompUnit;
+    return compUnit;
 }

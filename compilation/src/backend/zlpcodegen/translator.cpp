@@ -1,15 +1,10 @@
 #include "translator.hpp"
 
 ns_translator::Translator::Translator()
-  : ps_codeTranslator_{ns_code_translator::make_shared()},
-    pTransImpl_{std::make_unique<GenericTranslatorImpl>()}
+  : ps_codeTranslator_{ns_code_translator::make_shared(symbolTbl_, varToSymblIndex_, funcToSymblIndex_)},
+    ps_dataTranslator_{ns_data_translator::make_shared(symbolTbl_, varToSymblIndex_)}
 {
 
-}
-
-void ns_translator::Translator::setTranslator(UniqueTransImplPtr&& transPtr)
-{
-    pTransImpl_ = std::move(transPtr);
 }
 
 void ns_translator::Translator::setCompilationUnit(ns_compilation_unit::CompilationUnitSPtr pCompilationUnit)
@@ -17,9 +12,15 @@ void ns_translator::Translator::setCompilationUnit(ns_compilation_unit::Compilat
     ps_compilationUnit_ = pCompilationUnit;
 
     ps_codeTranslator_->setCompilationUnit(pCompilationUnit);
+    ps_dataTranslator_->setCompilationUnit(pCompilationUnit);
 }
 
-ns_translator::TranslationResult ns_translator::Translator::translate(const CodeSection& codeSec)
+void ns_translator::Translator::translate(const CodeSection& codeSec, const DataSection& crDataSec)
 {
-  return ps_codeTranslator_->translate(codeSec);
+    ps_codeTranslator_->translate(codeSec, crDataSec);
+}
+
+void ns_translator::Translator::translate(const DataSection& crDataSec)
+{
+    ps_dataTranslator_->translate(crDataSec);
 }

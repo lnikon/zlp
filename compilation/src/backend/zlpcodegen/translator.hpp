@@ -6,6 +6,7 @@
 
 #include "compilation_unit.hpp"
 #include "code_translator.hpp"
+#include "datatranslator.h"
 
 #include <memory>
 
@@ -23,11 +24,6 @@ struct Translator final
     Translator& operator=(Translator&&) noexcept = delete;
 
     /*
-     * Sets implementation for a translator
-     */
-    void setTranslator(UniqueTransImplPtr&& transPtr);
-
-    /*
      * Setter for compilation unit
      */
     void setCompilationUnit(ns_compilation_unit::CompilationUnitSPtr pCompilationUnit);
@@ -35,8 +31,8 @@ struct Translator final
     /*
      * Translates code section into byte_tcode
      */
-    TranslationResult translate(const CodeSection& codeSec);
-    TranslationResult translate(const DataSection& codeSec);
+    void translate(const CodeSection& codeSec, const DataSection& dataSec);
+    void translate(const DataSection& dataSec);
 
 private:
     /*
@@ -52,7 +48,17 @@ private:
      */
     ns_code_translator::CodeTranslatorSPtr ps_codeTranslator_{nullptr};
 
-    UniqueTransImplPtr pTransImpl_{nullptr};
+    /*
+     * Translator for data section
+     */
+    ns_data_translator::DataTranslatorSPtr ps_dataTranslator_{nullptr};
+
+    /*
+     * Mappings and symbol table
+     */
+    SimpleSymbolTable symbolTbl_{};
+    std::vector<std::size_t> varToSymblIndex_{};
+    std::vector<std::size_t> funcToSymblIndex_{};
 };
 
 } // namespace ns_translator

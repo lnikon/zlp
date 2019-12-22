@@ -74,3 +74,14 @@ symbol_ns::SymbolTable::put(symbol_ns::symbol_rref_t symbol)
     return symbols_.size() - 1;
 }
 
+std::size_t
+symbol_ns::SymbolTable::count() const noexcept
+{
+    return symbols_.size();
+}
+
+std::size_t
+symbol_ns::SymbolTable::last() const noexcept
+{
+    return count() - 1;
+}

@@ -29,7 +29,7 @@ struct InstructionParser final
 
     std::size_t lineNumber_{0};
 
-        private:
+    private:
     /*
      * Synchronized logger
      */
